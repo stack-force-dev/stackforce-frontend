@@ -10,7 +10,6 @@ name: Deploy
             - master
 jobs:
     deployment:
-        needs: ci
         runs-on: ubuntu-latest
         steps:
           - uses: actions/checkout@v2
