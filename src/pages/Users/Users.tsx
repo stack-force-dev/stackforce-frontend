@@ -16,7 +16,7 @@ function Users() {
 
   useEffect(() => {
     dispatch(getUsers(limit));
-  }, [limit]);
+  }, [dispatch, limit]);
 
   const handleChangeLimit = () => {
     const count = prompt(t('enter-count'), limit as unknown as string);

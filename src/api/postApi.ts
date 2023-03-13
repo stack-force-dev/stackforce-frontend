@@ -8,7 +8,7 @@ const postAPI = createApi({
   endpoints: (build) => ({
     getPosts: build.query<IPost[], number>({
       query: (limit = 5) => ({
-        url: `/post2s`,
+        url: `/posts`,
         params: {
           _limit: limit,
         },
