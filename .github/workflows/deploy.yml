@@ -15,11 +15,12 @@ jobs:
           - uses: actions/checkout@v2
           - name: Deploy using ssh
             uses: appleboy/ssh-action@master
-            with:
+            env:
                 host: ${{ secrets.HOST }}
-                username: ${{ secrets.USERNAME }}
-                key: ${{ secrets.PRIVATE_KEY }}
-                port: 22
+                HOST: ${{ secrets.HOST }}
+                USERNAME: ${{ secrets.USERNAME }}
+                KEY: ${{ secrets.PRIVATE_KEY }}
+                PORT: 22
                 script: |
                     cd ~/home/sf/stackforce-frontend
                     git checkout master
