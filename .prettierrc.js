@@ -1,5 +1,4 @@
 module.exports = {
-    jsxBracketSameLine: false,
     jsxSingleQuote: false,
     proseWrap: 'always',
     quoteProps: 'as-needed',
@@ -11,5 +10,4 @@ module.exports = {
     bracketSpacing: true,
     printWidth: 120,
     arrowParens: 'always',
-    experimentalBabelParserPluginsList: ['jsx', 'tsx'],
 };
