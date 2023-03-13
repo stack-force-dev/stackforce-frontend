@@ -7,8 +7,9 @@ jobs:
     deployment:
         runs-on: ubuntu-latest
         steps:
-          - name: Deploy using ssh
-            uses: actions/checkout@v2
+          - uses: actions/checkout@v2
+            name: Deploy using ssh
+            uses: appleboy/ssh-action@master
             with:
                 host: ${{ secrets.HOST }}
                 username: ${{ secrets.USERNAME }}
