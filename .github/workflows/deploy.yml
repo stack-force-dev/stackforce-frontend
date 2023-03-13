@@ -1,0 +1,24 @@
+name: Deploy
+'on':
+    push:
+        branches:
+            - master
+jobs:
+    deployment:
+        runs-on: ubuntu-latest
+        steps:
+          - name: Deploy using ssh
+            uses: actions/checkout@v2
+            with:
+                host: ${{ secrets.HOST }}
+                username: ${{ secrets.USERNAME }}
+                key: ${{ secrets.PRIVATE_KEY }}
+                port: 22
+                script: |
+                    cd ~/home/sf/stackforce-frontend
+                    git checkout master
+                    git pull
+                    git status
+                    yarn install
+                    pm2 restart sf-front
+                    - 
