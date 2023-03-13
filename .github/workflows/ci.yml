@@ -5,6 +5,9 @@ name: CI
             - master
             - develop
     pull_requests:
+        branches:
+            - master
+            - develop
 jobs:
     ci:
         runs-on: ubuntu-latest
