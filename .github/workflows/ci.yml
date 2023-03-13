@@ -4,6 +4,10 @@ name: CI
         branches:
             - master
             - develop
+    pull_request:
+        branches:
+            - master
+            - develop
 jobs:
     ci:
         runs-on: ubuntu-latest
