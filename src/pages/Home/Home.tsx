@@ -23,6 +23,9 @@ function Home() {
       <Link className="button" to={Paths.POSTS}>
         {t('posts')}
       </Link>
+      <Link className="button" to={Paths.FORM}>
+        Форма
+      </Link>
     </div>
   );
 }
