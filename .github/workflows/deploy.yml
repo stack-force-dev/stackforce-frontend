@@ -27,4 +27,3 @@ jobs:
                     git status
                     yarn install
                     pm2 restart sf-front
-                    - 
