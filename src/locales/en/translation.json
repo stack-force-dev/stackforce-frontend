@@ -1,13 +1,8 @@
 {
-  "buttons": {
-    "change-language": "Change language",
-    "change-limit": "Change count",
-    "go-home": "Go Home",
-    "refresh": "Refresh"
-  },
-  "enter-count": "Enter count",
-  "home": "Home",
-  "loading-error": "Loading error!",
-  "posts": "Posts",
-  "users": "Users"
+  "title": {
+    "force": "Force",
+    "orgName": "StackForce",
+    "stack": "Stack",
+    "team": "Outsource team"
+  }
 }

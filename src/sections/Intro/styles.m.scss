@@ -1,3 +1,5 @@
+@import '../../styles/vars.scss';
+
 .introContainer {
   width: 100vw;
   height: 100vh;
@@ -24,4 +26,58 @@
   width: 100vw;
   height: 100vh;
   object-fit: cover;
+}
+.titleContainer {
+  position: absolute;
+  top: -25%;
+  left: -25%;
+  right: 25%;
+  bottom: 25%;
+  width: 150%;
+  height: 150%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-self: center;
+  mix-blend-mode: overlay;
+  text-transform: uppercase;
+}
+.title {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  gap: 10px;
+  color: white;
+  user-select: none;
+  font-size: 70%;
+
+  .h1Desktop {
+    font-weight: 600;
+    font-size: 10vmax;
+  }
+
+  .h1Mobile {
+    display: none;
+  }
+
+  h3 {
+    font-weight: 600;
+    font-size: 2vmax;
+  }
+
+  @media screen and (max-width: $mobile) {
+    .h1Desktop {
+      display: none;
+    }
+    
+    .h1Mobile {
+      display: block;
+      font-weight: 600;
+      font-size: 20vmin;
+    }
+    h3 {
+      font-weight: 600;
+      font-size: 7vmin;
+    }
+  }
 }
