@@ -16,7 +16,7 @@ const App: FC = () => {
       if (ref.current) {
         ref.current.style.display = 'none';
       }
-    }, 800);
+    }, 1400);
 
     return () => {
       clearTimeout(timeout);
