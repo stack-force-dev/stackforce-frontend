@@ -34,6 +34,7 @@ const Form = () => {
 
   return (
     <section>
+      <div>TEST</div>
       <form onSubmit={handleSubmit(onSubmit)}>
         <input
           {...register('email', {
