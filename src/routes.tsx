@@ -5,6 +5,7 @@ import Paths from './constants/path';
 const Home = lazy(() => import('./pages/Home/Home'));
 const Users = lazy(() => import('./pages/Users/Users'));
 const Posts = lazy(() => import('./pages/Posts/Posts'));
+const Form = lazy(() => import('./pages/Form/Form'));
 
 type TRoute = {
   name: string;
@@ -30,6 +31,12 @@ const routes = [
     name: 'posts',
     path: Paths.POSTS,
     Component: Posts,
+    Fallback: null,
+  },
+  {
+    name: 'form',
+    path: Paths.FORM,
+    Component: Form,
     Fallback: null,
   },
 ] as TRoute[];
