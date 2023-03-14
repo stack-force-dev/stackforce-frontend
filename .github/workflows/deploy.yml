@@ -21,7 +21,7 @@ jobs:
                 KEY: ${{ secrets.PRIVATE_KEY }}
                 PORT: 22
                 script: |
-                    cd ~/home/sf/stackforce-frontend
+                    cd /home/sf/stackforce-frontend
                     git checkout master
                     git pull
                     git status
