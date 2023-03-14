@@ -1,4 +1,4 @@
-declare module '*.mp4' {
+declare module '*.webm' {
   const src: string;
   export default src;
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 import Tilt from 'react-parallax-tilt';
 import { useTranslation } from 'react-i18next';
-import intro from '../../assets/intro.mp4';
+import intro from '../../assets/intro.webm';
 import poster from '../../assets/images/poster.png';
 import styles from './styles.m.scss';
 

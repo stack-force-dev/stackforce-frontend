@@ -46,7 +46,7 @@ module.exports = (env, { mode }) => {
           },
         },
         {
-          test: /\.(png|jp(e*)g|gif|webp|avif|mp4)$/,
+          test: /\.(png|jp(e*)g|gif|webp|avif|webm)$/,
           use: ['file-loader'],
         },
         {
