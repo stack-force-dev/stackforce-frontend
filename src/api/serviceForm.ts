@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const BASE_URL = "https://api.stackforce.ru/v1"
+const BASE_URL = 'https://api.stackforce.ru/v1';
 
 interface dataType {
   email: string;
