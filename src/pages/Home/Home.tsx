@@ -16,7 +16,6 @@ function Home() {
       <div className="home-title">{t('home')}</div>
       <button className="button" onClick={handleChangeLanguage}>
         {t('buttons.change-language')}
-        Тест деплоя
       </button>
       <Link className="button" to={Paths.USERS}>
         {t('users')}
