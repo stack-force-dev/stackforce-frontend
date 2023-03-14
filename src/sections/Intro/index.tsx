@@ -10,7 +10,7 @@ const Intro = () => {
     <section>
       <div className={styles.introContainer}>
         <video className={styles.video} autoPlay muted playsInline loop poster={poster}>
-          <source src="https://stackforce.website.yandexcloud.net/intro.webm" type="video/mp4" />
+          <source src="https://stackforce.website.yandexcloud.net/intro.mp4" type="video/mp4" />
         </video>
       </div>
       <Tilt className={styles.titleContainer} perspective={5000} gyroscope={true} tiltReverse>
