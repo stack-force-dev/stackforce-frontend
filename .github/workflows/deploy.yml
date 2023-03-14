@@ -26,4 +26,5 @@ jobs:
                     git pull
                     git status
                     yarn install
+                    yarn build
                     pm2 restart sf-front
