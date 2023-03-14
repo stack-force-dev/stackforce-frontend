@@ -10,7 +10,7 @@ const Intro = () => {
   return (
     <section>
       <div className={styles.introContainer}>
-        <video className={styles.video} autoPlay muted playsInline poster={poster}>
+        <video className={styles.video} autoPlay muted playsInline loop poster={poster}>
           <source src={intro} type="video/mp4" />
         </video>
       </div>
