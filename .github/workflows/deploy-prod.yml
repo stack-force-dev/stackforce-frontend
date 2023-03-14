@@ -27,5 +27,4 @@ jobs:
                     git status
                     yarn install
                     yarn build
-                    cp src/assets/intro.mp4 /home/sf/stackforce-frontend/build
                     pm2 restart sf-front
