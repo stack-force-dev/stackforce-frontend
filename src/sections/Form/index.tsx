@@ -1,6 +1,5 @@
 import React from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
-import './styles.scss';
 import { emailRegex } from './formRegex';
 import { fetchForm } from '../../api/serviceForm';
 
@@ -34,7 +33,7 @@ const Form = () => {
   };
 
   return (
-    <div className="users-container">
+    <section>
       <form onSubmit={handleSubmit(onSubmit)}>
         <input
           {...register('email', {
@@ -51,7 +50,7 @@ const Form = () => {
           <input type="submit" disabled={!isValid} />
         </div>
       </form>
-    </div>
+    </section>
   );
 };
 
