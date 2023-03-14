@@ -1,7 +1,4 @@
 import React from 'react';
-import { useTranslation } from 'react-i18next';
-import { Link } from 'react-router-dom';
-import Paths from '../../constants/path';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import './styles.scss';
 import { emailRegex } from './formRegex';
@@ -18,7 +15,6 @@ interface Inputs {
 }
 
 const Form = () => {
-  const { t } = useTranslation();
   const {
     register,
     handleSubmit,
@@ -39,11 +35,6 @@ const Form = () => {
 
   return (
     <div className="users-container">
-      <div className="buttons-list">
-        <Link className="button" to={Paths.HOME}>
-          {t('buttons.go-home')}
-        </Link>
-      </div>
       <form onSubmit={handleSubmit(onSubmit)}>
         <input
           {...register('email', {

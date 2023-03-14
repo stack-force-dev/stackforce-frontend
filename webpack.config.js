@@ -39,7 +39,7 @@ module.exports = (env, { mode }) => {
                     use: ['style-loader', 'css-loader'],
                 },
                 {
-                    test: /\.(png|jp(e*)g|gif|webp|avif)$/,
+                    test: /\.(png|jp(e*)g|gif|webp|avif|mp4)$/,
                     use: ['file-loader'],
                 },
                 {
