@@ -26,8 +26,8 @@ i18n
       escapeValue: false,
     },
     react: {
-      useSuspense: true,
-      wait: true,
+      useSuspense: false,
+      wait: false,
     },
   });
 

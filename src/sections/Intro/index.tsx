@@ -9,11 +9,12 @@ const Intro = () => {
   const { t } = useTranslation();
   return (
     <section>
-      <div className={styles.introContainer}>
-        <video className={styles.video} autoPlay muted loop>
-          <source src={video} type="video/mp4" />
-        </video>
-      </div>
+      <div
+        className={styles.introContainer}
+        dangerouslySetInnerHTML={{
+          __html: `<video class="intro-video" autoPlay muted loop><source src=${video} type="video/mp4" /></video>`,
+        }}
+      ></div>
       <Tilt className={styles.titleContainer} perspective={5000} gyroscope={true} tiltReverse>
         <div className={styles.title}>
           <h1 className={styles.h1Desktop}>{t('title.orgName')}</h1>
