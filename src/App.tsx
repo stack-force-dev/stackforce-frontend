@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import Intro from './sections/Intro';
 import Form from './sections/Form';
-import './index.scss';
+import './styles/index.scss';
 
 const App: FC = () => {
   return (
