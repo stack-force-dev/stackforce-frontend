@@ -1,14 +1,17 @@
 import React from 'react';
 import vid from '../../assets/images/intro.mp4';
-import './styles.scss';
+
+import styles from './styles.m.scss';
 
 const Intro = () => {
   return (
-    <div className="intro-container">
-      <video autoPlay muted loop>
-        <source src={vid} type="video/mp4" />
-      </video>
-    </div>
+    <section>
+      <div className={styles.introContainer}>
+        <video className={styles.video} autoPlay muted loop>
+          <source src={vid} type="video/mp4" />
+        </video>
+      </div>
+    </section>
   );
 };
 

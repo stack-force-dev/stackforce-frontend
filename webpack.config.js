@@ -1,5 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 const Modes = {
     DEVELOPMENT: 'development',
@@ -20,6 +21,16 @@ module.exports = (env, { mode }) => {
             path: path.resolve(__dirname, 'build'),
             publicPath: '/',
         },
+        plugins: [
+            new HtmlWebpackPlugin({
+                template: path.join(__dirname, 'src', 'index.html'),
+                favicon: path.join(__dirname, 'src', 'assets/images/favicon.ico'),
+            }),
+            new MiniCssExtractPlugin({
+                filename: isProduction ? "[name]-[contenthash].css" : "[name].css"
+              })
+        ],
+
         module: {
             rules: [
                 {
@@ -35,10 +46,6 @@ module.exports = (env, { mode }) => {
                     },
                 },
                 {
-                    test: /\.(css|scss)$/i,
-                    use: ['style-loader', 'css-loader'],
-                },
-                {
                     test: /\.(png|jp(e*)g|gif|webp|avif|mp4)$/,
                     use: ['file-loader'],
                 },
@@ -46,14 +53,29 @@ module.exports = (env, { mode }) => {
                     test: /\.svg$/,
                     use: ['@svgr/webpack'],
                 },
+                {
+                    test: /\.s?css$/,
+                    oneOf: [
+                      {
+                        test: /\.m\.s?css$/,
+                        use: [
+                          MiniCssExtractPlugin.loader,
+                          {
+                            loader: "css-loader",
+                            options: {
+                              modules: true
+                            }
+                          },
+                          "sass-loader"
+                        ]
+                      },
+                      {
+                        use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"]
+                      }
+                    ]
+                  }
             ],
         },
-        plugins: [
-            new HtmlWebpackPlugin({
-                template: path.join(__dirname, 'src', 'index.html'),
-                favicon: path.join(__dirname, 'src', 'assets/images/favicon.ico'),
-            }),
-        ],
 
         performance: {
             maxEntrypointSize: Infinity,
