@@ -12,7 +12,7 @@ const Intro = () => {
       <div
         className={styles.introContainer}
         dangerouslySetInnerHTML={{
-          __html: `<video class="intro-video" autoPlay muted loop playsInline><source src=${video} type="video/mp4" /></video>`,
+          __html: `<video class="intro-video" autoplay muted loop playsinline preload="yes"><source src=${video} type="video/mp4" /></video>`,
         }}
       ></div>
       <Tilt className={styles.titleContainer} perspective={5000} gyroscope={true} tiltReverse>
