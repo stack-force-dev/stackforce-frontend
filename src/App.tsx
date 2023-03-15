@@ -2,11 +2,12 @@ import React, { FC } from 'react';
 import Intro from './sections/Intro';
 import Form from './sections/Form';
 import './styles/index.scss';
+import Header from './components/Header';
 
 const App: FC = () => {
   return (
     <React.Fragment>
-      {/* <header className="header">header</header> */}
+      <Header />
       <Intro />
       <Form />
     </React.Fragment>
