@@ -4,7 +4,6 @@ import Summary from './sections/Summary';
 import Form from './sections/Form';
 import Header from './components/Header';
 import './styles/index.scss';
-import Header from './components/Header';
 
 const App: FC = () => {
   const ref = useRef<HTMLDivElement>(null);
