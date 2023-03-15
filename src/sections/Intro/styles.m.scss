@@ -1,7 +1,13 @@
 @import '../../styles/vars.scss';
 
 .intro {
-  background: linear-gradient(0deg, rgba(6,6,6,1) 0%, rgba(6,6,6,0.3) 3%, rgba(6,6,6,0) 8%, rgba(6,6,6,0) 100%);
+  background: linear-gradient(
+    0deg,
+    rgba(6, 6, 6, 1) 0%,
+    rgba(6, 6, 6, 0.3) 8%,
+    rgba(6, 6, 6, 0) 18%,
+    rgba(6, 6, 6, 0) 100%
+  );
 }
 
 .introContainer {
