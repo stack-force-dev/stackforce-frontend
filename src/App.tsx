@@ -1,23 +1,27 @@
-import React, { FC, useEffect, useRef } from 'react';
+import React, { FC, useEffect, useRef, useState } from 'react';
+
 import Intro from './sections/Intro';
 import Summary from './sections/Summary';
 import Form from './sections/Form';
 import Header from './components/Header';
+import { initPageable } from './utils/pageable';
+
 import './styles/index.scss';
 
 const App: FC = () => {
-  const ref = useRef<HTMLDivElement>(null);
+  const [headerDark, setHeaderDark] = useState(false);
+  const loadingRef = useRef<HTMLDivElement>(null);
+  const headerRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
-    window.history.scrollRestoration = 'manual';
+    initPageable(setHeaderDark);
 
-    if (ref.current) {
-      ref.current.style.opacity = '0';
+    if (loadingRef.current) {
+      loadingRef.current.style.opacity = '0';
     }
+
     const timeout = setTimeout(() => {
-      if (ref.current) {
-        ref.current.style.display = 'none';
-      }
+      if (loadingRef.current) loadingRef.current.style.display = 'none';
     }, 1400);
 
     return () => {
@@ -27,13 +31,13 @@ const App: FC = () => {
 
   return (
     <React.Fragment>
-      <Header />
-      <div ref={ref} className="init-loading"></div>
-      <Intro />
-      <Summary />
-      <Form />
-      <Summary />
-      <Form />
+      <Header headerRef={headerRef} dark={headerDark} />
+      <div id="container">
+        <div ref={loadingRef} className="init-loading"></div>
+        <Intro />
+        <Summary />
+        <Form />
+      </div>
     </React.Fragment>
   );
 };
