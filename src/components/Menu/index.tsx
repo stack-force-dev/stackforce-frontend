@@ -19,7 +19,7 @@ const Menu = ({ items, setActive, active }: MenuPropsType) => {
   const { t } = useTranslation();
 
   return (
-    <div className={active ? `${styles.menu} ${styles.active}` : styles.menu}>
+    <div className={active ? `${styles.menu} ${styles.active}` : styles.menu} onClick={() => setActive(false)}>
       <div className={styles.header}>
         <SendFormButton />
         <div onClick={() => setActive(false)} className={styles.closeBtn}>
@@ -30,7 +30,7 @@ const Menu = ({ items, setActive, active }: MenuPropsType) => {
       <div className={styles.menuContent}>
         <ul>
           {items.map((item) => (
-            <li data-text={item.name} key={item.name}>
+            <li data-text={item.name.toUpperCase()} key={item.name}>
               <a href={item.path}>{item.name}</a>
             </li>
           ))}

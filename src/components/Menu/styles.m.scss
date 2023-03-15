@@ -10,7 +10,7 @@
   right: 0;
   z-index: 2;
   background: rgba(0, 0, 0, 0.8);
-  backdrop-filter: blur(25px);
+  backdrop-filter: blur(50px);
   user-select: none;
   transform: translateX(100%);
   transition: 0.5s;
@@ -24,7 +24,7 @@
     gap: 60px;
     align-items: center;
     justify-content: end;
-    color: #ffffff;
+    color: #fff;
     .closeBtn {
       display: flex;
       align-items: center;
@@ -58,10 +58,10 @@
         height: 100px;
         text-decoration: none;
         overflow: hidden;
-        color: #ffffff;
+        color: #fff;
         font-style: normal;
         font-weight: 600;
-        font-size: 40px;
+        font-size: 48px;
         line-height: 60px;
         &:hover {
           color: $primary;
@@ -84,18 +84,15 @@ ul li:before {
   font-size: 120px;
   line-height: 120px;
   text-align: center;
-  color: #ffffff;
+  color: #fff;
   mix-blend-mode: overlay;
   white-space: nowrap;
   pointer-events: none;
   transition: 0.5s;
   opacity: 0;
 }
-.menu:before {
-  opacity: 0;
-}
 ul li:hover::before {
-  opacity: 0.6;
+  opacity: 1;
 }
 @media screen and (max-width: $mobile) {
   .menu {
