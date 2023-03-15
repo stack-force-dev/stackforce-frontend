@@ -28,7 +28,7 @@ export const initPageable = (setHeaderDark) => {
       currentScreen = e.index;
     },
     onInit: (e) => {
-        setHeaderDark(whiteScreens.includes(e.index));
-    }
+      setHeaderDark(whiteScreens.includes(e.index));
+    },
   });
 };
