@@ -4,7 +4,7 @@ import styles from './styles.m.scss';
 const SendFormButton = () => {
   return (
     <div className={styles.sendForm}>
-      <a href="#">Оставить заявку</a>{' '}
+      <a href="#a">Оставить заявку</a>
     </div>
   );
 };
