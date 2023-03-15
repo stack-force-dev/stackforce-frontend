@@ -1,0 +1,71 @@
+@import '../../styles/vars.scss';
+
+.header {
+  position: fixed;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  width: 100%;
+  height: 72px;
+  color: #ffffff;
+  line-height: 0;
+  z-index: 1;
+  .logoContainer {
+    display: flex;
+    align-items: center;
+    .logoTitle {
+      margin-left: 8px;
+      margin-right: 20px;
+      font-style: normal;
+      font-weight: 600;
+      font-size: 24px;
+      line-height: 32px;
+    }
+    .logoSubTitle {
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 32px;
+      color: rgba(255, 255, 255, 0.38);
+    }
+  }
+  .navContainer {
+    display: flex;
+    align-items: center;
+    user-select: none;
+    gap: 60px;
+    .burgerBtn {
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      transition: 0.5s;
+      &:hover {
+        color: $primary;
+        path {
+          fill: $primary;
+        }
+      }
+      .burgerTitle {
+        font-style: normal;
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 32px;
+        margin-right: 8px;
+      }
+    }
+  }
+}
+@media screen and (max-width: $mobile) {
+  .header {
+    padding: 20px;
+    .navContainer {
+      gap: 26px;
+    }
+    .logoTitle,
+    .logoSubTitle,
+    .burgerTitle {
+      display: none;
+    }
+  }
+}

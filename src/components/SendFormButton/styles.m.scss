@@ -1,0 +1,31 @@
+@import '../../styles/vars.scss';
+
+.sendForm {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 32px;
+  cursor: pointer;
+  transition: 0.5s;
+  a {
+    color: #ffffff;
+    text-decoration: none;
+    &:hover {
+      color: $primary;
+    }
+  }
+
+  // анимация подчеркивания
+  //   &:after {
+  //     display: block;
+  //     content: '';
+  //     margin-right: 100%;
+  //     width: 0;
+  //     height: 2px;
+  //     background-color: #ffffff;
+  //     transition: width 0.3s;
+  //   }
+  //   &:hover::after {
+  //     width: 100%;
+  //   }
+}
