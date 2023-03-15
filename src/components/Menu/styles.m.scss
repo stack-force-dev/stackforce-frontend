@@ -11,16 +11,18 @@
   z-index: 2;
   background: rgba(0, 0, 0, 0.8);
   backdrop-filter: blur(50px);
+  -webkit-backdrop-filter: blur(50px);
   user-select: none;
   transform: translateX(100%);
   transition: 0.5s;
   .header {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
     position: fixed;
     top: 0;
     width: 100%;
     height: 72px;
     display: flex;
-    padding: 20px 40px;
+    padding: 20px;
     gap: 60px;
     align-items: center;
     justify-content: end;
@@ -76,6 +78,7 @@
 ul li:before {
   content: attr(data-text);
   position: absolute;
+  mix-blend-mode: overlay;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -85,17 +88,16 @@ ul li:before {
   line-height: 120px;
   text-align: center;
   color: #fff;
-  mix-blend-mode: overlay;
-  white-space: nowrap;
   pointer-events: none;
-  transition: 0.5s;
   opacity: 0;
 }
 ul li:hover::before {
-  opacity: 1;
+  opacity: 0.5;
 }
 @media screen and (max-width: $mobile) {
   .menu {
+    align-items: flex-start;
+    padding-top: 102px;
     .header {
       gap: 20px;
       .closeBtnTitle {
@@ -112,5 +114,8 @@ ul li:hover::before {
         }
       }
     }
+  }
+  ul li:before {
+    display: none;
   }
 }

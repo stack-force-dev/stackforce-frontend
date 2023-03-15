@@ -1,4 +1,4 @@
-import React, { Dispatch, SetStateAction } from 'react';
+import React, { Dispatch, SetStateAction, useEffect } from 'react';
 import Icon from '../Icon';
 import SendFormButton from '../SendFormButton';
 import { useTranslation } from 'react-i18next';
@@ -17,6 +17,16 @@ interface MenuPropsType {
 
 const Menu = ({ items, setActive, active }: MenuPropsType) => {
   const { t } = useTranslation();
+
+  useEffect(() => {
+    const close = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        setActive(false);
+      }
+    };
+    window.addEventListener('keydown', close);
+    return () => window.removeEventListener('keydown', close);
+  }, [active]);
 
   return (
     <div className={active ? `${styles.menu} ${styles.active}` : styles.menu} onClick={() => setActive(false)}>
