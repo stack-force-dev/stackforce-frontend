@@ -3,7 +3,7 @@
 @import './vars.scss';
 
 .main-container {
-  min-height: 100vh;
+  min-height: $pageHeight;
 }
 
 .init-loading {
@@ -11,7 +11,7 @@
   position: fixed;
   top: 0;
   left: 0;
-  height: 100vh;
+  height: $pageHeight;
   width: 100vw;
   opacity: 1;
   transition: opacity 0.8s ease;
@@ -20,6 +20,6 @@
 
 section {
   position: relative;
-  min-height: 100vh;
+  min-height: $pageHeight;
   overflow: hidden;
 }

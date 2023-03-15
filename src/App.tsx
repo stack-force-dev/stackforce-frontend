@@ -7,6 +7,7 @@ import Header from './components/Header';
 import { initPageable } from './utils/pageable';
 
 import './styles/index.scss';
+import getPageSize from './utils/getPageSize';
 
 const App: FC = () => {
   const [headerDark, setHeaderDark] = useState(false);
@@ -23,6 +24,8 @@ const App: FC = () => {
     const timeout = setTimeout(() => {
       if (loadingRef.current) loadingRef.current.style.display = 'none';
     }, 1400);
+    const pageSite = getPageSize();
+    document.querySelector('body')?.style.setProperty('--page--height', `${pageSite}px`);
 
     return () => {
       clearTimeout(timeout);
