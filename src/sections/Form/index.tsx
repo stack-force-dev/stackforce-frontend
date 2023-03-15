@@ -5,6 +5,7 @@ import { fetchForm } from '../../api/serviceForm';
 
 import styles from './styles.m.scss';
 
+import Icon from '../../components/Icon';
 interface Inputs {
   email: string;
   phone?: string;
@@ -37,6 +38,7 @@ const Form = () => {
   return (
     <section className={styles.form}>
       <div>TEST</div>
+      <Icon name="menu" />
       <form onSubmit={handleSubmit(onSubmit)}>
         <input
           {...register('email', {
