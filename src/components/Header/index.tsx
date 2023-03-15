@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Menu from '../Menu';
 import SendFormButton from '../SendFormButton';
 import styles from './styles.m.scss';
@@ -14,9 +14,30 @@ const menuItems = [
 const Header = () => {
   const [menuActive, setMenuActive] = useState(false);
 
+  const ref = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    if (!ref.current) return;
+    const height = window.innerHeight - ref.current.offsetHeight / 2;
+    const darkHeaderScreens = [3, 5];
+
+    window.addEventListener('scroll', () => {
+      if (!ref.current) return;
+
+      const currentScroll = window.pageYOffset;
+      const screen = Math.ceil(currentScroll / height);
+
+      if (darkHeaderScreens.includes(screen)) {
+        ref.current.classList.add('dark');
+      } else {
+        ref.current.classList.remove('dark');
+      }
+    });
+  }, []);
+
   return (
     <>
-      <header className={styles.header}>
+      <header className={styles.header} ref={ref}>
         <div className={styles.logoContainer}>
           <div>
             <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">

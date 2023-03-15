@@ -1,5 +1,9 @@
 @import '../../styles/vars.scss';
 
+.intro {
+  background: linear-gradient(360deg, #060606 0%, rgba(6, 6, 6, 0.3) 2.8%, rgba(6, 6, 6, 0) 5.69%), linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4));
+}
+
 .introContainer {
   width: 100vw;
   height: 100vh;
@@ -69,7 +73,7 @@
     .h1Desktop {
       display: none;
     }
-    
+
     .h1Mobile {
       display: block;
       font-weight: 600;
