@@ -1,13 +1,17 @@
 import React, { useState, useEffect, useRef } from 'react';
+import classNames from 'classnames';
+import { useTranslation } from 'react-i18next';
+
 import Icon from '../Icon';
 import Menu from '../Menu';
 import SendFormButton from '../SendFormButton';
-import { useTranslation } from 'react-i18next';
+
 import styles from './styles.m.scss';
 
 const Header = () => {
   const { t } = useTranslation();
   const [menuActive, setMenuActive] = useState(false);
+  const [headerDark, setHeaderDark] = useState(false);
   const ref = useRef<HTMLElement>(null);
 
   const menuItems = [
@@ -29,17 +33,13 @@ const Header = () => {
       const currentScroll = window.pageYOffset;
       const screen = Math.ceil(currentScroll / height);
 
-      if (darkHeaderScreens.includes(screen)) {
-        ref.current.classList.add(`${styles.dark}`);
-      } else {
-        ref.current.classList.remove(`${styles.dark}`);
-      }
+      setHeaderDark(darkHeaderScreens.includes(screen));
     });
   }, []);
 
   return (
     <>
-      <header className={styles.header} ref={ref}>
+      <header className={classNames(styles.header, { [styles.dark]: headerDark })} ref={ref}>
         <div className={styles.logoContainer}>
           <Icon name="logo" />
           <div className={styles.logoTitle}>{t('title.orgName')}</div>
