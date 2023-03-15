@@ -2,14 +2,10 @@
 @import './main.scss';
 @import './vars.scss';
 
-section {
-  position: relative;
-  min-height: 100vh;
-  overflow: hidden;
-}
 .main-container {
   min-height: 100vh;
 }
+
 .init-loading {
   background-color: black;
   position: fixed;
@@ -20,4 +16,10 @@ section {
   opacity: 1;
   transition: opacity 0.8s ease;
   z-index: 1000;
+}
+
+section {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
 }

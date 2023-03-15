@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, RefObject } from 'react';
 import classNames from 'classnames';
 import { useTranslation } from 'react-i18next';
 
@@ -8,34 +8,14 @@ import SendFormButton from '../SendFormButton';
 
 import styles from './styles.m.scss';
 
-const Header = () => {
+interface HeaderProps {
+  headerRef: RefObject<HTMLElement>;
+  dark: boolean;
+}
+
+const Header = ({ headerRef, dark }: HeaderProps) => {
   const { t } = useTranslation();
   const [menuActive, setMenuActive] = useState(false);
-  const [headerDark, setHeaderDark] = useState(false);
-  const ref = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-    if (!ref.current) return;
-    const height = window.innerHeight - ref.current.offsetHeight / 2;
-    const darkHeaderScreens = [3, 5];
-
-    window.addEventListener('scroll', () => {
-      if (!ref.current) return;
-
-      const currentScroll = window.pageYOffset;
-      const screen = Math.ceil(currentScroll / height);
-
-      setHeaderDark(darkHeaderScreens.includes(screen));
-    });
-  }, []);
-
-  const menuItems = [
-    { name: t('menu.main'), path: '#' },
-    { name: t('menu.about'), path: '#' },
-    { name: t('menu.tehnology'), path: '#' },
-    { name: t('menu.team'), path: '#' },
-    { name: t('menu.contacts'), path: '#' },
-  ];
 
   const handleMenuActive = (active: boolean) => {
     if (active) {
@@ -49,9 +29,11 @@ const Header = () => {
 
   return (
     <>
-      <header className={classNames(styles.header, { [styles.dark]: headerDark })} ref={ref}>
+      <header className={classNames(styles.header, { [styles.dark]: dark })} ref={headerRef}>
         <div className={styles.logoContainer}>
-          <Icon name="logo" />
+          <a href="#intro">
+            <Icon name="logo" />
+          </a>
           <div className={styles.logoTitle}>{t('title.orgName')}</div>
           <div className={styles.logoSubTitle}>{t('title.outsource')}</div>
         </div>
@@ -63,7 +45,7 @@ const Header = () => {
           </div>
         </div>
       </header>
-      <Menu active={menuActive} setActive={handleMenuActive} items={menuItems} />
+      <Menu active={menuActive} setActive={handleMenuActive} />
     </>
   );
 };

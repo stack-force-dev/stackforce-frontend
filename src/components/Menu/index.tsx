@@ -4,19 +4,21 @@ import SendFormButton from '../SendFormButton';
 import { useTranslation } from 'react-i18next';
 import styles from './styles.m.scss';
 
-type menuItem = {
-  name: string;
-  path: string;
-};
-
 interface MenuPropsType {
-  items: menuItem[];
   active: boolean;
   setActive: Dispatch<SetStateAction<boolean>>;
 }
 
-const Menu = ({ items, setActive, active }: MenuPropsType) => {
+const Menu = ({ setActive, active }: MenuPropsType) => {
   const { t } = useTranslation();
+
+  const menuItems = [
+    { name: t('menu.main'), path: '#intro' },
+    { name: t('menu.about'), path: '#summary' },
+    { name: t('menu.tehnology'), path: '#form' },
+    { name: t('menu.team'), path: '#' },
+    { name: t('menu.contacts'), path: '#' },
+  ];
 
   useEffect(() => {
     const close = (e: KeyboardEvent) => {
@@ -39,7 +41,7 @@ const Menu = ({ items, setActive, active }: MenuPropsType) => {
       </div>
       <div className={styles.menuContent}>
         <ul>
-          {items.map((item) => (
+          {menuItems.map((item) => (
             <li data-text={item.name.toUpperCase()} key={item.name}>
               <a href={item.path}>{item.name}</a>
             </li>
