@@ -30,6 +30,11 @@ const Menu = ({ items, setActive, active }: MenuPropsType) => {
 
   return (
     <div className={active ? `${styles.menu} ${styles.active}` : styles.menu} onClick={() => setActive(false)}>
+      <div className={styles.introContainer}>
+        <video className={styles.video} autoPlay muted playsInline loop>
+          <source src="https://stackforce.website.yandexcloud.net/intro.mp4" type="video/mp4" />
+        </video>
+      </div>
       <div className={styles.header}>
         <SendFormButton />
         <div onClick={() => setActive(false)} className={styles.closeBtn}>
