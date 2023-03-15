@@ -3,6 +3,8 @@ import { useForm, SubmitHandler } from 'react-hook-form';
 import { emailRegex } from './formRegex';
 import { fetchForm } from '../../api/serviceForm';
 
+import styles from './styles.m.scss';
+
 interface Inputs {
   email: string;
   phone?: string;
@@ -33,7 +35,7 @@ const Form = () => {
   };
 
   return (
-    <section>
+    <section className={styles.form}>
       <div>TEST</div>
       <form onSubmit={handleSubmit(onSubmit)}>
         <input
