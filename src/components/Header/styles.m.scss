@@ -12,6 +12,9 @@
   color: #ffffff;
   line-height: 0;
   z-index: 1;
+  &.dark {
+    color: black;
+  }
   .logoContainer {
     display: flex;
     align-items: center;
