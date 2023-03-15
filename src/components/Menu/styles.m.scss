@@ -1,0 +1,98 @@
+@import '../../styles/vars.scss';
+
+.menu {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  right: 0;
+  z-index: 2;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(25px);
+  user-select: none;
+  transform: translateX(100%);
+  transition: all 0.5s;
+  .header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 72px;
+    display: flex;
+    padding: 20px 40px;
+    gap: 60px;
+    align-items: center;
+    justify-content: end;
+    color: #ffffff;
+    .closeBtn {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      transition: 0.5s;
+      &:hover {
+        color: $primary;
+        path {
+          fill: $primary;
+        }
+      }
+      .closeBtnTitle {
+        font-style: normal;
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 32px;
+      }
+    }
+  }
+  .menuContent {
+  }
+  ul {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 40px;
+    li {
+      //   &::before {
+      //     content: attr(data-text);
+      //     position: absolute;
+      //     top: 50%;
+      //     left: 50%;
+      //     transform: translate(-50%, -50%);
+      //     font-style: normal;
+      //     font-weight: 600;
+      //     font-size: 120px;
+      //     line-height: 120px;
+      //     text-align: center;
+      //     color: #ffffff;
+      //     mix-blend-mode: overlay;
+      //     pointer-events: none;
+      //     opacity: 0;
+      //   }
+      //   &:hover::before {
+      //     opacity: 1;
+      //   }
+      a {
+        position: relative;
+        display: inline-block;
+        text-decoration: none;
+        overflow: hidden;
+        color: #ffffff;
+        padding: 20px auto;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 40px;
+        line-height: 60px;
+        transition: 0.5s;
+        &:hover {
+          color: $primary;
+        }
+      }
+    }
+  }
+}
+.active {
+  transform: translateX(0);
+}
