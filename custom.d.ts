@@ -1,7 +1,13 @@
-declare module '*.mp4' {
+declare module '*.webm' {
   const src: string;
   export default src;
 }
+
+declare module '*.png' {
+  const src: string;
+  export default src;
+}
+
 declare module '*.otf' {
   const value: any;
   export default value;

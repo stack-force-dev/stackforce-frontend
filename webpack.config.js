@@ -46,7 +46,7 @@ module.exports = (env, { mode }) => {
           },
         },
         {
-          test: /\.(png|jp(e*)g|gif|webp|avif|mp4)$/,
+          test: /\.(png|jp(e*)g|gif|webp|avif|webm)$/,
           use: ['file-loader'],
         },
         {
@@ -91,7 +91,7 @@ module.exports = (env, { mode }) => {
     devtool: isProduction ? 'source-map' : 'inline-source-map',
 
     devServer: {
-      host: 'localhost',
+      host: '0.0.0.0',
       port: 3000,
       historyApiFallback: true,
     },

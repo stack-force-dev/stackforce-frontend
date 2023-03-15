@@ -1,8 +1,7 @@
 import React from 'react';
 import Tilt from 'react-parallax-tilt';
 import { useTranslation } from 'react-i18next';
-import video from '../../assets/images/intro.mp4';
-
+import poster from '../../assets/images/poster.png';
 import styles from './styles.m.scss';
 
 const Intro = () => {
@@ -10,8 +9,8 @@ const Intro = () => {
   return (
     <section>
       <div className={styles.introContainer}>
-        <video className={styles.video} autoPlay muted loop>
-          <source src={video} type="video/mp4" />
+        <video className={styles.video} autoPlay muted playsInline loop poster={poster}>
+          <source src="https://stackforce.website.yandexcloud.net/intro.mp4" type="video/mp4" />
         </video>
       </div>
       <Tilt className={styles.titleContainer} perspective={5000} gyroscope={true} tiltReverse>
