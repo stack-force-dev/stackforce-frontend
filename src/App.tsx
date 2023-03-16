@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useRef } from 'react';
+import React, { FC, useEffect, useRef, useState } from 'react';
 import Intro from './sections/Intro';
 import Summary from './sections/Summary';
 import Form from './sections/Form';
@@ -10,15 +10,15 @@ const App: FC = () => {
 
   useEffect(() => {
     window.history.scrollRestoration = 'manual';
-
+    let timeout;
     if (ref.current) {
       ref.current.style.opacity = '0';
     }
-    const timeout = setTimeout(() => {
-      if (ref.current) {
-        ref.current.style.display = 'none';
-      }
-    }, 1400);
+    window.onload = () => {
+      timeout = setTimeout(() => {
+        if (ref.current) ref.current.style.display = 'none';
+      }, 500);
+    };
 
     return () => {
       clearTimeout(timeout);
@@ -32,7 +32,7 @@ const App: FC = () => {
       <Intro />
       <Summary />
       <Form />
-      <section id="section-4"></section>;
+      <section id="section-4"></section>
     </React.Fragment>
   );
 };
