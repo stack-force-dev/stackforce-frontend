@@ -7,14 +7,9 @@ section {
   min-height: 100vh;
   overflow: hidden;
 }
+
 .main-container {
   min-height: 100vh;
-  overflow-y: auto;
-}
-
-
-.no-scroll {
-  overflow-y: hidden;
 }
 
 .init-loading {

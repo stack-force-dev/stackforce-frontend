@@ -8,64 +8,77 @@ import SendFormButton from '../SendFormButton';
 
 import styles from './styles.m.scss';
 
+const DARK_HEADER_SCREENS = [3];
+
 const Header = () => {
   const { t } = useTranslation();
   const [menuActive, setMenuActive] = useState(false);
   const [headerDark, setHeaderDark] = useState(false);
   const ref = useRef<HTMLElement>(null);
 
+  const scrollToTarget = function (target, screen, down) {
+    const start = window.pageYOffset;
+    const top = target.getBoundingClientRect().top;
+
+    const duration = 800;
+
+    let startTime = 0;
+    let requestId;
+
+    const loop = (currentTime) => {
+      if (!startTime) startTime = currentTime;
+
+      const time = currentTime - startTime;
+
+      const percent = Math.min(time / duration, 1);
+      window.scrollTo(0, start + top * percent);
+
+      if (time < duration) {
+        requestId = window.requestAnimationFrame(loop);
+      } else {
+        window.cancelAnimationFrame(requestId);
+        if (down) setHeaderDark(DARK_HEADER_SCREENS.includes(screen));
+      }
+    };
+
+    if (!down) setHeaderDark(DARK_HEADER_SCREENS.includes(screen));
+
+    requestId = window.requestAnimationFrame(loop);
+  };
+
   useEffect(() => {
     if (!ref.current) return;
     const height = window.innerHeight;
-    const darkHeaderScreens = [3, 5];
 
     let lastScroll = 0;
-    let scrollInProcess = false;
+    let scrolling = false;
+    let lastTouch = 0;
 
-    window.addEventListener('scroll', () => {
-      if (!ref.current) return;
+    const scrollListener = (down) => {
+      if (!ref.current || scrolling) return;
 
-      const OFFSET = 50;
-      const currentScroll = window.scrollY + 1;
-      const screen = Math.ceil(currentScroll / height);
+      scrolling = true;
 
-      const screenScroll = currentScroll % height;
-      const screenScrollDown = height - screenScroll;
+      const currentScroll = window.pageYOffset + 1;
+      const screen = Math.ceil(currentScroll / height) || 1;
+      const newScreen = down ? screen + 1 : screen - 1;
 
-      if (screenScroll > OFFSET || screenScrollDown > OFFSET) {
-        if (scrollInProcess) return;
-        const down = currentScroll > lastScroll;
+      const section = document.querySelector(`#section-${newScreen}`);
+      if (!section) return;
 
-        //console.log(1, {down, screen, lastScroll, currentScroll})
-        window.scrollTo({
-          top: down ? screen * height : (screen - 2) * height + 1,
-          behavior: 'smooth',
-        });
+      scrollToTarget(section, newScreen, down);
 
-        scrollInProcess = true;
-
-        const body = document.querySelector('body');
-        body?.classList.add('no-scroll');
-        //console.log(2, {down, screen, lastScroll, currentScroll})
-        setTimeout(() => {
-          body?.classList.remove('no-scroll');
-          scrollInProcess = false;
-        }, 2000);
-      }
-
-      setHeaderDark(darkHeaderScreens.includes(screen));
+      setTimeout(() => {
+        scrolling = false;
+      }, 1400);
 
       lastScroll = currentScroll;
-    });
-  }, []);
+    };
 
-  const menuItems = [
-    { name: t('menu.main'), path: '#' },
-    { name: t('menu.about'), path: '#' },
-    { name: t('menu.tehnology'), path: '#' },
-    { name: t('menu.team'), path: '#' },
-    { name: t('menu.contacts'), path: '#' },
-  ];
+    window.addEventListener('touchstart', (e) => (lastTouch = e.touches[0].pageY));
+    window.addEventListener('touchmove', (e) => scrollListener(lastTouch - e.touches[0].pageY > 0));
+    window.addEventListener('wheel', (e) => scrollListener(e.deltaY > 0));
+  }, []);
 
   const handleMenuActive = (active: boolean) => {
     if (active) {
@@ -93,7 +106,7 @@ const Header = () => {
           </div>
         </div>
       </header>
-      <Menu active={menuActive} setActive={handleMenuActive} items={menuItems} />
+      <Menu active={menuActive} setActive={handleMenuActive} />
     </>
   );
 };
