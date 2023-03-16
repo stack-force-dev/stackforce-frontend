@@ -1,3 +1,107 @@
+@import '../../styles/vars.scss';
+
 .summary {
-    background-color: #060606;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #060606;
+  color: white;
+  width: 100%;
+  background: radial-gradient(50% 50% at bottom center, rgba(0, 113, 255, 0.4) 0%, rgba(0, 113, 255, 0) 100%);
+  background: -webkitradial-gradient(50% 50% bottom center, rgba(0, 113, 255, 0.4) 0%, rgba(0, 113, 255, 0) 100%);
+  .content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    max-width: 1324px;
+    .contentTitle {
+      max-width: 983px;
+      max-height: 180px;
+      font-style: normal;
+      font-weight: 600;
+      font-size: 48px;
+      line-height: 125%;
+      margin-bottom: 120px;
+    }
+    .contentItems {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      .item {
+        display: flex;
+        justify-content: space-between;
+        align-items: start;
+        max-width: 384px;
+        max-height: 180px;
+        .itemId {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          margin-right: 20px;
+          .id {
+            width: 32px;
+            height: 32px;
+            font-family: 'Graphik LCG';
+            font-style: normal;
+            font-weight: 500;
+            font-size: 20px;
+            line-height: 160%;
+            color: #0071ff;
+            margin-right: 20px;
+          }
+          .minus {
+            width: 32px;
+            height: 0px;
+            border: 1px solid #0071ff;
+          }
+        }
+        .itemTitle {
+          font-style: normal;
+          font-weight: 600;
+          font-size: 24px;
+          line-height: 133%;
+          margin-bottom: 20px;
+        }
+        .itemContent {
+          font-style: normal;
+          font-weight: 400;
+          font-size: 16px;
+          line-height: 150%;
+          color: rgba(255, 255, 255, 0.8);
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: $mobile) {
+  .summary {
+    padding-top: 87px;
+    align-items: start;
+    .content {
+      .contentTitle {
+        display: none;
+      }
+      .contentItems {
+        flex-direction: column;
+        gap: 15px;
+        .item {
+          .itemId {
+            .id {
+              margin-right: 10px;
+            }
+            .minus {
+            }
+          }
+          .itemTitle {
+            font-size: 18px;
+            margin-bottom: 10;
+          }
+          .itemContent {
+          }
+        }
+      }
+    }
+  }
 }
