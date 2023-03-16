@@ -20,7 +20,7 @@ const Header = () => {
     const start = window.pageYOffset;
     const top = target.getBoundingClientRect().top;
 
-    const duration = 800;
+    const duration = 500;
 
     let startTime = 0;
     let requestId;
@@ -53,9 +53,10 @@ const Header = () => {
     let lastScroll = 0;
     let scrolling = false;
     let lastTouch = 0;
+    let lastSrc = null;
 
-    const scrollListener = (down) => {
-      if (!ref.current || scrolling) return;
+    const scrollListener = (down, src) => {
+      if (!ref.current || scrolling || src === lastSrc) return;
 
       scrolling = true;
 
@@ -64,20 +65,24 @@ const Header = () => {
       const newScreen = down ? screen + 1 : screen - 1;
 
       const section = document.querySelector(`#section-${newScreen}`);
-      if (!section) return;
+      if (!section) {
+        scrolling = false;
+        return;
+      }
 
       scrollToTarget(section, newScreen, down);
 
       setTimeout(() => {
         scrolling = false;
-      }, 1400);
+      }, 1000);
 
       lastScroll = currentScroll;
+      lastSrc = src;
     };
 
     window.addEventListener('touchstart', (e) => (lastTouch = e.touches[0].pageY));
-    window.addEventListener('touchmove', (e) => scrollListener(lastTouch - e.touches[0].pageY > 0));
-    window.addEventListener('wheel', (e) => scrollListener(e.deltaY > 0));
+    window.addEventListener('touchmove', (e) => scrollListener(lastTouch - e.touches[0].pageY > 0, e.target));
+    window.addEventListener('wheel', (e) => scrollListener(e.deltaY > 0, e.target));
   }, []);
 
   const handleMenuActive = (active: boolean) => {
