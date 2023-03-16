@@ -48,7 +48,6 @@ const Header = () => {
 
   useEffect(() => {
     if (!ref.current) return;
-    const height = window.innerHeight;
 
     let lastScroll = 0;
     let scrolling = false;
@@ -61,7 +60,7 @@ const Header = () => {
       scrolling = true;
 
       const currentScroll = window.pageYOffset + 1;
-      const screen = Math.ceil(currentScroll / height) || 1;
+      const screen = Math.ceil(currentScroll / window.innerHeight) || 1;
       const newScreen = down ? screen + 1 : screen - 1;
 
       const section = document.querySelector(`#section-${newScreen}`);
