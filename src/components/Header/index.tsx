@@ -52,7 +52,7 @@ const Header = () => {
 
     let lastScroll = 0;
     let scrolling = false;
-    let lastTouch = 0;
+   // let lastTouch = 0;
     let lastSrc = null;
 
     const scrollListener = (down, src) => {
@@ -80,8 +80,8 @@ const Header = () => {
       lastSrc = src;
     };
 
-    window.addEventListener('touchstart', (e) => (lastTouch = e.touches[0].pageY));
-    window.addEventListener('touchmove', (e) => scrollListener(lastTouch - e.touches[0].pageY > 0, e.target));
+    //window.addEventListener('touchstart', (e) => (lastTouch = e.touches[0].pageY));
+    //window.addEventListener('touchmove', (e) => scrollListener(lastTouch - e.touches[0].pageY > 0, e.target));
     window.addEventListener('wheel', (e) => scrollListener(e.deltaY > 0, e.target));
   }, []);
 
