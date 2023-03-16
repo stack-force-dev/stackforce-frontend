@@ -7,7 +7,7 @@ import styles from './styles.m.scss';
 const Intro = () => {
   const { t } = useTranslation();
   return (
-    <section className={styles.intro}>
+    <section className={styles.intro} id="section-1">
       <div className={styles.introContainer}>
         <video className={styles.video} autoPlay muted playsInline loop poster={poster}>
           <source src="https://stackforce.website.yandexcloud.net/intro.mp4" type="video/mp4" />

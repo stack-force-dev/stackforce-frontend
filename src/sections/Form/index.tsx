@@ -36,7 +36,7 @@ const Form = () => {
   };
 
   return (
-    <section className={styles.form}>
+    <section className={styles.form} id="section-3">
       <div>TEST</div>
       <Icon name="menu" />
       <form onSubmit={handleSubmit(onSubmit)}>

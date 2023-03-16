@@ -23,7 +23,11 @@ body {
   &.no-scroll {
     overflow-y: hidden;
   }
+
+  scroll-behavior: smooth;
+  overflow-y: hidden;
 }
+
 h1,
 h2,
 h3,
@@ -35,6 +39,7 @@ li {
   margin: 0;
   padding: 0;
 }
+
 ul,
 li {
   list-style: none;
