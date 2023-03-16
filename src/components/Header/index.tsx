@@ -10,41 +10,41 @@ import styles from './styles.m.scss';
 
 const DARK_HEADER_SCREENS = [3];
 
+const scrollToTarget = function (target, screen, down, setHeaderDark) {
+  const start = window.pageYOffset;
+  const top = target.getBoundingClientRect().top;
+
+  const duration = 500;
+
+  let startTime = 0;
+  let requestId;
+
+  const loop = (currentTime) => {
+    if (!startTime) startTime = currentTime;
+
+    const time = currentTime - startTime;
+
+    const percent = Math.min(time / duration, 1);
+    window.scrollTo(0, start + top * percent);
+
+    if (time < duration) {
+      requestId = window.requestAnimationFrame(loop);
+    } else {
+      window.cancelAnimationFrame(requestId);
+      if (down) setHeaderDark(DARK_HEADER_SCREENS.includes(screen));
+    }
+  };
+
+  if (!down) setHeaderDark(DARK_HEADER_SCREENS.includes(screen));
+
+  requestId = window.requestAnimationFrame(loop);
+};
+
 const Header = () => {
   const { t } = useTranslation();
   const [menuActive, setMenuActive] = useState(false);
   const [headerDark, setHeaderDark] = useState(false);
   const ref = useRef<HTMLElement>(null);
-
-  const scrollToTarget = function (target, screen, down) {
-    const start = window.pageYOffset;
-    const top = target.getBoundingClientRect().top;
-
-    const duration = 500;
-
-    let startTime = 0;
-    let requestId;
-
-    const loop = (currentTime) => {
-      if (!startTime) startTime = currentTime;
-
-      const time = currentTime - startTime;
-
-      const percent = Math.min(time / duration, 1);
-      window.scrollTo(0, start + top * percent);
-
-      if (time < duration) {
-        requestId = window.requestAnimationFrame(loop);
-      } else {
-        window.cancelAnimationFrame(requestId);
-        if (down) setHeaderDark(DARK_HEADER_SCREENS.includes(screen));
-      }
-    };
-
-    if (!down) setHeaderDark(DARK_HEADER_SCREENS.includes(screen));
-
-    requestId = window.requestAnimationFrame(loop);
-  };
 
   useEffect(() => {
     if (!ref.current) return;
@@ -52,11 +52,11 @@ const Header = () => {
 
     let lastScroll = 0;
     let scrolling = false;
-   // let lastTouch = 0;
     let lastSrc = null;
+    let lastTouch = 0;
 
     const scrollListener = (down, src) => {
-      if (!ref.current || scrolling || src === lastSrc || menuActive) return;
+      if (!ref.current || scrolling || src === lastSrc || src.classList.contains('menu')) return;
 
       scrolling = true;
 
@@ -70,7 +70,7 @@ const Header = () => {
         return;
       }
 
-      scrollToTarget(section, newScreen, down);
+      scrollToTarget(section, newScreen, down, setHeaderDark);
 
       setTimeout(() => {
         scrolling = false;
@@ -80,8 +80,8 @@ const Header = () => {
       lastSrc = src;
     };
 
-    //window.addEventListener('touchstart', (e) => (lastTouch = e.touches[0].pageY));
-    //window.addEventListener('touchmove', (e) => scrollListener(lastTouch - e.touches[0].pageY > 0, e.target));
+    window.addEventListener('touchstart', (e) => (lastTouch = e.touches[0].pageY));
+    window.addEventListener('touchmove', (e) => scrollListener(lastTouch - e.touches[0].pageY > 0, e.target));
     window.addEventListener('wheel', (e) => scrollListener(e.deltaY > 0, e.target));
   }, []);
 

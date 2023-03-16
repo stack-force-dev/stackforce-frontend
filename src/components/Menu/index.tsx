@@ -1,4 +1,5 @@
 import React, { Dispatch, SetStateAction, useEffect } from 'react';
+import classNames from 'classnames';
 import Icon from '../Icon';
 import SendFormButton from '../SendFormButton';
 import { useTranslation } from 'react-i18next';
@@ -31,7 +32,7 @@ const Menu = ({ setActive, active }: MenuPropsType) => {
   ];
 
   return (
-    <div className={active ? `${styles.menu} ${styles.active}` : styles.menu} onClick={() => setActive(false)}>
+    <div className={classNames(styles.menu, 'menu', { [styles.active]: active })} onClick={() => setActive(false)}>
       <div className={styles.header}>
         <SendFormButton />
         <div onClick={() => setActive(false)} className={styles.closeBtn}>
