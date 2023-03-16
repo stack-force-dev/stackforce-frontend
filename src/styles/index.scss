@@ -9,7 +9,14 @@ section {
 }
 .main-container {
   min-height: 100vh;
+  overflow-y: auto;
 }
+
+
+.no-scroll {
+  overflow-y: hidden;
+}
+
 .init-loading {
   background-color: black;
   position: fixed;

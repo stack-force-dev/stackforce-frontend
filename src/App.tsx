@@ -32,8 +32,7 @@ const App: FC = () => {
       <Intro />
       <Summary />
       <Form />
-      <Summary />
-      <Form />
+      <section id="test"></section>;
     </React.Fragment>
   );
 };

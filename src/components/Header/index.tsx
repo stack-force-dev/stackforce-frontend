@@ -16,16 +16,46 @@ const Header = () => {
 
   useEffect(() => {
     if (!ref.current) return;
-    const height = window.innerHeight - ref.current.offsetHeight / 2;
+    const height = window.innerHeight;
     const darkHeaderScreens = [3, 5];
+
+    let lastScroll = 0;
+    let scrollInProcess = false;
 
     window.addEventListener('scroll', () => {
       if (!ref.current) return;
 
-      const currentScroll = window.pageYOffset;
+      const OFFSET = 50;
+      const currentScroll = window.scrollY + 1;
       const screen = Math.ceil(currentScroll / height);
 
+      const screenScroll = currentScroll % height;
+      const screenScrollDown = height - screenScroll;
+
+      if (screenScroll > OFFSET || screenScrollDown > OFFSET) {
+        if (scrollInProcess) return;
+        const down = currentScroll > lastScroll;
+
+        //console.log(1, {down, screen, lastScroll, currentScroll})
+        window.scrollTo({
+          top: down ? screen * height : (screen - 2) * height + 1,
+          behavior: 'smooth',
+        });
+
+        scrollInProcess = true;
+
+        const body = document.querySelector('body');
+        body?.classList.add('no-scroll');
+        //console.log(2, {down, screen, lastScroll, currentScroll})
+        setTimeout(() => {
+          body?.classList.remove('no-scroll');
+          scrollInProcess = false;
+        }, 2000);
+      }
+
       setHeaderDark(darkHeaderScreens.includes(screen));
+
+      lastScroll = currentScroll;
     });
   }, []);
 
