@@ -56,7 +56,7 @@ const Header = () => {
     let lastSrc = null;
 
     const scrollListener = (down, src) => {
-      if (!ref.current || scrolling || src === lastSrc) return;
+      if (!ref.current || scrolling || src === lastSrc || menuActive) return;
 
       scrolling = true;
 
