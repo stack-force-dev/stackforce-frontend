@@ -1,0 +1,95 @@
+import { createContext } from 'react';
+
+enum Locale {
+  En = 'en',
+  Ru = 'ru',
+}
+
+enum LocaleTitle {
+  English = 'English',
+  Russian = 'Русский',
+}
+
+export default {
+  header: {
+    title: {
+      [Locale.En]: 'StackForce',
+      [Locale.Ru]: 'StackForce',
+    },
+    subTitle: {
+      [Locale.En]: 'Outsource-team',
+      [Locale.Ru]: 'Аутсорс-команда',
+    },
+    sendForm: {
+      [Locale.En]: 'Send form',
+      [Locale.Ru]: 'Оставить заявку',
+    },
+    menu: {
+      [Locale.En]: 'Menu',
+      [Locale.Ru]: 'Меню',
+    },
+  },
+  intro: {
+    title: {
+      [Locale.En]: 'Stack',
+      [Locale.Ru]: 'Stack',
+    },
+    subTitle: {
+      [Locale.En]: 'Force',
+      [Locale.Ru]: 'Force',
+    },
+    webTitle: {
+      [Locale.En]: 'Outsource-team',
+      [Locale.Ru]: 'Веб-студия',
+    },
+  },
+  menu: {
+    about: {
+      [Locale.En]: 'About',
+      [Locale.Ru]: 'О Нас',
+    },
+    close: {
+      [Locale.En]: 'Close',
+      [Locale.Ru]: 'Закрыть',
+    },
+    contacts: {
+      [Locale.En]: 'Сontacts',
+      [Locale.Ru]: 'Контакты',
+    },
+    main: {
+      [Locale.En]: 'Home',
+      [Locale.Ru]: 'Главная',
+    },
+    team: {
+      [Locale.En]: 'Team',
+      [Locale.Ru]: 'Команда',
+    },
+    technology: {
+      [Locale.En]: 'Technologies',
+      [Locale.Ru]: 'Технологии',
+    },
+  },
+};
+
+export const getLocaleTitle = (locale: Locale): LocaleTitle => {
+  switch (locale) {
+    case Locale.Ru:
+      return LocaleTitle.Russian;
+    default:
+      return LocaleTitle.English;
+  }
+};
+
+export const getNextLocale = (locale: Locale): Locale => {
+  switch (locale) {
+    case Locale.En:
+      return Locale.Ru;
+    // case Locale.Ru:
+    //   return Locale.Os
+    default:
+      return Locale.En;
+  }
+};
+
+export const LocaleContext = createContext(Locale.Ru);
+export { Locale };
