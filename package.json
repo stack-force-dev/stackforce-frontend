@@ -23,14 +23,13 @@
     "url": "https://gitlab.com/stack-force/stack-force-application/frontend/issues"
   },
   "scripts": {
-    "start": "yarn translate && yarn webpack serve --progress --mode development",
+    "start": "yarn webpack serve --progress --mode development",
     "clean": "rm -rf ./build",
     "build": "yarn clean && webpack --progress --mode production",
     "lint": "yarn eslint src --ext .js,.ts,.tsx --ignore-pattern '!.*.js' --no-error-on-unmatched-pattern",
     "lint:fix": "yarn lint --fix",
     "format": "prettier --config .prettierrc.js --check src/**/*.{js,jsx,ts,tsx}",
     "type": "./node_modules/.bin/tsc --project tsconfig.json --noEmit",
-    "translate": "i18next",
     "lint-staged": "lint-staged"
   },
   "devDependencies": {
