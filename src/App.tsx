@@ -19,7 +19,6 @@ const App: FC = () => {
       ref.current.style.opacity = '0';
     }
     window.onload = () => {
-      if (ref.current) ref.current.style.display = 'none';
       timeout = setTimeout(() => {
         if (ref.current) ref.current.style.display = 'none';
       }, 800);
