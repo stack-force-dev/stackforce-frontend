@@ -31,16 +31,14 @@ const App: FC = () => {
   }, []);
 
   return (
-    <React.Fragment>
-      <LocaleContext.Provider value={locale}>
-        <Header />
-        <div ref={ref} className="init-loading"></div>
-        <Intro />
-        <Summary />
-        <Form />
-        <section id="section-4"></section>
-      </LocaleContext.Provider>
-    </React.Fragment>
+    <LocaleContext.Provider value={locale}>
+      <Header />
+      <div ref={ref} className="init-loading"></div>
+      <Intro />
+      <Summary />
+      <Form />
+      <section id="section-4"></section>
+    </LocaleContext.Provider>
   );
 };
 
