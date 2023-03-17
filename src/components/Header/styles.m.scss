@@ -14,17 +14,22 @@
   .logoContainer {
     display: flex;
     align-items: center;
-    color: #ffffff;
-
-    .logoTitle {
-      margin-left: 8px;
-      margin-right: 20px;
-      font-style: normal;
-      font-weight: 600;
-      font-size: 24px;
-      line-height: 32px;
-      text-transform: uppercase;
+    color: #fff;
+    .logoHref {
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      .logoTitle {
+        margin-left: 8px;
+        margin-right: 20px;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 24px;
+        line-height: 32px;
+        text-transform: uppercase;
+      }
     }
+
     .logoSubTitle {
       font-weight: 400;
       font-size: 14px;

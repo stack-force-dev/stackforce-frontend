@@ -97,8 +97,10 @@ const Header = () => {
     <>
       <header className={classNames(styles.header, { [styles.dark]: headerDark })} ref={ref}>
         <div className={styles.logoContainer}>
-          <Icon name="logo" />
-          <div className={styles.logoTitle}>{l.header.title[locale]}</div>
+          <div className={styles.logoHref}>
+            <Icon name="logo" />
+            <div className={styles.logoTitle}>{l.header.title[locale]}</div>
+          </div>
           <div className={styles.logoSubTitle}>{l.header.subTitle[locale]}</div>
         </div>
         <div className={styles.navContainer}>

@@ -2,7 +2,6 @@ import React, { useContext } from 'react';
 import Tilt from 'react-parallax-tilt';
 import l, { LocaleContext, getLocaleTitle, getNextLocale } from '../../utils/Locates/locates';
 
-import poster from '../../assets/images/poster.png';
 import styles from './styles.m.scss';
 
 const Intro = () => {
@@ -10,7 +9,7 @@ const Intro = () => {
   return (
     <section className={styles.intro} id="section-1">
       <div className={styles.introContainer}>
-        <video className={styles.video} autoPlay muted playsInline loop poster={poster}>
+        <video className={styles.video} autoPlay muted playsInline loop>
           <source src="https://api.stackforce.ru/static/intro.mp4" type="video/mp4" />
         </video>
       </div>

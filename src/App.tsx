@@ -21,7 +21,7 @@ const App: FC = () => {
     window.onload = () => {
       timeout = setTimeout(() => {
         if (ref.current) ref.current.style.display = 'none';
-      }, 500);
+      }, 200);
     };
 
     return () => {
