@@ -16,7 +16,6 @@
   transform: translateX(100%);
   transition: 0.5s;
   .header {
-    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
     position: fixed;
     top: 0;
     width: 100%;
@@ -94,6 +93,7 @@ ul li:before {
 ul li:hover::before {
   opacity: 0.5;
 }
+
 @media screen and (max-width: $mobile) {
   .menu {
     align-items: flex-start;
