@@ -1,8 +1,8 @@
-import React, { Dispatch, SetStateAction, useContext, useEffect } from 'react';
+import React, { Dispatch, SetStateAction, useEffect } from 'react';
 import classNames from 'classnames';
 import Icon from '../Icon';
 import SendFormButton from '../SendFormButton';
-import l, { LocaleContext, getLocaleTitle, getNextLocale } from '../../utils/Locates/locates';
+import d, { useDictionary } from '../../dictionary';
 import styles from './styles.m.scss';
 
 interface MenuPropsType {
@@ -11,7 +11,7 @@ interface MenuPropsType {
 }
 
 const Menu = ({ setActive, active }: MenuPropsType) => {
-  const locale = useContext(LocaleContext);
+  const [locale, setNextLocale] = useDictionary();
 
   useEffect(() => {
     const close = (e: KeyboardEvent) => {
@@ -24,11 +24,11 @@ const Menu = ({ setActive, active }: MenuPropsType) => {
   }, [active]);
 
   const menuItems = [
-    { name: l.menu.main[locale], path: '#' },
-    { name: l.menu.about[locale], path: '#' },
-    { name: l.menu.technology[locale], path: '#section-3' },
-    { name: l.menu.team[locale], path: '#' },
-    { name: l.menu.contacts[locale], path: '#' },
+    { name: d.menu.main[locale], path: '#' },
+    { name: d.menu.about[locale], path: '#' },
+    { name: d.menu.technology[locale], path: '#section-3' },
+    { name: d.menu.team[locale], path: '#' },
+    { name: d.menu.contacts[locale], path: '#' },
   ];
 
   return (
@@ -36,7 +36,7 @@ const Menu = ({ setActive, active }: MenuPropsType) => {
       <div className={styles.header}>
         <SendFormButton />
         <div onClick={() => setActive(false)} className={styles.closeBtn}>
-          <div className={styles.closeBtnTitle}>{l.menu.close[locale]}</div>
+          <div className={styles.closeBtnTitle}>{d.menu.close[locale]}</div>
           <Icon name="close" />
         </div>
       </div>
@@ -48,6 +48,9 @@ const Menu = ({ setActive, active }: MenuPropsType) => {
             </li>
           ))}
         </ul>
+        <div onClick={setNextLocale} style={{ color: '#fff' }}>
+          lang
+        </div>
       </div>
     </div>
   );

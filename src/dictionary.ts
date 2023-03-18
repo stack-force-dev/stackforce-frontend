@@ -1,6 +1,4 @@
-import { createContext } from 'react';
-
-enum Locale {
+export enum Locale {
   En = 'en',
   Ru = 'ru',
 }
@@ -80,16 +78,4 @@ export const getLocaleTitle = (locale: Locale): LocaleTitle => {
   }
 };
 
-export const getNextLocale = (locale: Locale): Locale => {
-  switch (locale) {
-    case Locale.En:
-      return Locale.Ru;
-    // case Locale.Ru:
-    //   return Locale.Os
-    default:
-      return Locale.En;
-  }
-};
-
-export const LocaleContext = createContext(Locale.Ru);
-export { Locale };
+export { useDictionary, default as Dictionary } from '@gazzati/react-dictionary';

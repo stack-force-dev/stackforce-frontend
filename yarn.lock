@@ -1027,6 +1027,11 @@
     minimatch "^3.0.4"
     strip-json-comments "^3.1.1"
 
+"@gazzati/react-dictionary@^1.0.1":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@gazzati/react-dictionary/-/react-dictionary-1.0.1.tgz#13a3b3c5d390f4dffd1f6ec8bb72c915fe73d6ab"
+  integrity sha512-7bxoMEcJdeMlJE0FXIL5CZUunStogQLxsifoOScmQsJlC2QcSxjZkkt/nR2wz8dYca3kfoiU8ABgeYBBOsq2+g==
+
 "@github/browserslist-config@^1.0.0":
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/@github/browserslist-config/-/browserslist-config-1.0.0.tgz#952fe6da3e6b8ed6a368f3a1a08a9d2ef84e8d04"

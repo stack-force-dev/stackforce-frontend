@@ -1,19 +1,17 @@
-import React, { FC, useEffect, useRef, useState } from 'react';
+import React, { FC, useEffect, useRef } from 'react';
 import Intro from './sections/Intro';
 import Summary from './sections/Summary';
 import Form from './sections/Form';
 import Header from './components/Header';
-import { Locale, LocaleContext } from './utils/Locates/locates';
+import { Dictionary } from './dictionary';
 import './styles/index.scss';
 
 const App: FC = () => {
   const ref = useRef<HTMLDivElement>(null);
-  const [locale, setLocale] = useState(Locale.Ru);
 
   useEffect(() => {
     window.history.scrollRestoration = 'manual';
-    const storageLocale = localStorage.getItem('locale') as Locale;
-    if (Object.values(Locale).includes(storageLocale)) setLocale(storageLocale);
+
     let timeout;
     if (ref.current) {
       ref.current.style.opacity = '0';
@@ -30,14 +28,14 @@ const App: FC = () => {
   }, []);
 
   return (
-    <LocaleContext.Provider value={locale}>
+    <Dictionary locales={['ru', 'en']}>
       <Header />
       <div ref={ref} className="init-loading"></div>
       <Intro />
       <Summary />
       <Form />
       <section id="section-4"></section>
-    </LocaleContext.Provider>
+    </Dictionary>
   );
 };
 
