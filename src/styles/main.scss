@@ -22,15 +22,15 @@ body {
     display: none;
   }
 
-  &.no-scroll {
-    overflow-y: hidden;
-  }
-
   scroll-behavior: smooth;
   overflow-y: hidden;
 
   @media screen and (max-width: $mobile) {
     overflow-y: auto;
+
+    &.no-scroll {
+      overflow-y: hidden;
+    }
   }
 }
 

@@ -16,10 +16,11 @@ class Scroll {
   private desktop() {
     let scrolling = false;
     let lastSrc = null;
+    let lastScreen = 1;
     // let lastTouch = 0;
 
-    const scrollListener = (down, src) => {
-      if (scrolling || src === lastSrc || src.classList.contains('menu')) return;
+    const scrollListener = (down, src, keyScroll = false) => {
+      if (scrolling || (!keyScroll && src === lastSrc) || src?.classList.contains('ignore-scroll')) return;
 
       scrolling = true;
 
@@ -35,16 +36,26 @@ class Scroll {
 
       this.scrollToTarget(section, newScreen, down, this.setHeaderDark);
 
-      setTimeout(() => {
-        scrolling = false;
-      }, 1000);
+      setTimeout(
+        () => {
+          scrolling = false;
+        },
+        keyScroll ? 200 : 1000
+      );
 
       lastSrc = src;
+      lastScreen = newScreen;
+    };
+
+    const keyDown = (e: KeyboardEvent) => {
+      if (e.key === 'ArrowDown') return scrollListener(true, lastSrc, true);
+      if (e.key === 'ArrowUp') return scrollListener(false, lastSrc, true);
     };
 
     // window.addEventListener('touchstart', (e) => (lastTouch = e.touches[0].pageY));
     // window.addEventListener('touchmove', (e) => scrollListener(lastTouch - e.touches[0].pageY > 0, e.target));
     window.addEventListener('wheel', (e) => scrollListener(e.deltaY > 0, e.target));
+    window.addEventListener('keydown', keyDown);
   }
 
   private mobile() {

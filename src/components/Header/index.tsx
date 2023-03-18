@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import classNames from 'classnames';
 import d, { useDictionary } from '../../utils/dictionary';
 import Icon from '../Icon';
@@ -13,7 +13,6 @@ const Header = () => {
   const [locale] = useDictionary();
   const [menuActive, setMenuActive] = useState(false);
   const [headerDark, setHeaderDark] = useState(false);
-  const ref = useRef<HTMLElement>(null);
 
   useEffect(() => {
     new Scroll(setHeaderDark).init();
@@ -31,7 +30,7 @@ const Header = () => {
 
   return (
     <>
-      <header className={classNames(styles.header, { [styles.dark]: headerDark })} ref={ref}>
+      <header className={classNames(styles.header, { [styles.dark]: headerDark })}>
         <div className={styles.logoContainer}>
           <div className={styles.logoHref}>
             <Icon name="logo" />

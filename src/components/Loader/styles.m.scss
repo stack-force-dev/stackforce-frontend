@@ -1,0 +1,11 @@
+.loading {
+  background-color: black;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  opacity: 1;
+  transition: opacity 0.8s ease;
+  z-index: 1000;
+}

@@ -32,7 +32,10 @@ const Menu = ({ setActive, active }: MenuPropsType) => {
   ];
 
   return (
-    <div className={classNames(styles.menu, 'menu', { [styles.active]: active })} onClick={() => setActive(false)}>
+    <div
+      className={classNames(styles.menu, 'ignore-scroll', { [styles.active]: active })}
+      onClick={() => setActive(false)}
+    >
       <div className={styles.header}>
         <SendFormButton />
         <div onClick={() => setActive(false)} className={styles.closeBtn}>
@@ -40,7 +43,7 @@ const Menu = ({ setActive, active }: MenuPropsType) => {
           <Icon name="close" />
         </div>
       </div>
-      <div className={styles.menuContent}>
+      <div className={classNames(styles.menuContent, 'ignore-scroll')}>
         <ul>
           {menuItems.map((item) => (
             <li data-text={item.name.toUpperCase()} key={item.name}>
