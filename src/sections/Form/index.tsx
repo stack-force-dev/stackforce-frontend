@@ -1,60 +1,77 @@
-import React from 'react';
-import { useForm, SubmitHandler } from 'react-hook-form';
+import React, { useState } from 'react';
 import { emailRegex } from './formRegex';
 import { fetchForm } from '../../api/serviceForm';
 
 import styles from './styles.m.scss';
 
 import Icon from '../../components/Icon';
+import { useMultistepForm } from '../../hooks/useMultistepForm';
+import Type from './Steps/Type';
+import IsAdaptive from './Steps/IsAdaptive';
+import State from './Steps/State';
+import StartDate from './Steps/StartDate';
+import Info from './Steps/Info';
 interface Inputs {
   email: string;
-  phone?: string;
+  phone: string;
   message: string;
-  type?: string;
-  is_adaptive?: boolean;
-  state?: string;
-  start_date?: string;
+  type: string;
+  is_adaptive: boolean;
+  state: string;
+  start_date: string;
 }
 
+const INITIAL_DATA: Inputs = {
+  email: '',
+  phone: '',
+  message: '',
+  type: '',
+  is_adaptive: true,
+  state: '',
+  start_date: '',
+};
 const Form = () => {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors, isValid },
-    reset,
-  } = useForm<Inputs>({
-    mode: 'onChange',
-  });
+  const [data, setData] = useState(INITIAL_DATA);
+  const stepsArray = [
+    <Type {...data} updateFields={updateFields} />,
+    <IsAdaptive {...data} updateFields={updateFields} />,
+    <State {...data} updateFields={updateFields} />,
+    <StartDate {...data} updateFields={updateFields} />,
+    // <Info {...data} updateFields={updateFields} />,
+  ];
 
-  const onSubmit: SubmitHandler<Inputs> = (data) => {
-    const sendForm = async (data: Inputs) => {
-      const response = await fetchForm(data);
-      alert(JSON.stringify(response));
-    };
-    sendForm(data);
-    reset();
-  };
+  function updateFields(fields: Partial<Inputs>) {
+    setData((prev) => {
+      return { ...prev, ...fields };
+    });
+  }
+  const { steps, currentStepIndex, step, isFirstStep, isLastStep, back, next } = useMultistepForm(stepsArray);
 
   return (
     <section className={styles.form} id="section-3">
-      <div>TEST</div>
-      <Icon name="menu" />
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <input
-          {...register('email', {
-            required: 'Не указана почта',
-            pattern: { value: emailRegex, message: 'Неверный формат почты' },
-          })}
-          placeholder="введите почту"
-        />
-        {errors?.email && <p>{errors?.email?.message}</p>}
-        <div>
-          <input {...register('message', { required: true })} placeholder="сообщение" />
+      <div className={styles.container}>
+        <div style={{ position: 'absolute', top: '.5rem', right: '.5rem' }}>
+          {currentStepIndex + 1} / {steps.length}
         </div>
-        <div>
-          <input type="submit" disabled={!isValid} />
+        {step}
+        <div
+          style={{
+            marginTop: '1rem',
+            display: 'flex',
+            gap: '.5rem',
+            justifyContent: 'flex-end',
+          }}
+        >
+          {!isFirstStep && (
+            <button type="button" onClick={back}>
+              Back
+            </button>
+          )}
+          <button type="button" onClick={next}>
+            {isLastStep ? 'Finish' : 'Next'}
+          </button>
         </div>
-      </form>
+      </div>
     </section>
   );
 };
