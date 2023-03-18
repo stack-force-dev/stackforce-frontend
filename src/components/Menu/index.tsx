@@ -48,7 +48,9 @@ const Menu = ({ setActive, active }: MenuPropsType) => {
             </li>
           ))}
         </ul>
-        <div onClick={setNextLocale} style={{color: "#fff"}}>lang</div>
+        <div onClick={setNextLocale} style={{ color: '#fff' }}>
+          lang
+        </div>
       </div>
     </div>
   );

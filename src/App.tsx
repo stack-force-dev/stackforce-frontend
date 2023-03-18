@@ -28,7 +28,7 @@ const App: FC = () => {
   }, []);
 
   return (
-    <Dictionary locales={["ru", "en"]}>
+    <Dictionary locales={['ru', 'en']}>
       <Header />
       <div ref={ref} className="init-loading"></div>
       <Intro />
