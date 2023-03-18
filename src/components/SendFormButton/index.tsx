@@ -1,5 +1,5 @@
 import React from 'react';
-import d, { useDictionary } from '../../dictionary';
+import d, { useDictionary } from '../../utils/dictionary';
 
 import styles from './styles.m.scss';
 

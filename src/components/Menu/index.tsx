@@ -2,7 +2,7 @@ import React, { Dispatch, SetStateAction, useEffect } from 'react';
 import classNames from 'classnames';
 import Icon from '../Icon';
 import SendFormButton from '../SendFormButton';
-import d, { useDictionary } from '../../dictionary';
+import d, { useDictionary } from '../../utils/dictionary';
 import styles from './styles.m.scss';
 
 interface MenuPropsType {

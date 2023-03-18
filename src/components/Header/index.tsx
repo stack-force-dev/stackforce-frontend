@@ -1,43 +1,13 @@
 import React, { useState, useEffect, useRef } from 'react';
 import classNames from 'classnames';
-import d, { useDictionary } from '../../dictionary';
+import d, { useDictionary } from '../../utils/dictionary';
 import Icon from '../Icon';
 import Menu from '../Menu';
 import SendFormButton from '../SendFormButton';
 
+import Scroll from '../../utils/scroll';
+
 import styles from './styles.m.scss';
-
-const DARK_HEADER_SCREENS = [3];
-
-const scrollToTarget = function (target, screen, down, setHeaderDark) {
-  const start = window.pageYOffset;
-  const top = target.getBoundingClientRect().top;
-
-  const duration = 500;
-
-  let startTime = 0;
-  let requestId;
-
-  const loop = (currentTime) => {
-    if (!startTime) startTime = currentTime;
-
-    const time = currentTime - startTime;
-
-    const percent = Math.min(time / duration, 1);
-    window.scrollTo(0, start + top * percent);
-
-    if (time < duration) {
-      requestId = window.requestAnimationFrame(loop);
-    } else {
-      window.cancelAnimationFrame(requestId);
-      if (down) setHeaderDark(DARK_HEADER_SCREENS.includes(screen));
-    }
-  };
-
-  if (!down) setHeaderDark(DARK_HEADER_SCREENS.includes(screen));
-
-  requestId = window.requestAnimationFrame(loop);
-};
 
 const Header = () => {
   const [locale] = useDictionary();
@@ -46,41 +16,7 @@ const Header = () => {
   const ref = useRef<HTMLElement>(null);
 
   useEffect(() => {
-    if (!ref.current) return;
-
-    let lastScroll = 0;
-    let scrolling = false;
-    let lastSrc = null;
-    let lastTouch = 0;
-
-    const scrollListener = (down, src) => {
-      if (!ref.current || scrolling || src === lastSrc || src.classList.contains('menu')) return;
-
-      scrolling = true;
-
-      const currentScroll = window.pageYOffset + 1;
-      const screen = Math.ceil(currentScroll / window.innerHeight) || 1;
-      const newScreen = down ? screen + 1 : screen - 1;
-
-      const section = document.querySelector(`#section-${newScreen}`);
-      if (!section) {
-        scrolling = false;
-        return;
-      }
-
-      scrollToTarget(section, newScreen, down, setHeaderDark);
-
-      setTimeout(() => {
-        scrolling = false;
-      }, 1000);
-
-      lastScroll = currentScroll;
-      lastSrc = src;
-    };
-
-    window.addEventListener('touchstart', (e) => (lastTouch = e.touches[0].pageY));
-    window.addEventListener('touchmove', (e) => scrollListener(lastTouch - e.touches[0].pageY > 0, e.target));
-    window.addEventListener('wheel', (e) => scrollListener(e.deltaY > 0, e.target));
+    new Scroll(setHeaderDark).init();
   }, []);
 
   const handleMenuActive = (active: boolean) => {
@@ -111,7 +47,7 @@ const Header = () => {
           </div>
         </div>
       </header>
-      <Menu active={menuActive} setActive={handleMenuActive} />
+      <Menu active={menuActive} setActive={setMenuActive} />
     </>
   );
 };

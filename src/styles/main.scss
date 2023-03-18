@@ -1,3 +1,5 @@
+@import "./vars.scss";
+
 * {
   box-sizing: border-box;
 }
@@ -26,6 +28,10 @@ body {
 
   scroll-behavior: smooth;
   overflow-y: hidden;
+
+  @media screen and (max-width: $mobile) {
+    overflow-y: auto;
+  }
 }
 
 h1,

@@ -3,7 +3,7 @@ import Intro from './sections/Intro';
 import Summary from './sections/Summary';
 import Form from './sections/Form';
 import Header from './components/Header';
-import { Dictionary } from './dictionary';
+import { Dictionary } from './utils/dictionary';
 import './styles/index.scss';
 
 const App: FC = () => {
