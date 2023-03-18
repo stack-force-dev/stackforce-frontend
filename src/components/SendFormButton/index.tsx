@@ -1,14 +1,14 @@
-import React, { useContext } from 'react';
-import l, { LocaleContext, getLocaleTitle, getNextLocale } from '../../utils/Locates/locates';
+import React from 'react';
+import d, { useDictionary } from '../../dictionary';
 
 import styles from './styles.m.scss';
 
 const SendFormButton = () => {
-  const locale = useContext(LocaleContext);
+  const [locale] = useDictionary();
 
   return (
     <div className={styles.sendForm}>
-      <a href="#a">{l.header.sendForm[locale]}</a>
+      <a href="#a">{d.header.sendForm[locale]}</a>
     </div>
   );
 };

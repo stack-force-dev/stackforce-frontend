@@ -1,6 +1,6 @@
-import React, { useState, useEffect, useRef, useContext } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import classNames from 'classnames';
-import l, { LocaleContext, getLocaleTitle, getNextLocale } from '../../utils/Locates/locates';
+import d, { useDictionary } from '../../dictionary';
 import Icon from '../Icon';
 import Menu from '../Menu';
 import SendFormButton from '../SendFormButton';
@@ -40,7 +40,7 @@ const scrollToTarget = function (target, screen, down, setHeaderDark) {
 };
 
 const Header = () => {
-  const locale = useContext(LocaleContext);
+  const [locale] = useDictionary();
   const [menuActive, setMenuActive] = useState(false);
   const [headerDark, setHeaderDark] = useState(false);
   const ref = useRef<HTMLElement>(null);
@@ -99,14 +99,14 @@ const Header = () => {
         <div className={styles.logoContainer}>
           <div className={styles.logoHref}>
             <Icon name="logo" />
-            <div className={styles.logoTitle}>{l.header.title[locale]}</div>
+            <div className={styles.logoTitle}>{d.header.title[locale]}</div>
           </div>
-          <div className={styles.logoSubTitle}>{l.header.subTitle[locale]}</div>
+          <div className={styles.logoSubTitle}>{d.header.subTitle[locale]}</div>
         </div>
         <div className={styles.navContainer}>
           <SendFormButton />
           <div onClick={() => handleMenuActive(true)} className={styles.burgerBtn}>
-            <div className={styles.burgerTitle}>{l.header.menu[locale]}</div>
+            <div className={styles.burgerTitle}>{d.header.menu[locale]}</div>
             <Icon name="menu" />
           </div>
         </div>
