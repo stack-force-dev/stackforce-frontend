@@ -1,4 +1,4 @@
-import { StepType } from './types';
+import { StepType } from '../../types/request';
 
 export const stepsCards: Array<StepType> = [
   {

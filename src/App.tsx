@@ -1,7 +1,7 @@
 import React, { FC, useEffect } from 'react';
 import Intro from './sections/Intro';
 import Summary from './sections/Summary';
-import Form from './sections/Form';
+import Request from './sections/Request';
 import Header from './components/Header';
 import Loader from './components/Loader';
 import { Dictionary } from './utils/dictionary';
@@ -17,7 +17,7 @@ const App: FC = () => {
       <Loader />
       <Intro />
       <Summary />
-      <Form />
+      <Request />
       <section id="section-4"></section>
     </Dictionary>
   );

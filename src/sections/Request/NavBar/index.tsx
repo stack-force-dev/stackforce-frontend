@@ -2,7 +2,7 @@ import React from 'react';
 import classNames from 'classnames';
 
 import styles from './styles.m.scss';
-import type { StepType } from '../../types';
+import type { StepType } from '../../../types/request';
 
 interface NavBarProps {
   config: Array<StepType>;
@@ -26,6 +26,7 @@ const NavBar = ({ config, currentStep, handleChoose }: NavBarProps) => {
           {title}
         </div>
       ))}
+      <div className={classNames(styles.item, { [styles.active]: config.length === currentStep })}>Ваши контакты</div>
     </div>
   );
 };

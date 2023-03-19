@@ -1,9 +1,9 @@
 import React from 'react';
 
-import Icon from '../../../../components/Icon';
-import type { CardType } from '../../types';
+import Icon from '../../../components/Icon';
+import type { CardType } from '../../../types/request';
 
-import styles from '../styles.m.scss';
+import styles from './styles.m.scss';
 
 type CardProps = {
   data: CardType;
@@ -15,7 +15,7 @@ const Card = ({ data, handleChoose }: CardProps) => {
     <div className={styles.chooseItem} onClick={() => handleChoose(data.value)}>
       <div className={styles.container}>
         <div className={styles.itemLogo}>
-          <Icon name="formBag" />
+          <Icon name="requestBag" />
         </div>
         <div className={styles.itemTitle}>{data.title}</div>
         <div className={styles.itemSubtitle}>{data.description}</div>

@@ -1,7 +1,7 @@
 import React from 'react';
 
-import Card from '../../components/Card';
-import type { StepType } from '../../types';
+import Card from '../Card';
+import type { StepType } from '../../../types/request';
 
 import styles from './styles.m.scss';
 
@@ -11,14 +11,10 @@ type StepProps = {
 };
 
 const Step = ({ config, handleChoose }: StepProps) => {
-  const handleClick = (value: number | boolean) => {
-    // setData((prev) => ({ ...prev, [config.key]: value }));
-  };
-
   return (
     <>
       <div className={styles.title}>{config.name}</div>
-      <div className={styles.form}>
+      <div className={styles.step}>
         {config.cards.map((card) => (
           <Card data={card} key={card.title} handleChoose={handleChoose} />
         ))}

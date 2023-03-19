@@ -18,3 +18,9 @@ export type StepType = {
   key: keyof StepsData;
   cards: Array<CardType>;
 };
+
+export type FormData = {
+  email: string;
+  phone: string;
+  message: string;
+};
