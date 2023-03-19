@@ -1,19 +1,19 @@
 import React from 'react';
 import Icon from '../../../../components/Icon';
-import { TypeFormProps } from '../../../../models/typeProjectStep';
+import { StartDateProps } from '../../../../models/startDateStep';
 
 import styles from '../styles.m.scss';
 
-interface StepItemData {
+interface StepStartDateData {
   title: string;
   subtitle: string;
 }
 
-const TypeItem = ({ title, subtitle, updateFields, next, setStepStatus }: StepItemData & TypeFormProps) => {
+const IsAdaptiveItem = ({ title, subtitle, updateFields, next, setStepStatus }: StepStartDateData & StartDateProps) => {
   const handleChoose = () => {
-    updateFields({ type: title });
+    updateFields({ start_date: title });
     setStepStatus((prev) => {
-      return { ...prev, type: 'success', is_adaptive: 'active' };
+      return { ...prev, start_date: 'success' };
     });
     next();
   };
@@ -31,4 +31,4 @@ const TypeItem = ({ title, subtitle, updateFields, next, setStepStatus }: StepIt
   );
 };
 
-export default TypeItem;
+export default IsAdaptiveItem;

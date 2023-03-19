@@ -1,4 +1,6 @@
 import React from 'react';
+import { stepActiveInputs } from '../../../models/stepStatus';
+import { TypeData, TypeFormProps } from '../../../models/typeProjectStep';
 import TypeItem from '../components/TypeItem/TypeItem';
 import FormWrapper from '../FormWrapper/FormWrapper';
 
@@ -9,18 +11,18 @@ const typeItem = [
   { title: 'Другой', subTitle: 'Электронная коммерция' },
 ];
 
-type TypeData = {
-  type: string;
-};
-type TypeFormProps = TypeData & {
-  updateFields: (fields: Partial<TypeData>) => void;
-};
-
-const Type = ({ type, updateFields }: TypeFormProps) => {
+const Type = ({ type, updateFields, next, setStepStatus }: TypeData & TypeFormProps) => {
   return (
     <FormWrapper title="Выберите тип вашего проекта">
       {typeItem.map((item) => (
-        <TypeItem key={item.title} title={item.title} subtitle={item.subTitle} updateFields={updateFields} />
+        <TypeItem
+          key={item.title}
+          title={item.title}
+          subtitle={item.subTitle}
+          updateFields={updateFields}
+          next={next}
+          setStepStatus={setStepStatus}
+        />
       ))}
     </FormWrapper>
   );
