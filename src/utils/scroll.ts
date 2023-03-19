@@ -10,7 +10,7 @@ class Scroll {
   }
 
   public init() {
-    this.links()
+    this.links();
 
     if (window.innerWidth < 1024) return this.mobile();
     this.desktop();
@@ -80,7 +80,7 @@ class Scroll {
         const section = document.querySelector(`#section-${newScreen}`);
         if (!section) return;
 
-        section.scrollIntoView()
+        section.scrollIntoView();
         this.setHeaderDark(this.DARK_HEADER_SCREENS.includes(newScreen));
       });
     });

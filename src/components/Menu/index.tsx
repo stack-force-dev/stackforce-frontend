@@ -40,7 +40,7 @@ const Menu = ({ setActive, active }: MenuPropsType) => {
       <div className={classNames(styles.menuContent, 'ignore-scroll')}>
         <ul>
           {routes(locale).map((item, index) => (
-            <li key={item.name} data-text={item.name.toUpperCase()} data-section={index + 1} className='route-link'>
+            <li key={item.name} data-text={item.name.toUpperCase()} data-section={index + 1} className={'route-link'}>
               {item.name}
             </li>
           ))}
