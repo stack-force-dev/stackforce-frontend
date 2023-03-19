@@ -1,6 +1,44 @@
 .form {
-  background-color: #F7F8FC;
+  background-color: #f7f8fc;
   display: flex;
   justify-content: center;
   align-items: center;
+  .container {
+    position: relative;
+    border: 1px solid black;
+    padding: 15px;
+    border-radius: 0.5rem;
+    width: 800px;
+    height: 424px;
+    .header {
+      display: flex;
+      align-items: center;
+      padding: 0px;
+      gap: 16px;
+      margin-bottom: 20px;
+      .formBack {
+        cursor: pointer;
+      }
+      .stepsTitle {
+        font-style: normal;
+        font-weight: 600;
+        font-size: 12px;
+        line-height: 167%;
+        color: #0071ff;
+      }
+      .progressBar {
+        width: 150px;
+        height: 8px;
+        background: #e0e0e0;
+        border-radius: 10px;
+        div {
+          height: 8px;
+          width: 25%;
+          background-color: #0071ff;
+          border-radius: 10px;
+          transition: all 0.3s;
+        }
+      }
+    }
+  }
 }
