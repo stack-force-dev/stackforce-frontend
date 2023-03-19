@@ -6,11 +6,9 @@
   font-size: 18px;
   line-height: 32px;
   cursor: pointer;
-  a {
-    color: #ffffff;
-    text-decoration: none;
-    &:hover {
-      color: $primary;
-    }
+  color: #ffffff;
+  text-decoration: none;
+  &:hover {
+    color: $primary;
   }
 }
