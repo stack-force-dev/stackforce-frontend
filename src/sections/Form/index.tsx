@@ -1,9 +1,6 @@
 import React, { useState } from 'react';
 import { emailRegex } from './formRegex';
 import { fetchForm } from '../../api/serviceForm';
-
-import styles from './styles.m.scss';
-
 import Icon from '../../components/Icon';
 import { useMultistepForm } from '../../hooks/useMultistepForm';
 import Type from './Steps/Type';
@@ -11,6 +8,9 @@ import IsAdaptive from './Steps/IsAdaptive';
 import State from './Steps/State';
 import StartDate from './Steps/StartDate';
 import Info from './Steps/Info';
+
+import styles from './styles.m.scss';
+
 interface Inputs {
   email: string;
   phone: string;
@@ -32,6 +32,13 @@ const INITIAL_DATA: Inputs = {
 };
 const Form = () => {
   const [data, setData] = useState(INITIAL_DATA);
+
+  const updateFields = (fields: Partial<Inputs>) => {
+    setData((prev) => {
+      return { ...prev, ...fields };
+    });
+  };
+
   const stepsArray = [
     <Type {...data} updateFields={updateFields} />,
     <IsAdaptive {...data} updateFields={updateFields} />,
@@ -40,11 +47,6 @@ const Form = () => {
     // <Info {...data} updateFields={updateFields} />,
   ];
 
-  function updateFields(fields: Partial<Inputs>) {
-    setData((prev) => {
-      return { ...prev, ...fields };
-    });
-  }
   const { steps, currentStepIndex, step, isFirstStep, isLastStep, back, next } = useMultistepForm(stepsArray);
 
   return (
