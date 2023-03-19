@@ -18,26 +18,24 @@ class Scroll {
 
   private desktop() {
     let scrolling = false;
-    let lastSrc = null;
-    let lastScreen = 1;
+    let lastSection = 0;
     // let lastTouch = 0;
 
-    const scrollListener = (down, src, keyScroll = false) => {
-      if (scrolling || (!keyScroll && src === lastSrc) || src?.classList.contains('ignore-scroll')) return;
+    const scrollListener = (down, section, keyScroll = false) => {
+      if (scrolling || (!keyScroll && section === lastSection)) return;
 
       scrolling = true;
 
       const currentScroll = window.pageYOffset + 1;
       const screen = Math.ceil(currentScroll / window.innerHeight) || 1;
       const newScreen = down ? screen + 1 : screen - 1;
-
-      const section = document.querySelector(`#section-${newScreen}`);
-      if (!section) {
+      const newSection = document.querySelector(`#section-${newScreen}`);
+      if (!newSection) {
         scrolling = false;
         return;
       }
 
-      this.scrollToTarget(section, newScreen, down);
+      this.scrollToTarget(newSection, newScreen, down);
 
       setTimeout(
         () => {
@@ -46,18 +44,33 @@ class Scroll {
         keyScroll ? 200 : 1000
       );
 
-      lastSrc = src;
-      lastScreen = newScreen;
+      lastSection = section;
     };
 
     const keyDown = (e: KeyboardEvent) => {
-      if (e.key === 'ArrowDown') return scrollListener(true, lastSrc, true);
-      if (e.key === 'ArrowUp') return scrollListener(false, lastSrc, true);
+      if (e.key === 'ArrowDown') return scrollListener(true, lastSection, true);
+      if (e.key === 'ArrowUp') return scrollListener(false, lastSection, true);
+    };
+
+    const getSection = (target: Element): number | null => {
+      const { parentElement } = target;
+      if (!parentElement) return null;
+
+      const [section, id] = parentElement.id.split('-');
+      if (section === 'section') return Number(id);
+
+      return getSection(parentElement);
     };
 
     // window.addEventListener('touchstart', (e) => (lastTouch = e.touches[0].pageY));
     // window.addEventListener('touchmove', (e) => scrollListener(lastTouch - e.touches[0].pageY > 0, e.target));
-    window.addEventListener('wheel', (e) => scrollListener(e.deltaY > 0, e.target));
+    window.addEventListener('wheel', (e) => {
+      const target = e.target as Element;
+      const section = getSection(target);
+      if (target.classList.contains('ignore-scroll')) return;
+
+      scrollListener(e.deltaY > 0, section || 1);
+    });
     window.addEventListener('keydown', keyDown);
   }
 
