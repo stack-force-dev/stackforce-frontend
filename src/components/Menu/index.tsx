@@ -3,6 +3,8 @@ import classNames from 'classnames';
 import Icon from '../Icon';
 import SendFormButton from '../SendFormButton';
 import d, { useDictionary } from '../../utils/dictionary';
+import { routes } from '../../config';
+
 import styles from './styles.m.scss';
 
 interface MenuPropsType {
@@ -23,14 +25,6 @@ const Menu = ({ setActive, active }: MenuPropsType) => {
     return () => window.removeEventListener('keydown', close);
   }, [active]);
 
-  const menuItems = [
-    { name: d.menu.main[locale], path: '#' },
-    { name: d.menu.about[locale], path: '#' },
-    { name: d.menu.technology[locale], path: '#section-3' },
-    { name: d.menu.team[locale], path: '#' },
-    { name: d.menu.contacts[locale], path: '#' },
-  ];
-
   return (
     <div
       className={classNames(styles.menu, 'ignore-scroll', { [styles.active]: active })}
@@ -45,9 +39,9 @@ const Menu = ({ setActive, active }: MenuPropsType) => {
       </div>
       <div className={classNames(styles.menuContent, 'ignore-scroll')}>
         <ul>
-          {menuItems.map((item) => (
-            <li data-text={item.name.toUpperCase()} key={item.name}>
-              <a href={item.path}>{item.name}</a>
+          {routes(locale).map((item, index) => (
+            <li key={item.name} data-text={item.name.toUpperCase()} data-section={index + 1} className='route-link'>
+              {item.name}
             </li>
           ))}
         </ul>

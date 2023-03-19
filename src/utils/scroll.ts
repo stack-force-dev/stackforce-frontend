@@ -1,7 +1,8 @@
-import { Dispatch, SetStateAction } from 'react';
+import { Dispatch, SetStateAction, SyntheticEvent } from 'react';
+import { darkSections } from '../config';
 
 class Scroll {
-  private DARK_HEADER_SCREENS = [3];
+  private DARK_HEADER_SCREENS = darkSections;
   private setHeaderDark;
 
   constructor(setHeaderDark: Dispatch<SetStateAction<boolean>>) {
@@ -9,6 +10,8 @@ class Scroll {
   }
 
   public init() {
+    this.links()
+
     if (window.innerWidth < 1024) return this.mobile();
     this.desktop();
   }
@@ -34,7 +37,7 @@ class Scroll {
         return;
       }
 
-      this.scrollToTarget(section, newScreen, down, this.setHeaderDark);
+      this.scrollToTarget(section, newScreen, down);
 
       setTimeout(
         () => {
@@ -67,7 +70,23 @@ class Scroll {
     });
   }
 
-  private scrollToTarget(target, screen, down, setHeaderDark) {
+  private links() {
+    const links = document.querySelectorAll('.route-link');
+
+    links.forEach((link) => {
+      link?.addEventListener('click', (e) => {
+        const newScreen = Number((e.target as HTMLTextAreaElement).getAttribute('data-section'));
+
+        const section = document.querySelector(`#section-${newScreen}`);
+        if (!section) return;
+
+        section.scrollIntoView()
+        this.setHeaderDark(this.DARK_HEADER_SCREENS.includes(newScreen));
+      });
+    });
+  }
+
+  private scrollToTarget(target, screen, down) {
     const start = window.pageYOffset;
     const top = target.getBoundingClientRect().top;
 
@@ -88,11 +107,11 @@ class Scroll {
         requestId = window.requestAnimationFrame(loop);
       } else {
         window.cancelAnimationFrame(requestId);
-        if (down) setHeaderDark(this.DARK_HEADER_SCREENS.includes(screen));
+        if (down) this.setHeaderDark(this.DARK_HEADER_SCREENS.includes(screen));
       }
     };
 
-    if (!down) setHeaderDark(this.DARK_HEADER_SCREENS.includes(screen));
+    if (!down) this.setHeaderDark(this.DARK_HEADER_SCREENS.includes(screen));
 
     requestId = window.requestAnimationFrame(loop);
   }

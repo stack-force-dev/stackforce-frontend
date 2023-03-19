@@ -50,23 +50,21 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
+    position: relative;
     li {
-      a {
-        position: relative;
-        display: block;
-        padding: 20px;
-        width: 331px;
-        height: 100px;
-        text-decoration: none;
-        overflow: hidden;
-        color: #fff;
-        font-style: normal;
-        font-weight: 600;
-        font-size: 48px;
-        line-height: 60px;
-        &:hover {
-          color: $primary;
-        }
+      display: block;
+      padding: 20px;
+      width: 331px;
+      height: 100px;
+      text-decoration: none;
+      overflow: hidden;
+      color: #fff;
+      font-style: normal;
+      font-weight: 600;
+      font-size: 48px;
+      line-height: 60px;
+      &:hover {
+        color: $primary;
       }
     }
   }
@@ -106,12 +104,10 @@ ul li:hover::before {
     }
     ul {
       li {
-        a {
-          width: 234px;
-          height: 80px;
-          font-size: 32px;
-          line-height: 40px;
-        }
+        width: 234px;
+        height: 80px;
+        font-size: 32px;
+        line-height: 40px;
       }
     }
   }
