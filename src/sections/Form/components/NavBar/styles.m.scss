@@ -5,20 +5,22 @@
   line-height: 120%;
   color: #081c3a;
 }
-.active {
-  color: #081c3a;
-}
-.unActive {
-  color: #a4abb8;
-  pointer-events: none;
-}
-.success {
-  color: #0071ff;
-  cursor: pointer;
-}
 .item {
   display: flex;
   justify-content: flex-start;
   align-items: center;
   padding: 14px 12px;
+  color: #a4abb8;
+}
+
+.active {
+  color: #081c3a;
+}
+// .unActive {
+//   color: #a4abb8;
+//   pointer-events: none;
+// }
+.success {
+  color: #0071ff;
+  cursor: pointer;
 }
