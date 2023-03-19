@@ -1,12 +1,8 @@
-import React, { ReactElement, useState } from 'react';
-import { emailRegex } from './formRegex';
-import { fetchForm } from '../../api/serviceForm';
+import React, { useState } from 'react';
 import Type from './Steps/Type';
 import IsAdaptive from './Steps/IsAdaptive';
 import State from './Steps/State';
 import StartDate from './Steps/StartDate';
-import Info from './Steps/Info';
-
 import styles from './styles.m.scss';
 import { stepActiveData } from '../../models/stepStatus';
 import { Inputs } from '../../models/inputs';
@@ -26,7 +22,7 @@ const Form = () => {
   const [data, setData] = useState(INITIAL_DATA); // хранилище формы
   const [currentStepIndex, setCurrentStepIndex] = useState(0); //хранилище номера текущего шага
   const [stepStatus, setStepStatus] = useState(stepActiveData);
-  let isFirstStep = currentStepIndex === 0;
+  const isFirstStep = currentStepIndex === 0;
 
   // функция для обновления статуса шага при переходе
   const reloadStepStatus = (index: number) => {
@@ -110,14 +106,14 @@ const Form = () => {
   };
 
   const stepsArray = [
-    <Type {...data} updateFields={updateFields} next={next()} setStepStatus={setStepStatus} />,
-    <IsAdaptive {...data} updateFields={updateFields} next={next()} setStepStatus={setStepStatus} />,
-    <State {...data} updateFields={updateFields} next={next()} setStepStatus={setStepStatus} />,
-    <StartDate {...data} updateFields={updateFields} next={next()} setStepStatus={setStepStatus} />,
+    <Type {...data} updateFields={updateFields} next={next()} setStepStatus={setStepStatus} key="type" />,
+    <IsAdaptive {...data} updateFields={updateFields} next={next()} setStepStatus={setStepStatus} key="isAdaptive" />,
+    <State {...data} updateFields={updateFields} next={next()} setStepStatus={setStepStatus} key="state" />,
+    <StartDate {...data} updateFields={updateFields} next={next()} setStepStatus={setStepStatus} key="startDate" />,
     // <Info {...data} updateFields={updateFields} />,
   ];
 
-  let step = stepsArray[currentStepIndex];
+  const step = stepsArray[currentStepIndex];
   // let isLastStep = currentStepIndex === stepsArray.length - 1;
 
   return (
