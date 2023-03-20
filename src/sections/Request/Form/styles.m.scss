@@ -89,6 +89,61 @@
       align-items: center;
       color: #a4abb8;
     }
+    .file {
+      display: flex;
+      justify-content: flex-start;
+      gap: 15px;
+      align-items: center;
+      margin-bottom: 15px;
+      .uploadFileBtn {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 5px 0;
+        width: 184px;
+        height: 48px;
+        border-radius: 100px;
+        gap: 8px;
+        cursor: pointer;
+        &:hover {
+          box-shadow: 0 8px 20px rgba(0, 0, 0, 0.11);
+        }
+        .btnTitleContainer {
+          .btntitle {
+            font-style: normal;
+            font-weight: 500;
+            font-size: 14px;
+            line-height: 20px;
+            display: flex;
+            align-items: center;
+            color: #0071ff;
+          }
+          .btnSubtitle {
+            font-style: normal;
+            font-weight: 400;
+            font-size: 12px;
+            line-height: 16px;
+            display: flex;
+            align-items: center;
+            color: #516381;
+          }
+        }
+      }
+      .attachmentFileContainer {
+        display: flex;
+        align-items: center;
+        user-select: none;
+        cursor: pointer;
+        .attachmentFileName {
+          font-style: normal;
+          font-weight: 500;
+          font-size: 14px;
+          line-height: 20px;
+          text-align: center;
+          color: #516381;
+        }
+      }
+    }
     .btnSendForm {
       display: flex;
       justify-content: center;
