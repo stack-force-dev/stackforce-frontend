@@ -26,8 +26,8 @@ class Scroll {
 
       scrolling = true;
 
-      const currentScroll = window.pageYOffset + 1;
-      const screen = Math.ceil(currentScroll / window.innerHeight) || 1;
+      const currentScroll = window.pageYOffset + 2;
+      const screen = Math.ceil(currentScroll / window.innerHeight)  || 1;
       const newScreen = down ? screen + 1 : screen - 1;
       const newSection = document.querySelector(`#section-${newScreen}`);
       if (!newSection) {
@@ -53,11 +53,11 @@ class Scroll {
     };
 
     const getSection = (target: Element): number | null => {
+      const [section, id] = target.id.split('-');
+      if (section === 'section') return Number(id);
+
       const { parentElement } = target;
       if (!parentElement) return null;
-
-      const [section, id] = parentElement.id.split('-');
-      if (section === 'section') return Number(id);
 
       return getSection(parentElement);
     };
@@ -66,10 +66,11 @@ class Scroll {
     // window.addEventListener('touchmove', (e) => scrollListener(lastTouch - e.touches[0].pageY > 0, e.target));
     window.addEventListener('wheel', (e) => {
       const target = e.target as Element;
-      const section = getSection(target);
-      if (target.classList.contains('ignore-scroll')) return;
 
-      scrollListener(e.deltaY > 0, section || 1);
+      const section = getSection(target);
+      if (!section || target.classList.contains('ignore-scroll')) return;
+
+      scrollListener(e.deltaY > 0, section);
     });
     window.addEventListener('keydown', keyDown);
   }

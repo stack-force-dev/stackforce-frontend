@@ -1,7 +1,7 @@
 import React from 'react';
 import Tilt from 'react-parallax-tilt';
 import d, { useDictionary } from '../../utils/dictionary';
-
+import Loader from '../../components/Loader';
 import styles from './styles.m.scss';
 
 const Intro = () => {
@@ -9,6 +9,7 @@ const Intro = () => {
 
   return (
     <section className={styles.intro} id="section-1">
+      <Loader />
       <div className={styles.introContainer}>
         <video className={styles.video} autoPlay muted playsInline loop>
           <source src="https://api.stackforce.ru/static/intro.mp4" type="video/mp4" />

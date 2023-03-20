@@ -3,7 +3,6 @@ import Intro from './sections/Intro';
 import Summary from './sections/Summary';
 import Request from './sections/Request';
 import Header from './components/Header';
-import Loader from './components/Loader';
 import { Dictionary } from './utils/dictionary';
 
 const App: FC = () => {
@@ -14,7 +13,6 @@ const App: FC = () => {
   return (
     <Dictionary locales={['ru', 'en']}>
       <Header />
-      <Loader />
       <Intro />
       <Summary />
       <Request />
