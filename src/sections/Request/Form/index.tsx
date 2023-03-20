@@ -1,8 +1,9 @@
-import React, { ChangeEvent, useState } from "react";
+import React, { ChangeEvent, useRef, useState } from "react";
 
-import type { FormData } from "@interfaces/request";
+import type { AttachmentFileData, FormData } from "@interfaces/request";
 
 import styles from "./styles.m.scss";
+import Icon from "@root/components/Icon";
 
 type FormProps = {
   handleSendData: (payload: FormData) => void;
@@ -15,8 +16,19 @@ const initState: FormData = {
   file: null,
 };
 const MAX_FILE_SIZE = 5 * 1024 * 1024;
+
 const From = ({ handleSendData }: FormProps) => {
   const [formData, setFormData] = useState<FormData>(initState);
+  const [attachmentFile, setAttachmentFile] = useState<AttachmentFileData>({ attached: false, name: "" });
+  const hiddenFileInput = useRef<HTMLInputElement>(null);
+
+  const handleClickUploadFile = () => {
+    if (hiddenFileInput.current) hiddenFileInput.current.click();
+  };
+  const handleClickDelAttachmentFile = () => {
+    setAttachmentFile({ attached: false, name: "" });
+    setFormData((prev) => ({ ...prev, file: null }));
+  };
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -35,6 +47,8 @@ const From = ({ handleSendData }: FormProps) => {
 
     const file = files[0];
     if (file.size > MAX_FILE_SIZE) return console.error("File size too much");
+
+    setAttachmentFile({ attached: true, name: file.name });
 
     const reader = new FileReader();
     reader.readAsDataURL(files[0]);
@@ -90,7 +104,22 @@ const From = ({ handleSendData }: FormProps) => {
           ></textarea>
         </div>
         <div className={styles.file}>
-          <input type="file" onChange={uploadFile} />
+          <div onClick={handleClickUploadFile} className={styles.uploadFileBtn}>
+            <Icon name="upload" />
+            <div className={styles.btnTitleContainer}>
+              <div className={styles.btntitle}>Добавить файл</div>
+              <div className={styles.btnSubtitle}>до 5 Мб</div>
+            </div>
+          </div>
+          {attachmentFile.attached && (
+            <div onClick={handleClickDelAttachmentFile} className={styles.attachmentFileContainer}>
+              <div className={styles.attachmentFileName}>{attachmentFile.name}</div>
+              <div className={styles.attachmentFileCloseBtn}>
+                <Icon name="delFile" fill="#b82428" />
+              </div>
+            </div>
+          )}
+          <input ref={hiddenFileInput} type="file" onChange={uploadFile} style={{ display: "none" }} />
         </div>
         <button type="submit" className={styles.btnSendForm}>
           Отправить заявку

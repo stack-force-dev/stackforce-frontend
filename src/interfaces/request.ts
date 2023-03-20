@@ -26,3 +26,8 @@ export type FormData = {
   message: string;
   file: string | ArrayBuffer | null;
 };
+
+export type AttachmentFileData = {
+  attached: boolean;
+  name: string;
+};
