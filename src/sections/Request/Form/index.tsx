@@ -1,9 +1,10 @@
 import React, { ChangeEvent, useRef, useState } from "react";
 
+import Icon from "@root/components/Icon";
+
 import type { AttachmentFileData, FormData } from "@interfaces/request";
 
 import styles from "./styles.m.scss";
-import Icon from "@root/components/Icon";
 
 type FormProps = {
   handleSendData: (payload: FormData) => void;
