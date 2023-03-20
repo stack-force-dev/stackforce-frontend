@@ -9,6 +9,7 @@ import { stepsCards } from './config';
 import type { StepsData, FormData } from '../../types/request';
 
 import styles from './styles.m.scss';
+import api from '../../api/serviceForm';
 
 const Request = () => {
   const [currentStep, setCurrentStep] = useState(0);
@@ -34,9 +35,8 @@ const Request = () => {
     });
   };
 
-  const handleSubmit = (payload: FormData) => {
-    // eslint-disable-next-line no-console
-    console.log({ ...payload, ...stepsData });
+  const handleSendData = (payload: FormData) => {
+    api.post('/claim', { ...payload, ...stepsData });
   };
 
   const getProgressBarWidth = () => {
@@ -44,13 +44,13 @@ const Request = () => {
       case 4:
         return 100;
       case 3:
-        return 75;
+        return 80;
       case 2:
-        return 50;
+        return 60;
       case 1:
-        return 25;
+        return 40;
       default:
-        return 0;
+        return 20;
     }
   };
 
@@ -58,11 +58,13 @@ const Request = () => {
     <section className={styles.request} id="section-3">
       <div className={styles.container}>
         <div className={styles.header}>
-          {!!currentStep && (
-            <div onClick={handleReturn} className={styles.requestBack}>
-              <Icon name="requestBack" />
-            </div>
-          )}
+          <div className={styles.requestBackContainer}>
+            {!!currentStep && (
+              <div onClick={handleReturn} className={styles.requestBack}>
+                <Icon name="requestBack" />
+              </div>
+            )}
+          </div>
           <div className={styles.stepsTitle}>
             ШАГ {currentStep + 1} ИЗ {stepsCards.length + 1}
           </div>
@@ -71,7 +73,7 @@ const Request = () => {
           </div>
         </div>
 
-        {!formActive ? <Step config={step} handleChoose={handleChoose} /> : <Form handleSubmit={handleSubmit} />}
+        {!formActive ? <Step config={step} handleChoose={handleChoose} /> : <Form handleSendData={handleSendData} />}
       </div>
       <NavBar config={stepsCards} currentStep={currentStep} handleChoose={setCurrentStep} />
     </section>

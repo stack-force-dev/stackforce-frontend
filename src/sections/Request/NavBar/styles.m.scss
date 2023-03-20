@@ -11,16 +11,13 @@
   align-items: center;
   padding: 14px 12px;
   color: #a4abb8;
+  pointer-events: none;
 }
-
 .active {
   color: #081c3a;
 }
-// .unActive {
-//   color: #a4abb8;
-//   pointer-events: none;
-// }
 .success {
   color: #0071ff;
+  pointer-events: auto;
   cursor: pointer;
 }
