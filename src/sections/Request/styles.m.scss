@@ -16,8 +16,11 @@
       padding: 0px;
       gap: 16px;
       margin-bottom: 20px;
-      .requestBack {
-        cursor: pointer;
+      .requestBackContainer {
+        width: 16px;
+        .requestBack {
+          cursor: pointer;
+        }
       }
       .stepsTitle {
         font-style: normal;

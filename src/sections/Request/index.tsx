@@ -44,13 +44,13 @@ const Request = () => {
       case 4:
         return 100;
       case 3:
-        return 75;
+        return 80;
       case 2:
-        return 50;
+        return 60;
       case 1:
-        return 25;
+        return 40;
       default:
-        return 0;
+        return 20;
     }
   };
 
@@ -58,11 +58,13 @@ const Request = () => {
     <section className={styles.request} id="section-3">
       <div className={styles.container}>
         <div className={styles.header}>
-          {!!currentStep && (
-            <div onClick={handleReturn} className={styles.requestBack}>
-              <Icon name="requestBack" />
-            </div>
-          )}
+          <div className={styles.requestBackContainer}>
+            {!!currentStep && (
+              <div onClick={handleReturn} className={styles.requestBack}>
+                <Icon name="requestBack" />
+              </div>
+            )}
+          </div>
           <div className={styles.stepsTitle}>
             ШАГ {currentStep + 1} ИЗ {stepsCards.length + 1}
           </div>
