@@ -13,9 +13,6 @@ module.exports = (env, { mode }) => {
   return {
     mode,
     entry: path.join(__dirname, 'src', 'index.tsx'),
-    resolve: {
-      extensions: ['.tsx', '.ts', '.js', '.jsx'],
-    },
     output: {
       filename: 'bundle.js',
       path: path.resolve(__dirname, 'build'),
@@ -83,6 +80,22 @@ module.exports = (env, { mode }) => {
           ],
         },
       ],
+    },
+
+    resolve: {
+      extensions: ['.ts', '.js', '.tsx', '.json', '.scss', '.css', '.m.scss', '.m.css'],
+      modules: [path.resolve(__dirname, './src'), './node_modules'],
+
+      alias: {
+        '@root': path.resolve(__dirname, './src'),
+        '@api': path.resolve(__dirname, './src/api'),
+        '@assets': path.resolve(__dirname, './src/assets'),
+        '@components': path.resolve(__dirname, './src/components'),
+        '@sections': path.resolve(__dirname, './src/sections'),
+        '@styles': path.resolve(__dirname, './src/styles'),
+        '@interfaces': path.resolve(__dirname, './src/interfaces'),
+        '@utils': path.resolve(__dirname, './src/utils'),
+      },
     },
 
     performance: {

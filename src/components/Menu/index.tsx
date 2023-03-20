@@ -1,9 +1,9 @@
 import React, { Dispatch, SetStateAction, useEffect } from 'react';
 import classNames from 'classnames';
-import Icon from '../Icon';
-import SendFormButton from '../SendFormButton';
-import d, { useDictionary } from '../../utils/dictionary';
-import { routes } from '../../config';
+import Icon from '@components/Icon';
+import SendFormButton from '@components/SendFormButton';
+import d, { useDictionary } from '@utils/dictionary';
+import { routes } from '@root/config';
 
 import styles from './styles.m.scss';
 

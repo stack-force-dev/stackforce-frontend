@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 
-import Icon from '../../components/Icon';
+import Icon from '@components/Icon';
 import Step from './Step';
 import NavBar from './NavBar';
 import Form from './Form';
 
 import { stepsCards } from './config';
-import type { StepsData, FormData } from '../../types/request';
+import type { StepsData, FormData } from '@interfaces/request';
 
 import styles from './styles.m.scss';
 import api from '../../api/serviceForm';

@@ -1,7 +1,7 @@
 import React from 'react';
 
-import Icon from '../../../components/Icon';
-import type { CardType } from '../../../types/request';
+import Icon from '@components/Icon';
+import type { CardType } from '@interfaces/request';
 
 import styles from './styles.m.scss';
 

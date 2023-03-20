@@ -1,7 +1,7 @@
 import React from 'react';
 
-import Card from '../Card';
-import type { StepType } from '../../../types/request';
+import Card from '@sections/Request/Card';
+import type { StepType } from '@interfaces/request';
 
 import styles from './styles.m.scss';
 

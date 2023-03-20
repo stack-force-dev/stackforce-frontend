@@ -1,5 +1,5 @@
-import { Dispatch, SetStateAction, SyntheticEvent } from 'react';
-import { darkSections } from '../config';
+import { Dispatch, SetStateAction } from 'react';
+import { darkSections } from '@root/config';
 
 class Scroll {
   private DARK_HEADER_SCREENS = darkSections;

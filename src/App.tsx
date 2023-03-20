@@ -1,9 +1,10 @@
 import React, { FC, useEffect } from 'react';
-import Intro from './sections/Intro';
-import Summary from './sections/Summary';
-import Request from './sections/Request';
-import Header from './components/Header';
-import { Dictionary } from './utils/dictionary';
+
+import Intro from '@sections/Intro';
+import Summary from '@sections/Summary';
+import Request from '@sections/Request';
+import Header from '@components/Header';
+import { Dictionary } from '@utils/dictionary';
 
 const App: FC = () => {
   useEffect(() => {

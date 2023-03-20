@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { ChangeEvent, useState } from 'react';
 
-import type { FormData } from '../../../types/request';
+import type { FormData } from '@interfaces/request';
 
 import styles from './styles.m.scss';
 

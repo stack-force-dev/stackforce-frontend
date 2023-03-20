@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import classNames from 'classnames';
-import d, { useDictionary } from '../../utils/dictionary';
-import Icon from '../Icon';
-import Menu from '../Menu';
-import SendFormButton from '../SendFormButton';
+import d, { useDictionary } from '@utils/dictionary';
+import Icon from '@components/Icon';
+import Menu from '@components/Menu';
+import SendFormButton from '@components/SendFormButton';
 
-import Scroll from '../../utils/scroll';
+import Scroll from '@utils/scroll';
 
 import styles from './styles.m.scss';
 

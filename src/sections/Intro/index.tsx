@@ -1,7 +1,9 @@
 import React from 'react';
 import Tilt from 'react-parallax-tilt';
-import d, { useDictionary } from '../../utils/dictionary';
-import Loader from '../../components/Loader';
+
+import d, { useDictionary } from '@utils/dictionary';
+import Loader from '@components/Loader';
+
 import styles from './styles.m.scss';
 
 const Intro = () => {

@@ -1,6 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
-import d, { useDictionary } from '../../utils/dictionary';
+import d, { useDictionary } from '@utils/dictionary';
 
 import styles from './styles.m.scss';
 
