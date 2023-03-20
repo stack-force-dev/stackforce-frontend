@@ -69,7 +69,9 @@ module.exports = (env, { mode }) => {
                 {
                   loader: 'css-loader',
                   options: {
-                    modules: true,
+                    modules: {
+                      localIdentName: `${isProduction ? '' : '[local]'}[hash:base64:5]`,
+                    },
                   },
                 },
                 'sass-loader',
