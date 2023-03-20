@@ -27,7 +27,7 @@ class Scroll {
       scrolling = true;
 
       const currentScroll = window.pageYOffset + 2;
-      const screen = Math.ceil(currentScroll / window.innerHeight)  || 1;
+      const screen = Math.ceil(currentScroll / window.innerHeight) || 1;
       const newScreen = down ? screen + 1 : screen - 1;
       const newSection = document.querySelector(`#section-${newScreen}`);
       if (!newSection) {
