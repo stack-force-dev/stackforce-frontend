@@ -1,15 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
-import Icon from '@components/Icon';
-import Step from './Step';
-import NavBar from './NavBar';
-import Form from './Form';
+import api from "../../api/serviceForm";
+import Icon from "@components/Icon";
 
-import { stepsCards } from './config';
-import type { StepsData, FormData } from '@interfaces/request';
+import type { StepsData, FormData } from "@interfaces/request";
 
-import styles from './styles.m.scss';
-import api from '../../api/serviceForm';
+import Form from "./Form";
+import NavBar from "./NavBar";
+import Step from "./Step";
+import { stepsCards } from "./config";
+import styles from "./styles.m.scss";
 
 const Request = () => {
   const [currentStep, setCurrentStep] = useState(0);
@@ -36,7 +36,7 @@ const Request = () => {
   };
 
   const handleSendData = (payload: FormData) => {
-    api.post('/claim', { ...payload, ...stepsData });
+    api.post("/claim", { ...payload, ...stepsData });
   };
 
   const getProgressBarWidth = () => {

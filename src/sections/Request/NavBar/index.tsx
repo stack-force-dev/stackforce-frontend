@@ -1,9 +1,9 @@
-import React from 'react';
-import classNames from 'classnames';
+import classNames from "classnames";
+import React from "react";
 
-import type { StepType } from '@interfaces/request';
+import type { StepType } from "@interfaces/request";
 
-import styles from './styles.m.scss';
+import styles from "./styles.m.scss";
 
 interface NavBarProps {
   config: Array<StepType>;

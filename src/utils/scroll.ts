@@ -1,5 +1,6 @@
-import { Dispatch, SetStateAction } from 'react';
-import { darkSections } from '@root/config';
+import { Dispatch, SetStateAction } from "react";
+
+import { darkSections } from "@root/config";
 
 class Scroll {
   private DARK_HEADER_SCREENS = darkSections;
@@ -48,13 +49,13 @@ class Scroll {
     };
 
     const keyDown = (e: KeyboardEvent) => {
-      if (e.key === 'ArrowDown') return scrollListener(true, lastSection, true);
-      if (e.key === 'ArrowUp') return scrollListener(false, lastSection, true);
+      if (e.key === "ArrowDown") return scrollListener(true, lastSection, true);
+      if (e.key === "ArrowUp") return scrollListener(false, lastSection, true);
     };
 
     const getSection = (target: Element): number | null => {
-      const [section, id] = target.id.split('-');
-      if (section === 'section') return Number(id);
+      const [section, id] = target.id.split("-");
+      if (section === "section") return Number(id);
 
       const { parentElement } = target;
       if (!parentElement) return null;
@@ -64,19 +65,19 @@ class Scroll {
 
     // window.addEventListener('touchstart', (e) => (lastTouch = e.touches[0].pageY));
     // window.addEventListener('touchmove', (e) => scrollListener(lastTouch - e.touches[0].pageY > 0, e.target));
-    window.addEventListener('wheel', (e) => {
+    window.addEventListener("wheel", (e) => {
       const target = e.target as Element;
 
       const section = getSection(target);
-      if (!section || target.classList.contains('ignore-scroll')) return;
+      if (!section || target.classList.contains("ignore-scroll")) return;
 
       scrollListener(e.deltaY > 0, section);
     });
-    window.addEventListener('keydown', keyDown);
+    window.addEventListener("keydown", keyDown);
   }
 
   private mobile() {
-    window.addEventListener('scroll', () => {
+    window.addEventListener("scroll", () => {
       const currentScroll = window.scrollY + 1;
       const screen = Math.ceil(currentScroll / window.innerHeight);
 
@@ -85,11 +86,11 @@ class Scroll {
   }
 
   private links() {
-    const links = document.querySelectorAll('.route-link');
+    const links = document.querySelectorAll(".route-link");
 
     links.forEach((link) => {
-      link?.addEventListener('click', (e) => {
-        const newScreen = Number((e.target as HTMLTextAreaElement).getAttribute('data-section'));
+      link?.addEventListener("click", (e) => {
+        const newScreen = Number((e.target as HTMLTextAreaElement).getAttribute("data-section"));
 
         const section = document.querySelector(`#section-${newScreen}`);
         if (!section) return;

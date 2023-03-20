@@ -1,13 +1,13 @@
-import React, { useState, useEffect } from 'react';
-import classNames from 'classnames';
-import d, { useDictionary } from '@utils/dictionary';
-import Icon from '@components/Icon';
-import Menu from '@components/Menu';
-import SendFormButton from '@components/SendFormButton';
+import classNames from "classnames";
+import React, { useState, useEffect } from "react";
 
-import Scroll from '@utils/scroll';
+import Icon from "@components/Icon";
+import Menu from "@components/Menu";
+import SendFormButton from "@components/SendFormButton";
+import d, { useDictionary } from "@utils/dictionary";
+import Scroll from "@utils/scroll";
 
-import styles from './styles.m.scss';
+import styles from "./styles.m.scss";
 
 const Header = () => {
   const [locale] = useDictionary();
@@ -20,9 +20,9 @@ const Header = () => {
 
   const handleMenuActive = (active: boolean) => {
     if (active) {
-      document.body.classList.add('no-scroll');
+      document.body.classList.add("no-scroll");
     } else {
-      document.body.classList.remove('no-scroll');
+      document.body.classList.remove("no-scroll");
     }
 
     setMenuActive(active);

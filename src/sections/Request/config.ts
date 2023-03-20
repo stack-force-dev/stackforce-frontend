@@ -1,43 +1,43 @@
-import { StepType } from '../../interfaces/request';
+import { StepType } from "../../interfaces/request";
 
 export const stepsCards: Array<StepType> = [
   {
-    name: 'Выберите тип вашего проекта',
-    navbarTitle: 'TEST 1',
-    key: 'type',
+    name: "Выберите тип вашего проекта",
+    navbarTitle: "TEST 1",
+    key: "type",
     cards: [
-      { title: 'Электронная коммерция', description: 'Электронная коммерция', value: 1 },
-      { title: 'Обслуживание клиентов', description: 'Электронная коммерция', value: 2 },
-      { title: 'Интранет-портал', description: 'Электронная коммерция', value: 3 },
-      { title: 'Другой', description: 'Электронная коммерция', value: 4 },
+      { title: "Электронная коммерция", description: "Электронная коммерция", value: 1 },
+      { title: "Обслуживание клиентов", description: "Электронная коммерция", value: 2 },
+      { title: "Интранет-портал", description: "Электронная коммерция", value: 3 },
+      { title: "Другой", description: "Электронная коммерция", value: 4 },
     ],
   },
   {
-    name: 'Выберите тип вашего проекта',
-    navbarTitle: 'TEST 2',
-    key: 'is_adaptive',
+    name: "Выберите тип вашего проекта",
+    navbarTitle: "TEST 2",
+    key: "is_adaptive",
     cards: [
-      { title: 'Сайт с мобильной и планшетной версиями', description: 'Электронная коммерция', value: true },
-      { title: 'Только десктопная версия', description: 'Электронная коммерция', value: false },
+      { title: "Сайт с мобильной и планшетной версиями", description: "Электронная коммерция", value: true },
+      { title: "Только десктопная версия", description: "Электронная коммерция", value: false },
     ],
   },
   {
-    name: 'На каком этапе находится ваш проект?',
-    navbarTitle: 'TEST 3',
-    key: 'state',
+    name: "На каком этапе находится ваш проект?",
+    navbarTitle: "TEST 3",
+    key: "state",
     cards: [
-      { title: 'Новый проект', description: 'Электронная коммерция', value: 1 },
-      { title: 'Существующий проект', description: 'Электронная коммерция', value: 2 },
+      { title: "Новый проект", description: "Электронная коммерция", value: 1 },
+      { title: "Существующий проект", description: "Электронная коммерция", value: 2 },
     ],
   },
   {
-    name: 'Как быстро хотите начать разработку?',
-    navbarTitle: 'TEST 4',
-    key: 'start_date',
+    name: "Как быстро хотите начать разработку?",
+    navbarTitle: "TEST 4",
+    key: "start_date",
     cards: [
-      { title: 'Как можно скорее', description: 'Электронная коммерция', value: 1 },
-      { title: 'В течение пару недель', description: 'Электронная коммерция', value: 2 },
-      { title: 'В течение пару месяцев', description: 'Электронная коммерция', value: 3 },
+      { title: "Как можно скорее", description: "Электронная коммерция", value: 1 },
+      { title: "В течение пару недель", description: "Электронная коммерция", value: 2 },
+      { title: "В течение пару месяцев", description: "Электронная коммерция", value: 3 },
     ],
   },
 ];

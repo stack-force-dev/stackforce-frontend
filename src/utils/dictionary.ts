@@ -1,70 +1,70 @@
 export enum Locale {
-  En = 'en',
-  Ru = 'ru',
+  En = "en",
+  Ru = "ru",
 }
 
 enum LocaleTitle {
-  English = 'English',
-  Russian = 'Русский',
+  English = "English",
+  Russian = "Русский",
 }
 
 export default {
   header: {
     title: {
-      [Locale.En]: 'StackForce',
-      [Locale.Ru]: 'StackForce',
+      [Locale.En]: "StackForce",
+      [Locale.Ru]: "StackForce",
     },
     subTitle: {
-      [Locale.En]: 'Outsource-team',
-      [Locale.Ru]: 'Аутсорс-команда',
+      [Locale.En]: "Outsource-team",
+      [Locale.Ru]: "Аутсорс-команда",
     },
     sendForm: {
-      [Locale.En]: 'Send form',
-      [Locale.Ru]: 'Оставить заявку',
+      [Locale.En]: "Send form",
+      [Locale.Ru]: "Оставить заявку",
     },
     menu: {
-      [Locale.En]: 'Menu',
-      [Locale.Ru]: 'Меню',
+      [Locale.En]: "Menu",
+      [Locale.Ru]: "Меню",
     },
   },
   intro: {
     title: {
-      [Locale.En]: 'Stack',
-      [Locale.Ru]: 'Stack',
+      [Locale.En]: "Stack",
+      [Locale.Ru]: "Stack",
     },
     subTitle: {
-      [Locale.En]: 'Force',
-      [Locale.Ru]: 'Force',
+      [Locale.En]: "Force",
+      [Locale.Ru]: "Force",
     },
     webTitle: {
-      [Locale.En]: 'Outsource-team',
-      [Locale.Ru]: 'Веб-студия',
+      [Locale.En]: "Outsource-team",
+      [Locale.Ru]: "Веб-студия",
     },
   },
   menu: {
     about: {
-      [Locale.En]: 'About',
-      [Locale.Ru]: 'О Нас',
+      [Locale.En]: "About",
+      [Locale.Ru]: "О Нас",
     },
     close: {
-      [Locale.En]: 'Close',
-      [Locale.Ru]: 'Закрыть',
+      [Locale.En]: "Close",
+      [Locale.Ru]: "Закрыть",
     },
     contacts: {
-      [Locale.En]: 'Сontacts',
-      [Locale.Ru]: 'Контакты',
+      [Locale.En]: "Сontacts",
+      [Locale.Ru]: "Контакты",
     },
     main: {
-      [Locale.En]: 'Home',
-      [Locale.Ru]: 'Главная',
+      [Locale.En]: "Home",
+      [Locale.Ru]: "Главная",
     },
     team: {
-      [Locale.En]: 'Team',
-      [Locale.Ru]: 'Команда',
+      [Locale.En]: "Team",
+      [Locale.Ru]: "Команда",
     },
     technology: {
-      [Locale.En]: 'Technologies',
-      [Locale.Ru]: 'Технологии',
+      [Locale.En]: "Technologies",
+      [Locale.Ru]: "Технологии",
     },
   },
 };
@@ -78,4 +78,4 @@ export const getLocaleTitle = (locale: Locale): LocaleTitle => {
   }
 };
 
-export { useDictionary, default as Dictionary } from '@gazzati/react-dictionary';
+export { useDictionary, default as Dictionary } from "@gazzati/react-dictionary";

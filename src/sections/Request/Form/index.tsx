@@ -1,28 +1,29 @@
-import axios from 'axios';
-import React, { ChangeEvent, useState } from 'react';
+import React, { ChangeEvent, useState } from "react";
 
-import type { FormData } from '@interfaces/request';
+import type { FormData } from "@interfaces/request";
 
-import styles from './styles.m.scss';
+import styles from "./styles.m.scss";
 
 type FormProps = {
   handleSendData: (payload: FormData) => void;
 };
 const initState: FormData = {
-  name: '',
-  email: '',
-  phone: '+7 ',
-  message: '',
+  name: "",
+  email: "",
+  phone: "+7 ",
+  message: "",
   file: null,
 };
 const MAX_FILE_SIZE = 5 * 1024 * 1024;
 const From = ({ handleSendData }: FormProps) => {
   const [formData, setFormData] = useState<FormData>(initState);
+
   const handleSubmit = (event) => {
     event.preventDefault();
     handleSendData(formData);
     setFormData(initState);
   };
+
   const onChange = (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = event.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
@@ -33,13 +34,14 @@ const From = ({ handleSendData }: FormProps) => {
     if (!files?.length) return;
 
     const file = files[0];
-    if (file.size > MAX_FILE_SIZE) return console.error('File size too much');
+    if (file.size > MAX_FILE_SIZE) return console.error("File size too much");
 
     const reader = new FileReader();
     reader.readAsDataURL(files[0]);
     reader.onload = () => setFormData((prev) => ({ ...prev, file: reader.result }));
-    reader.onerror = () => console.error('File upload error');
+    reader.onerror = () => console.error("File upload error");
   };
+
   return (
     <div className={styles.container}>
       <div className={styles.title}>Ваши контакты</div>
@@ -53,8 +55,8 @@ const From = ({ handleSendData }: FormProps) => {
               value={formData.name}
               type="text"
               placeholder="Имя Фамилия"
-              onFocus={(e) => (e.target.placeholder = '')}
-              onBlur={(e) => (e.target.placeholder = 'Имя Фамилия')}
+              onFocus={(e) => (e.target.placeholder = "")}
+              onBlur={(e) => (e.target.placeholder = "Имя Фамилия")}
             />
           </div>
           <div className={styles.inputWrapper}>
@@ -70,8 +72,8 @@ const From = ({ handleSendData }: FormProps) => {
               value={formData.email}
               type="email"
               placeholder="Рабочий email"
-              onFocus={(e) => (e.target.placeholder = '')}
-              onBlur={(e) => (e.target.placeholder = 'Рабочий email')}
+              onFocus={(e) => (e.target.placeholder = "")}
+              onBlur={(e) => (e.target.placeholder = "Рабочий email")}
             />
           </div>
         </div>
@@ -82,8 +84,8 @@ const From = ({ handleSendData }: FormProps) => {
             onChange={onChange}
             value={formData.message}
             placeholder="Сроки запуска, бюджет, требования, ваши пожелания ..."
-            onFocus={(e) => (e.target.placeholder = '')}
-            onBlur={(e) => (e.target.placeholder = 'Сроки запуска, бюджет, требования, ваши пожелания ...')}
+            onFocus={(e) => (e.target.placeholder = "")}
+            onBlur={(e) => (e.target.placeholder = "Сроки запуска, бюджет, требования, ваши пожелания ...")}
             className={styles.textarea}
           ></textarea>
         </div>

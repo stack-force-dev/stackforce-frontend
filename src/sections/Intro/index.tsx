@@ -1,10 +1,10 @@
-import React from 'react';
-import Tilt from 'react-parallax-tilt';
+import React from "react";
+import Tilt from "react-parallax-tilt";
 
-import d, { useDictionary } from '@utils/dictionary';
-import Loader from '@components/Loader';
+import Loader from "@components/Loader";
+import d, { useDictionary } from "@utils/dictionary";
 
-import styles from './styles.m.scss';
+import styles from "./styles.m.scss";
 
 const Intro = () => {
   const [locale] = useDictionary();

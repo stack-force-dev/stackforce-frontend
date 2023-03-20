@@ -1,9 +1,10 @@
-import React from 'react';
+import React from "react";
 
-import Icon from '@components/Icon';
-import type { CardType } from '@interfaces/request';
+import Icon from "@components/Icon";
 
-import styles from './styles.m.scss';
+import type { CardType } from "@interfaces/request";
+
+import styles from "./styles.m.scss";
 
 type CardProps = {
   data: CardType;

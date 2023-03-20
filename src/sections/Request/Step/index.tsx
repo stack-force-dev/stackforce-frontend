@@ -1,9 +1,10 @@
-import React from 'react';
+import React from "react";
 
-import Card from '@sections/Request/Card';
-import type { StepType } from '@interfaces/request';
+import Card from "@sections/Request/Card";
 
-import styles from './styles.m.scss';
+import type { StepType } from "@interfaces/request";
+
+import styles from "./styles.m.scss";
 
 type StepProps = {
   config: StepType;

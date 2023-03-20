@@ -1,4 +1,4 @@
-import d, { Locale } from '@utils/dictionary';
+import d, { Locale } from "@utils/dictionary";
 
 export const routes = (locale = Locale.En) => [
   { name: d.menu.main[locale], dark: false },

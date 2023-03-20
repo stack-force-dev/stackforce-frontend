@@ -1,18 +1,18 @@
-import React, { FC, useEffect } from 'react';
+import React, { FC, useEffect } from "react";
 
-import Intro from '@sections/Intro';
-import Summary from '@sections/Summary';
-import Request from '@sections/Request';
-import Header from '@components/Header';
-import { Dictionary } from '@utils/dictionary';
+import Header from "@components/Header";
+import Intro from "@sections/Intro";
+import Request from "@sections/Request";
+import Summary from "@sections/Summary";
+import { Dictionary } from "@utils/dictionary";
 
 const App: FC = () => {
   useEffect(() => {
-    window.history.scrollRestoration = 'manual';
+    window.history.scrollRestoration = "manual";
   }, []);
 
   return (
-    <Dictionary locales={['ru', 'en']}>
+    <Dictionary locales={["ru", "en"]}>
       <Header />
       <Intro />
       <Summary />

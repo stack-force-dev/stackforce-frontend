@@ -1,6 +1,6 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from "react";
 
-import styles from './styles.m.scss';
+import styles from "./styles.m.scss";
 
 const Loader = () => {
   const ref = useRef<HTMLDivElement>(null);
@@ -9,12 +9,12 @@ const Loader = () => {
     let timeout;
 
     if (ref.current) {
-      ref.current.style.opacity = '0';
+      ref.current.style.opacity = "0";
     }
 
     window.onload = () => {
       timeout = setTimeout(() => {
-        if (ref.current) ref.current.style.display = 'none';
+        if (ref.current) ref.current.style.display = "none";
       }, 800);
     };
 
