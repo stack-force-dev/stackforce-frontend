@@ -1,4 +1,4 @@
-@import '../../styles/vars.scss';
+@import "../../styles/vars.scss";
 
 .intro {
   background: linear-gradient(
@@ -22,7 +22,7 @@
 }
 
 .introContainer::after {
-  content: '';
+  content: "";
   position: absolute;
   width: 100vw;
   height: 100vh;

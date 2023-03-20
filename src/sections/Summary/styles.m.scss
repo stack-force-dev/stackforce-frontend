@@ -1,4 +1,4 @@
-@import '../../styles/vars.scss';
+@import "../../styles/vars.scss";
 
 .summary {
   display: flex;
@@ -42,7 +42,7 @@
           .id {
             width: 32px;
             height: 32px;
-            font-family: 'Graphik LCG';
+            font-family: "Graphik LCG";
             font-style: normal;
             font-weight: 500;
             font-size: 20px;

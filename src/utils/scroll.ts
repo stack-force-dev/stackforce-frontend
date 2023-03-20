@@ -63,8 +63,8 @@ class Scroll {
       return getSection(parentElement);
     };
 
-    // window.addEventListener('touchstart', (e) => (lastTouch = e.touches[0].pageY));
-    // window.addEventListener('touchmove', (e) => scrollListener(lastTouch - e.touches[0].pageY > 0, e.target));
+    // window.addEventListener("touchstart", (e) => (lastTouch = e.touches[0].pageY));
+    // window.addEventListener("touchmove", (e) => scrollListener(lastTouch - e.touches[0].pageY > 0, e.target));
     window.addEventListener("wheel", (e) => {
       const target = e.target as Element;
 

@@ -1,5 +1,5 @@
 name: Deploy-dev
-'on':
+"on":
     workflow_run:
         workflows: [CI]
         branches: [develop]
