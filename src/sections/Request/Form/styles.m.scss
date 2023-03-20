@@ -61,6 +61,7 @@
     }
     .message {
       width: 100%;
+      margin-bottom: 15px;
       textarea {
         width: 100%;
         padding: 4px 0 9px;
@@ -88,5 +89,34 @@
       align-items: center;
       color: #a4abb8;
     }
+    .btnSendForm {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 12px 24px;
+      width: 184px;
+      height: 48px;
+      background: #1c7edf;
+      border-radius: 100px;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 24px;
+      text-align: center;
+      color: #fff;
+      cursor: pointer;
+      white-space: nowrap;
+      text-decoration: none;
+      &:hover {
+        box-shadow: 0 7px 20px rgb(28, 126, 223, 0.21);
+      }
+      border: 0;
+      &:focus {
+        outline: none;
+      }
+    }
   }
+}
+input:focus {
+  outline: none;
 }

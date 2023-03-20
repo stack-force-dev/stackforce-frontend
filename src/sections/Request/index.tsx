@@ -9,6 +9,7 @@ import { stepsCards } from './config';
 import type { StepsData, FormData } from '../../types/request';
 
 import styles from './styles.m.scss';
+import api from '../../api/serviceForm';
 
 const Request = () => {
   const [currentStep, setCurrentStep] = useState(0);
@@ -34,9 +35,8 @@ const Request = () => {
     });
   };
 
-  const handleSubmit = (payload: FormData) => {
-    // eslint-disable-next-line no-console
-    console.log({ ...payload, ...stepsData });
+  const handleSendData = (payload: FormData) => {
+    api.post('/claim', { ...payload, ...stepsData });
   };
 
   const getProgressBarWidth = () => {
@@ -73,7 +73,7 @@ const Request = () => {
           </div>
         </div>
 
-        {!formActive ? <Step config={step} handleChoose={handleChoose} /> : <Form handleSubmit={handleSubmit} />}
+        {!formActive ? <Step config={step} handleChoose={handleChoose} /> : <Form handleSendData={handleSendData} />}
       </div>
       <NavBar config={stepsCards} currentStep={currentStep} handleChoose={setCurrentStep} />
     </section>

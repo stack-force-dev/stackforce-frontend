@@ -20,7 +20,9 @@ export type StepType = {
 };
 
 export type FormData = {
+  name: string;
   email: string;
   phone: string;
   message: string;
+  file: string | ArrayBuffer | null;
 };
