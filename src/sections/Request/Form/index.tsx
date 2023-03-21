@@ -58,9 +58,9 @@ const From = ({ handleSendData }: FormProps) => {
   };
 
   return (
-    <div className={styles.container}>
-      <div className={styles.title}>Ваши контакты</div>
-      <form className={styles.wrapper} onSubmit={handleSubmit} encType="multipart/form-data">
+    <div className={styles.formContainer}>
+      <div className={styles.formTitle}>Ваши контакты</div>
+      <form className={styles.formWrapper} onSubmit={handleSubmit} encType="multipart/form-data">
         <div className={styles.npeContainer}>
           <div className={styles.inputWrapper}>
             <div className={styles.label}>Имя</div>

@@ -1,21 +1,22 @@
+@import "../../styles/vars.scss";
+
 .request {
   background-color: #f7f8fc;
   display: flex;
   justify-content: center;
   align-items: center;
   .container {
-    position: relative;
-    border: 1px solid black;
-    padding: 15px;
-    border-radius: 0.5rem;
-    width: 800px;
-    height: 600px;
+    width: 940px;
+    height: 490px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
     .header {
       display: flex;
       align-items: center;
       padding: 0px;
       gap: 16px;
-      margin-bottom: 20px;
+      margin-bottom: 8px;
       .requestBackContainer {
         width: 16px;
         .requestBack {
@@ -23,6 +24,7 @@
         }
       }
       .stepsTitle {
+        user-select: none;
         font-style: normal;
         font-weight: 600;
         font-size: 12px;
@@ -41,6 +43,22 @@
           border-radius: 10px;
           transition: all 0.3s;
         }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: $mobile) {
+  .request {
+    padding-top: 102px;
+    padding-left: 20px;
+    padding-right: 20px;
+    .container {
+      height: max-content;
+      justify-content: center;
+      width: 100%;
+      .header {
+        margin-bottom: 12px;
       }
     }
   }
