@@ -6,7 +6,6 @@ import Icon from "@components/Icon";
 import type { StepsData, FormData } from "@interfaces/request";
 
 import Form from "./Form";
-import NavBar from "./NavBar";
 import Step from "./Step";
 import { stepsCards } from "./config";
 import styles from "./styles.m.scss";
@@ -72,10 +71,8 @@ const Request = () => {
             <div style={{ width: `${getProgressBarWidth()}%` }}></div>
           </div>
         </div>
-
         {!formActive ? <Step config={step} handleChoose={handleChoose} /> : <Form handleSendData={handleSendData} />}
       </div>
-      <NavBar config={stepsCards} currentStep={currentStep} handleChoose={setCurrentStep} />
     </section>
   );
 };

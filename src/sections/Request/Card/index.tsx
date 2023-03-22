@@ -18,8 +18,10 @@ const Card = ({ data, handleChoose }: CardProps) => {
         <div className={styles.itemLogo}>
           <Icon name="requestBag" />
         </div>
-        <div className={styles.itemTitle}>{data.title}</div>
-        <div className={styles.itemSubtitle}>{data.description}</div>
+        <div className={styles.titleWrapper}>
+          <div className={styles.itemTitle}>{data.title}</div>
+          <div className={styles.itemSubtitle}>{data.description}</div>
+        </div>
       </div>
     </div>
   );

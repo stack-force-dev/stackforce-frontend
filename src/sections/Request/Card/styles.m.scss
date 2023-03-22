@@ -1,46 +1,79 @@
+@import "../../../styles/vars.scss";
+
 .chooseItem {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  padding: 10px;
-  gap: 10px;
-  height: 170px;
-  width: 170px;
-  background: #ffffff;
+  padding: 24px;
+  width: 235px;
+  height: 235px;
+  background: #fff;
   border: 1px solid #f2f2f6;
   transition: all 0.3s;
   cursor: pointer;
   &:hover {
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.11);
+    box-shadow: 0px 6px 14px -6px rgba(24, 39, 75, 0.08), 0px 2px 32px -4px rgba(24, 39, 75, 0.1);
   }
   .container {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 10px;
     .itemLogo {
-      width: 35px;
-      height: 35px;
+      width: 60px;
+      height: 60px;
       background: #f7f8fc;
       border: 1px solid #f2f2f6;
       border-radius: 100px;
       display: flex;
       align-items: center;
       justify-content: center;
+      margin-bottom: 30px;
     }
     .itemTitle {
       font-style: normal;
       font-weight: 500;
-      font-size: 16px;
-      line-height: 133%;
+      font-size: 18px;
+      line-height: 24px;
       color: #081c3a;
+      margin-bottom: 20px;
     }
     .itemSubtitle {
       font-style: normal;
       font-weight: 400;
       font-size: 14px;
-      line-height: 143%;
+      line-height: 20px;
       color: #516381;
+    }
+  }
+}
+
+@media screen and (max-width: $mobile) {
+  .chooseItem {
+    width: 100%;
+    height: auto;
+    .container {
+      flex-direction: row;
+      align-items: flex-start;
+      width: 100%;
+      gap: 16px;
+      .itemLogo {
+        min-width: 48px;
+        width: 48px;
+        height: 48px;
+        margin-bottom: 0;
+      }
+      .titleWrapper {
+        width: 100%;
+        .itemTitle {
+          font-size: 16px;
+          line-height: 24px;
+          margin-bottom: 8px;
+        }
+        .itemSubtitle {
+          font-size: 12px;
+          line-height: 16px;
+        }
+      }
     }
   }
 }
