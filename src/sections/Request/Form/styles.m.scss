@@ -186,6 +186,7 @@ input:focus {
 
 @media screen and (max-width: $mobile) {
   .formContainer {
+    width: 100%;
     .formTitle {
       font-weight: 600;
       font-size: 18px;
@@ -201,34 +202,31 @@ input:focus {
       .npeContainer {
         display: flex;
         flex-direction: column;
+        gap: 12px;
+        margin-bottom: 12px;
         .inputWrapper {
           input {
+            padding: 12px 0px;
           }
           input::placeholder {
+            color: #516381;
           }
         }
       }
       .message {
+        width: 100%;
+        margin-bottom: 12px;
         textarea {
+          width: 100%;
+          padding: 12px 0px;
         }
       }
       textarea::placeholder {
-      }
-      .file {
-        .uploadFileBtn {
-          .btnTitleContainer {
-            .btntitle {
-            }
-            .btnSubtitle {
-            }
-          }
-        }
-        .attachmentFileContainer {
-          .attachmentFileName {
-          }
-        }
+        color: #516381;
       }
       .btnSendForm {
+        width: 100%;
+        margin: 0 auto;
       }
     }
   }
