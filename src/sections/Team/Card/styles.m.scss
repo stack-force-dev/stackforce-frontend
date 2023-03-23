@@ -1,0 +1,88 @@
+@import "../../../styles/vars.scss";
+.card {
+  flex: 1 1 33%;
+  display: flex;
+  justify-content: center;
+
+  .container {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    color: #ffffff;
+    gap: 20px;
+    
+    @media screen and (max-width: $mobile) {
+      max-width: 100vw;
+    }
+  }
+  
+  .avatarContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 125px;
+    height: 132px;
+    @media screen and (max-width: $mobile) {
+      width: 60%;
+      height: auto;
+    }
+
+    .avatar {
+      width: 80%;
+      height: 80%;
+
+      @media screen and (max-width: $mobile) {
+        width: 100%;
+        height: 100%;
+      }
+
+      &:hover {
+        width: 100%;
+        height: 100%;
+      }
+      transition: all .3s ease-in-out;
+    }
+  }
+  .title {
+    display: flex;
+    flex-flow: column nowrap;
+  }
+  .name {
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 30px;
+    text-align: center;
+    color: #FFFFFF;
+  }
+  .post {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    text-align: center;
+    color: #0071FF;
+  }
+  .skills {
+    display: flex;
+    gap: 4px;
+    flex-flow: row wrap;
+    justify-content: center;
+  }
+  .skill {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 6px 12px;
+    gap: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 100px;
+    text-align: center;
+
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16px;
+    color: rgba(255, 255, 255, 0.6);
+  }
+}
+.card:nth-child(1), .card:nth-child(2) {
+  flex: 1 1 35%;
+}

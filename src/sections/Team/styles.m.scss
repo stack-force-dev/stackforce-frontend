@@ -1,0 +1,73 @@
+@import '../../styles/vars.scss';
+.team {
+  background-color: #000000;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  cursor: none;
+  :global(.carousel.carousel-slider) {
+    overflow: visible;
+  }
+  :global(.carousel.carousel-slider .control-dots) {
+    margin-bottom: -56px;
+  }
+
+  .title {
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    position: absolute;
+    top: 112px;
+    left: 0;
+  }
+  .container {
+
+    .desktop {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 80px 0;
+      width: 940px;
+      @media screen and (max-height: $mobile) {
+        gap: 0;
+      }
+    }
+    .mobile {
+      display: none;
+    }
+    @media screen and (max-width: $mobile) {
+      .desktop {
+        display: none;
+      }
+      .mobile {
+        display: flex;
+      }
+    }
+  }
+  .cursor {
+    pointer-events: none;
+    
+    .cursorCircle {
+      position: absolute;
+      top: 0;
+      left: 0;
+      mix-blend-mode: difference;
+      z-index: 900;
+      
+      circle {
+        fill:white;
+      }
+    }
+    @media screen and (max-width: $mobile) {
+      .cursorCircle {
+        display: none;
+      }
+    }
+  }
+
+}
