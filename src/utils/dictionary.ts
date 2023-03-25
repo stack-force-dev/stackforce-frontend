@@ -42,29 +42,33 @@ export default {
     },
   },
   menu: {
-    about: {
-      [Locale.En]: "About",
-      [Locale.Ru]: "О Нас",
-    },
     close: {
       [Locale.En]: "Close",
       [Locale.Ru]: "Закрыть",
     },
-    contacts: {
-      [Locale.En]: "Сontacts",
-      [Locale.Ru]: "Контакты",
+    intro: {
+      [Locale.En]: "Intro",
+      [Locale.Ru]: "Интро",
     },
-    main: {
-      [Locale.En]: "Home",
-      [Locale.Ru]: "Главная",
+    about: {
+      [Locale.En]: "About",
+      [Locale.Ru]: "О Нас",
     },
     team: {
       [Locale.En]: "Team",
       [Locale.Ru]: "Команда",
     },
-    technology: {
-      [Locale.En]: "Technologies",
+    stack: {
+      [Locale.En]: "Stack",
       [Locale.Ru]: "Технологии",
+    },
+    lifetime: {
+      [Locale.En]: "Lifetime",
+      [Locale.Ru]: "Лайфтайм",
+    },
+    claim: {
+      [Locale.En]: "Claim",
+      [Locale.Ru]: "Заявка",
     },
   },
 };

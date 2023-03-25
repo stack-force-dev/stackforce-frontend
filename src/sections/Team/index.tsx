@@ -1,6 +1,6 @@
-import React, { useEffect, useRef } from "react";
 import classNames from "classnames";
 import { gsap } from "gsap";
+import React, { useEffect, useRef } from "react";
 import { Carousel } from "react-responsive-carousel";
 
 import Card from "./Card";
@@ -37,7 +37,7 @@ const Team = () => {
     document.body.addEventListener("mousemove", onMouseMove);
   }, []);
   return (
-    <section className={styles.team} id="section-4">
+    <section className={styles.team} id="section-3">
       <div className={styles.cursor}>
         <div className={styles.cursorCircle} ref={ref}>
           <svg height="64" width="64">

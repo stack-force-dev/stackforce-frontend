@@ -3,14 +3,14 @@ import React, { useState } from "react";
 import api from "../../api/serviceForm";
 import Icon from "@components/Icon";
 
-import type { StepsData, FormData } from "@interfaces/request";
+import type { StepsData, FormData } from "@interfaces/claim";
 
 import Form from "./Form";
 import Step from "./Step";
 import { stepsCards } from "./config";
 import styles from "./styles.m.scss";
 
-const Request = () => {
+const Claim = () => {
   const [currentStep, setCurrentStep] = useState(0);
   const [stepsData, setStepsData] = useState<StepsData>({
     type: null,
@@ -54,13 +54,13 @@ const Request = () => {
   };
 
   return (
-    <section className={styles.request} id="section-3">
+    <section className={styles.claim} id="section-6">
       <div className="container">
         <div className={styles.header}>
-          <div className={styles.requestBackContainer}>
+          <div className={styles.claimBackContainer}>
             {!!currentStep && (
-              <div onClick={handleReturn} className={styles.requestBack}>
-                <Icon name="requestBack" />
+              <div onClick={handleReturn} className={styles.claimBack}>
+                <Icon name="claimBack" />
               </div>
             )}
           </div>
@@ -77,4 +77,4 @@ const Request = () => {
   );
 };
 
-export default Request;
+export default Claim;

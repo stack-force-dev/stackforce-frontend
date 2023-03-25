@@ -1,6 +1,6 @@
 @import "../../styles/vars.scss";
 
-.request {
+.claim {
   background-color: #f7f8fc;
   display: flex;
   justify-content: center;
@@ -11,9 +11,9 @@
     padding: 0px;
     gap: 16px;
     margin-bottom: 8px;
-    .requestBackContainer {
+    .claimBackContainer {
       width: 16px;
-      .requestBack {
+      .claimBack {
         cursor: pointer;
       }
     }

@@ -95,12 +95,11 @@ class Scroll {
         document.body.classList.add(scrollUp);
       }
 
-
       const screen = Math.ceil(currentScroll / window.innerHeight);
       this.setHeaderDark(this.DARK_HEADER_SCREENS.includes(screen));
 
-       lastScroll = currentScroll;
-    }
+      lastScroll = currentScroll;
+    };
 
     window.addEventListener("scroll", scroll);
   }

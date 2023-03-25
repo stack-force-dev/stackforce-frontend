@@ -1,4 +1,4 @@
-import { StepType } from "../../interfaces/request";
+import { StepType } from "../../interfaces/claim";
 
 export const stepsCards: Array<StepType> = [
   {

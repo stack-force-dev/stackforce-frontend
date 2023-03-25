@@ -3,9 +3,9 @@ import React from "react";
 
 import styles from "./styles.m.scss";
 
-const Summary = () => {
+const About = () => {
   return (
-    <section className={styles.summary} id="section-2">
+    <section className={styles.about} id="section-2">
       <div className={classNames(styles.content, "container")}>
         <div className={styles.contentTitle}>
           We design and develop exceptional digital products & services, eCommerce, and brand communication solutions.
@@ -93,4 +93,4 @@ const Summary = () => {
   );
 };
 
-export default Summary;
+export default About;

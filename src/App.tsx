@@ -1,9 +1,11 @@
 import React, { FC, useEffect } from "react";
 
 import Header from "@components/Header";
+import About from "@root/sections/About";
+import Claim from "@root/sections/Claim";
 import Intro from "@sections/Intro";
-import Request from "@sections/Request";
-import Summary from "@sections/Summary";
+import LifeTime from "@sections/LifeTime";
+import Stack from "@sections/Stack";
 import Team from "@sections/Team";
 import { Dictionary } from "@utils/dictionary";
 
@@ -16,9 +18,11 @@ const App: FC = () => {
     <Dictionary locales={["ru", "en"]}>
       <Header />
       <Intro />
-      <Summary />
-      <Request />
+      <About />
       <Team />
+      <Stack />
+      <LifeTime />
+      <Claim />
       {/* <section id="section-5"></section> */}
     </Dictionary>
   );
