@@ -11,6 +11,11 @@
   height: 72px;
   line-height: 0;
   z-index: 1;
+  @media screen and (max-width: $tablet) {
+    transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+    backdrop-filter: blur(100px);
+    background: rgba(0, 0, 0, 0.1);
+  }
   .logoContainer {
     display: flex;
     align-items: center;

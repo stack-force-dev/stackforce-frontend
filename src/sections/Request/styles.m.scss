@@ -5,61 +5,50 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  .container {
-    width: 940px;
-    height: 490px;
+  .header {
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    .header {
-      display: flex;
-      align-items: center;
-      padding: 0px;
-      gap: 16px;
-      margin-bottom: 8px;
-      .requestBackContainer {
-        width: 16px;
-        .requestBack {
-          cursor: pointer;
-        }
+    align-items: center;
+    padding: 0px;
+    gap: 16px;
+    margin-bottom: 8px;
+    .requestBackContainer {
+      width: 16px;
+      .requestBack {
+        cursor: pointer;
       }
-      .stepsTitle {
-        user-select: none;
-        font-style: normal;
-        font-weight: 600;
-        font-size: 12px;
-        line-height: 167%;
-        color: #0071ff;
-      }
-      .progressBar {
-        width: 150px;
+    }
+    .stepsTitle {
+      user-select: none;
+      font-style: normal;
+      font-weight: 600;
+      font-size: 12px;
+      line-height: 167%;
+      color: #0071ff;
+    }
+    .progressBar {
+      width: 150px;
+      height: 8px;
+      background: #e0e0e0;
+      border-radius: 10px;
+      div {
         height: 8px;
-        background: #e0e0e0;
+        width: 25%;
+        background-color: #0071ff;
         border-radius: 10px;
-        div {
-          height: 8px;
-          width: 25%;
-          background-color: #0071ff;
-          border-radius: 10px;
-          transition: all 0.3s;
-        }
+        transition: all 0.3s;
       }
     }
   }
+
 }
 
 @media screen and (max-width: $mobile) {
-  .request {
-    padding-top: 102px;
-    padding-left: 20px;
-    padding-right: 20px;
-    .container {
-      height: max-content;
-      justify-content: center;
-      width: 100%;
-      .header {
-        margin-bottom: 12px;
-      }
+  .container {
+    height: max-content;
+    justify-content: center;
+    width: 100%;
+    .header {
+      margin-bottom: 12px;
     }
   }
 }

@@ -4,6 +4,7 @@ import { darkSections } from "@root/config";
 
 class Scroll {
   private DARK_HEADER_SCREENS = darkSections;
+  private SCROLL_LIMIT = 100;
   private setHeaderDark;
 
   constructor(setHeaderDark: Dispatch<SetStateAction<boolean>>) {
@@ -77,12 +78,31 @@ class Scroll {
   }
 
   private mobile() {
-    window.addEventListener("scroll", () => {
-      const currentScroll = window.scrollY + 1;
-      const screen = Math.ceil(currentScroll / window.innerHeight);
+    const body = document.body;
 
+    const scrollUp = "scroll-up";
+    const scrollDown = "scroll-down";
+    let lastScroll = 0;
+
+    const scroll = () => {
+      const currentScroll = window.pageYOffset;
+
+      if (currentScroll > this.SCROLL_LIMIT && currentScroll > lastScroll && !body.classList.contains(scrollDown)) {
+        document.body.classList.remove(scrollUp);
+        document.body.classList.add(scrollDown);
+      } else if (currentScroll < lastScroll && body.classList.contains(scrollDown)) {
+        document.body.classList.remove(scrollDown);
+        document.body.classList.add(scrollUp);
+      }
+
+
+      const screen = Math.ceil(currentScroll / window.innerHeight);
       this.setHeaderDark(this.DARK_HEADER_SCREENS.includes(screen));
-    });
+
+       lastScroll = currentScroll;
+    }
+
+    window.addEventListener("scroll", scroll);
   }
 
   private links() {

@@ -55,7 +55,7 @@ const Request = () => {
 
   return (
     <section className={styles.request} id="section-3">
-      <div className={styles.container}>
+      <div className="container">
         <div className={styles.header}>
           <div className={styles.requestBackContainer}>
             {!!currentStep && (

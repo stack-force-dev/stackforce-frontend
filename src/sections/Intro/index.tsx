@@ -17,17 +17,19 @@ const Intro = () => {
           <source src="https://api.stackforce.ru/static/intro.mp4" type="video/mp4" />
         </video>
       </div>
-      <Tilt className={styles.titleContainer} perspective={5000} gyroscope={true} tiltReverse>
-        <div className={styles.title}>
-          <h1 className={styles.h1Desktop}>{d.header.title[locale]}</h1>
-          <h1 className={styles.h1Mobile}>
-            {d.intro.title[locale]}
-            <br />
-            {d.intro.subTitle[locale]}
-          </h1>
-          <h3>{d.intro.webTitle[locale]}</h3>
-        </div>
-      </Tilt>
+      <div className="container">
+        <Tilt className={styles.titleContainer} perspective={5000} gyroscope={true} tiltReverse>
+          <div className={styles.title}>
+            <h1 className={styles.h1Desktop}>{d.header.title[locale]}</h1>
+            <h1 className={styles.h1Mobile}>
+              {d.intro.title[locale]}
+              <br />
+              {d.intro.subTitle[locale]}
+            </h1>
+            <h3>{d.intro.webTitle[locale]}</h3>
+          </div>
+        </Tilt>
+      </div>
     </section>
   );
 };

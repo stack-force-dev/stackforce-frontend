@@ -1,5 +1,6 @@
-import { gsap } from "gsap";
 import React, { useEffect, useRef } from "react";
+import classNames from "classnames";
+import { gsap } from "gsap";
 import { Carousel } from "react-responsive-carousel";
 
 import Card from "./Card";
@@ -45,7 +46,7 @@ const Team = () => {
         </div>
       </div>
       <h1 className={styles.title}>Наша команда</h1>
-      <div className={styles.container}>
+      <div className={classNames(styles.container, "container")}>
         <div className={styles.desktop}>
           {teamList.map((item) => (
             <Card {...item} key={`desktop_${item.code}`} />
