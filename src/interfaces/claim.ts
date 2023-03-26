@@ -8,7 +8,7 @@ export type StepsData = {
 export type CardType = {
   title: string;
   description: string;
-  value: number | boolean;
+  value: number;
   iconName?: string;
 };
 

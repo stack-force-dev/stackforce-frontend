@@ -8,7 +8,7 @@ import styles from "./styles.m.scss";
 
 type StepProps = {
   config: StepType;
-  handleChoose: (value: number | boolean) => void;
+  handleChoose: (value: number) => void;
 };
 
 const Step = ({ config, handleChoose }: StepProps) => {

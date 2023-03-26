@@ -8,7 +8,7 @@ import styles from "./styles.m.scss";
 
 type CardProps = {
   data: CardType;
-  handleChoose: (value: number | boolean) => void;
+  handleChoose: (value: number) => void;
 };
 
 const Card = ({ data, handleChoose }: CardProps) => {

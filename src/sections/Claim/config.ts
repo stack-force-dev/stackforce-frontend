@@ -17,8 +17,8 @@ export const stepsCards: Array<StepType> = [
     navbarTitle: "TEST 2",
     key: "is_adaptive",
     cards: [
-      { title: "Сайт с мобильной и планшетной версиями", description: "Электронная коммерция", value: true },
-      { title: "Только десктопная версия", description: "Электронная коммерция", value: false },
+      { title: "Только десктопная версия", description: "Электронная коммерция", value: 1 },
+      { title: "Сайт с мобильной и планшетной версиями", description: "Электронная коммерция", value: 2 },
     ],
   },
   {

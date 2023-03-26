@@ -22,7 +22,7 @@ const Claim = () => {
   const step = stepsCards[currentStep];
   const formActive = currentStep === stepsCards.length;
 
-  const handleChoose = (value: number | boolean) => {
+  const handleChoose = (value: number) => {
     setStepsData((prev) => ({ ...prev, [step.key]: value }));
     setCurrentStep((i) => i + 1);
   };
