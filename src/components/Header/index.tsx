@@ -33,7 +33,9 @@ const Header = () => {
       <header className={classNames(styles.header, { [styles.dark]: headerDark })}>
         <div className={styles.logoContainer}>
           <div className={styles.logoHref}>
-            <Icon name="logo" />
+            <li className="route-link" data-section-link={1}>
+              <Icon name="logo" />
+            </li>
             <div className={styles.logoTitle}>{d.header.title[locale]}</div>
           </div>
           <div className={styles.logoSubTitle}>{d.header.subTitle[locale]}</div>

@@ -20,11 +20,11 @@ class Scroll {
 
   private desktop() {
     let scrolling = false;
-    let lastSection = 0;
+    let lastSection = 1;
     // let lastTouch = 0;
 
     const scrollListener = (down, section, keyScroll = false) => {
-      if (scrolling || (!keyScroll && section === lastSection)) return;
+      if (scrolling || (!keyScroll && lastSection !== 1 && section === lastSection)) return;
 
       scrolling = true;
 
@@ -105,11 +105,11 @@ class Scroll {
   }
 
   private links() {
-    const links = document.querySelectorAll(".route-link");
+    const links = document.querySelectorAll("[data-section-link]");
 
     links.forEach((link) => {
       link?.addEventListener("click", (e) => {
-        const newScreen = Number((e.target as HTMLTextAreaElement).getAttribute("data-section"));
+        const newScreen = Number(link.getAttribute("data-section-link"));
 
         const section = document.querySelector(`#section-${newScreen}`);
         if (!section) return;
