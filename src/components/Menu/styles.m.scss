@@ -88,6 +88,7 @@ ul li:before {
   color: #fff;
   pointer-events: none;
   opacity: 0;
+  white-space: nowrap;
 }
 ul li:hover::before {
   opacity: 0.5;
