@@ -1,4 +1,3 @@
-import classNames from "classnames";
 import React, { useState, useEffect } from "react";
 
 import Icon from "@components/Icon";
@@ -12,10 +11,9 @@ import styles from "./styles.m.scss";
 const Header = () => {
   const [locale] = useDictionary();
   const [menuActive, setMenuActive] = useState(false);
-  const [headerDark, setHeaderDark] = useState(false);
 
   useEffect(() => {
-    new Scroll(setHeaderDark).init();
+    new Scroll().init();
   }, []);
 
   const handleMenuActive = (active: boolean) => {
@@ -35,7 +33,7 @@ const Header = () => {
 
   return (
     <>
-      <header className={classNames(styles.header, { [styles.dark]: headerDark })}>
+      <header className={styles.header}>
         <div className={styles.logoContainer}>
           <div className={styles.logoHref}>
             <li className="route-link" data-section-link={1}>

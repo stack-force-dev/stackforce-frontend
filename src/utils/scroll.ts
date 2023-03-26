@@ -1,15 +1,5 @@
-import { Dispatch, SetStateAction } from "react";
-
-import { darkSections } from "@root/config";
-
 class Scroll {
-  private DARK_HEADER_SCREENS = darkSections;
   private SCROLL_LIMIT = 100;
-  private setHeaderDark;
-
-  constructor(setHeaderDark: Dispatch<SetStateAction<boolean>>) {
-    this.setHeaderDark = setHeaderDark;
-  }
 
   public init() {
     this.links();
@@ -37,7 +27,7 @@ class Scroll {
         return;
       }
 
-      this.scrollToTarget(newSection, newScreen, down);
+      this.scrollToTarget(newSection);
 
       setTimeout(
         () => {
@@ -112,12 +102,11 @@ class Scroll {
         if (!section) return;
 
         section.scrollIntoView();
-        this.setHeaderDark(this.DARK_HEADER_SCREENS.includes(newScreen));
       });
     });
   }
 
-  private scrollToTarget(target, screen, down) {
+  private scrollToTarget(target) {
     const start = window.pageYOffset;
     const top = target.getBoundingClientRect().top;
 
@@ -138,11 +127,8 @@ class Scroll {
         requestId = window.requestAnimationFrame(loop);
       } else {
         window.cancelAnimationFrame(requestId);
-        if (down) this.setHeaderDark(this.DARK_HEADER_SCREENS.includes(screen));
       }
     };
-
-    if (!down) this.setHeaderDark(this.DARK_HEADER_SCREENS.includes(screen));
 
     requestId = window.requestAnimationFrame(loop);
   }

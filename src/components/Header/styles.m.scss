@@ -71,35 +71,6 @@
   }
 }
 
-.dark {
-  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
-  .logoContainer {
-    svg {
-      fill: #0071ff;
-    }
-    .logoTitle {
-      color: black;
-    }
-    .logoSubTitle {
-      color: rgba(0, 0, 0, 0.38);
-    }
-  }
-  .navContainer {
-    div {
-      color: #000;
-      &:hover {
-        color: $primary;
-      }
-    }
-    .burgerBtn {
-      color: #000;
-      svg {
-        fill: #000;
-      }
-    }
-  }
-}
-
 @media screen and (max-width: $mobile) {
   .header {
     padding: 20px;
