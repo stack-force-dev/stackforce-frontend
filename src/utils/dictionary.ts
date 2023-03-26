@@ -16,7 +16,7 @@ export default {
     },
     subTitle: {
       [Locale.En]: "Outsource-team",
-      [Locale.Ru]: "Аутсорс-команда",
+      [Locale.Ru]: "Веб-студия",
     },
     sendForm: {
       [Locale.En]: "Send form",

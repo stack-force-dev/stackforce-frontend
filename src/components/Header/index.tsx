@@ -19,10 +19,15 @@ const Header = () => {
   }, []);
 
   const handleMenuActive = (active: boolean) => {
+    const html = document.querySelector("html");
+    const { body } = document;
+
     if (active) {
-      document.body.classList.add("no-scroll");
+      html?.classList.add("no-scroll");
+      body.classList.add("no-scroll");
     } else {
-      document.body.classList.remove("no-scroll");
+      html?.classList.remove("no-scroll");
+      body.classList.remove("no-scroll");
     }
 
     setMenuActive(active);

@@ -27,10 +27,6 @@ body {
 
   @media screen and (max-width: $tablet) {
     overflow-y: auto;
-
-    &.no-scroll {
-      overflow-y: hidden;
-    }
   }
 
   &.scroll-down header {
@@ -40,6 +36,10 @@ body {
   &.scroll-up header {
     transform: none;
   }
+}
+
+.no-scroll {
+  overflow: hidden;
 }
 
 h1,
@@ -58,3 +58,4 @@ ul,
 li {
   list-style: none;
 }
+

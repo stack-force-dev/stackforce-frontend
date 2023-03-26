@@ -75,6 +75,42 @@
     font-size: 2vmax;
   }
 
+  @media screen and (max-width: $desktop) {
+    .h1Desktop {
+      font-size: 160px;
+      line-height: 160px;
+    }
+
+    h3 {
+      font-size: 32px;
+      line-height: 40px;
+    }
+  }
+
+  @media screen and (max-width: $laptop) {
+    .h1Desktop {
+      font-size: 120px;
+      line-height: 120px;
+    }
+
+    h3 {
+      font-size: 32px;
+      line-height: 40px;
+    }
+  }
+
+  @media screen and (max-width: $tablet) {
+    .h1Desktop {
+      font-size: 100px;
+      line-height: 100px;
+    }
+
+    h3 {
+      font-size: 24px;
+      line-height: 32px;
+    }
+  }
+
   @media screen and (max-width: $mobile) {
     .h1Desktop {
       display: none;
@@ -83,11 +119,8 @@
     .h1Mobile {
       display: block;
       font-weight: 600;
-      font-size: 20vmin;
-    }
-    h3 {
-      font-weight: 600;
-      font-size: 7vmin;
+      font-size: 80px;
+      line-height: 80px;
     }
   }
 }
