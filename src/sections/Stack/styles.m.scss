@@ -193,6 +193,7 @@
     position: absolute;
     display: flex;
     height: 80px;
+    width: 100%;
     @media screen and (max-width: $tablet) {
       height: 60px;
     }
@@ -203,6 +204,10 @@
     .section {
       display: flex;
       animation: swipe 40s linear infinite backwards;
+
+      @media screen and (max-width: $mobile) {
+        animation: swipe-mobile 40s linear infinite backwards;
+      }
     }
     .company {
       height: 100%;
@@ -224,5 +229,15 @@
 
   100% {
     transform: translate(-100%);
+  }
+}
+
+@keyframes swipe-mobile {
+  0% {
+    transform: translate(0);
+  }
+
+  100% {
+    transform: translate(-1000px);
   }
 }

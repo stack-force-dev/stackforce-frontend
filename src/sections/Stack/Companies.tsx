@@ -20,6 +20,11 @@ const Companies = () => {
             <img src={image} alt={image} className={styles.company} key={image} />
           ))}
         </div>
+        <div className={styles.section}>
+          {companies.map((image) => (
+            <img src={image} alt={image} className={styles.company} key={image} />
+          ))}
+        </div>
       </div>
     </div>
   );
