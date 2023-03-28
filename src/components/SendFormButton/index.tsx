@@ -9,7 +9,7 @@ const SendFormButton = () => {
   const [locale] = useDictionary();
 
   return (
-    <div className={classNames(styles.sendForm, "route-link")} data-section={3}>
+    <div className={styles.sendForm} data-section-link={6}>
       {d.header.sendForm[locale]}
     </div>
   );

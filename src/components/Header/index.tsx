@@ -36,7 +36,7 @@ const Header = () => {
       <header className={styles.header}>
         <div className={styles.logoContainer}>
           <div className={styles.logoHref}>
-            <li className="route-link" data-section-link={1}>
+            <li data-section-link={1}>
               <Icon name="logo" />
             </li>
             <div className={styles.logoTitle}>{d.header.title[locale]}</div>

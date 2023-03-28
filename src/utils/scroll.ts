@@ -10,11 +10,11 @@ class Scroll {
 
   private desktop() {
     let scrolling = false;
-    let lastSection = 1;
+    let lastSection = 0;
     // let lastTouch = 0;
 
     const scrollListener = (down, section, keyScroll = false) => {
-      if (scrolling || (!keyScroll && lastSection !== 1 && section === lastSection)) return;
+      if (scrolling || (!keyScroll && section === lastSection)) return;
 
       scrolling = true;
 
@@ -101,7 +101,7 @@ class Scroll {
         const section = document.querySelector(`#section-${newScreen}`);
         if (!section) return;
 
-        section.scrollIntoView();
+        this.scrollToTarget(section);
       });
     });
   }
