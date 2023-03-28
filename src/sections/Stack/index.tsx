@@ -11,7 +11,7 @@ const data = [
   },
   {
     title: "Разработка клиентских систем",
-    items: ["Typescript", "React", "Redux", "Jest", "Sass", "RestApi"],
+    items: ["TypeScript", "React", "Redux", "Jest", "Sass", "RestAPI"],
   },
   {
     title: "Управление проектами",
