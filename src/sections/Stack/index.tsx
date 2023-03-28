@@ -19,7 +19,7 @@ const data = [
   },
   {
     title: "Аналитика и проектирование",
-    items: ["Figma", "Adobe CC", "Customer Journey Map", "Google Analytics", "Яндекс.Метрика"],
+    items: ["Figma", "Adobe CC", "Customer Journey Map", "UX-аудит", "Google Analytics", "Яндекс.Метрика"],
   },
 ];
 
