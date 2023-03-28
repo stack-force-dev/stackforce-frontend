@@ -1,100 +1,107 @@
 @import "../../styles/vars.scss";
 
 .about {
-  background-color: #060606;
-  color: white;
-  background: radial-gradient(50% 50% at bottom center, rgba(0, 113, 255, 0.4) 0%, rgba(0, 113, 255, 0) 100%);
-  .contentTitle {
-    max-width: 983px;
-    max-height: 180px;
-    font-style: normal;
-    font-weight: 600;
-    font-size: 48px;
-    line-height: 125%;
-    margin-bottom: 120px;
-  }
-  .contentItems {
+  background: #0a0a0c;
+  .content {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
+    flex-direction: column;
+    gap: 120px;
+    @media screen and (max-width: $laptop) {
+      gap: 80px;
+    }
+    @media screen and (max-width: $tablet) {
+      gap: 60px;
+    }
+    @media screen and (max-width: $mobile) {
+      gap: 60px;
+    }
+    .top {
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 40px;
+      .textContent {
+        max-width: 100%;
+        width: 100%;
+        font-weight: 600;
+        font-size: 60px;
+        line-height: 64px;
+        overflow: hidden;
+        @media screen and (max-width: $laptop) {
+          font-size: 32px;
+          line-height: 40px;
+        }
+        @media screen and (max-width: $tablet) {
+          font-size: 40px;
+          line-height: 48px;
+        }
+        @media screen and (max-width: $mobile) {
+          font-size: 32px;
+          line-height: 40px;
+        }
+        .title {
+          color: #0071ff;
+          margin-bottom: 20px;
+          position: relative;
+          width: max-content;
+          &::before {
+            content: "";
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            background-color: #0a0a0c;
+            border-left: 2px solid #fff;
+            animation: animate 4s steps(12) infinite;
+          }
+        }
+        .subtitle {
+          color: #fff;
+        }
+      }
+      .gif {
+        @media screen and (max-width: $tablet) {
+          position: absolute;
+          right: 0px;
+          z-index: -1;
+        }
+        @media screen and (max-width: $mobile) {
+          position: absolute;
+          right: 0px;
+          z-index: -1;
+        }
+      }
+      img {
+        display: block;
+        width: 350px;
+        height: 140px;
+
+        @media screen and (max-width: $tablet) {
+          mix-blend-mode: screen;
+          opacity: 0.12;
+        }
+        @media screen and (max-width: $mobile) {
+          mix-blend-mode: screen;
+          opacity: 0.12;
+        }
+      }
+    }
+  }
+  .bot {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
     @media screen and (max-width: $tablet) {
       flex-wrap: wrap;
     }
-    .item {
-      display: flex;
-      justify-content: space-between;
-      align-items: start;
-      max-height: 180px;
-      @media screen and (max-width: $tablet) {
-        flex: 1 1 50%;
-      }
-      .itemId {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-right: 20px;
-        .id {
-          width: 32px;
-          height: 32px;
-          font-family: "Graphik LCG";
-          font-style: normal;
-          font-weight: 500;
-          font-size: 20px;
-          line-height: 160%;
-          color: #0071ff;
-          margin-right: 20px;
-        }
-        .minus {
-          width: 32px;
-          height: 0px;
-          border: 1px solid #0071ff;
-        }
-      }
-      .itemTitle {
-        font-style: normal;
-        font-weight: 600;
-        font-size: 24px;
-        line-height: 133%;
-        margin-bottom: 20px;
-      }
-      .itemContent {
-        font-style: normal;
-        font-weight: 400;
-        font-size: 16px;
-        line-height: 150%;
-        color: rgba(255, 255, 255, 0.8);
-      }
-    }
   }
 }
-@media screen and (max-width: $mobile) {
-  .about {
-    padding-top: 87px;
-    align-items: start;
-    .content {
-      .contentTitle {
-        display: none;
-      }
-      .contentItems {
-        flex-direction: column;
-        gap: 15px;
-        .item {
-          .itemId {
-            .id {
-              margin-right: 10px;
-            }
-            .minus {
-            }
-          }
-          .itemTitle {
-            font-size: 18px;
-            margin-bottom: 10;
-          }
-          .itemContent {
-          }
-        }
-      }
-    }
+
+@keyframes animate {
+  40%,
+  60% {
+    left: 100%;
+  }
+  100% {
+    left: 0%;
   }
 }

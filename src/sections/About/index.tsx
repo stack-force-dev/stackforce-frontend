@@ -1,92 +1,58 @@
 import classNames from "classnames";
-import React from "react";
+import React, { useEffect, useRef } from "react";
+import { aboutData } from "./config";
+import Item from "./Item/Item";
+import about from "@root/assets/images/about.png";
 
 import styles from "./styles.m.scss";
 
 const About = () => {
+  const textTypingDiv = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    if (!textTypingDiv.current) return;
+    const textDiv = textTypingDiv.current;
+    let timer1, timer2, timer3;
+    const textChange = () => {
+      timer1 = setTimeout(() => {
+        textDiv.textContent = "поддержка проектов";
+      }, 0);
+      timer2 = setTimeout(() => {
+        textDiv.textContent = "разработка с 0";
+      }, 4000);
+      timer3 = setTimeout(() => {
+        textDiv.textContent = "консультация";
+      }, 8000);
+    };
+    textChange();
+    const intervalId = setInterval(textChange, 12000);
+    return () => {
+      clearTimeout(timer1);
+      clearTimeout(timer2);
+      clearTimeout(timer3);
+      clearInterval(intervalId);
+    };
+  }, []);
+
   return (
     <section className={styles.about} id="section-2">
       <div className={classNames(styles.content, "container")}>
-        <div className={styles.contentTitle}>
-          We design and develop exceptional digital products & services, eCommerce, and brand communication solutions.
+        <div className={styles.top}>
+          <div className={styles.textContent}>
+            <div ref={textTypingDiv} className={styles.title}>
+              поддержка проектов
+            </div>
+            <div className={styles.subtitle}>
+              для большого <br /> и маленького бизнеса
+            </div>
+          </div>
+          <div className={styles.gif}>
+            <img src={about} alt="about" />
+          </div>
         </div>
-        <div className={styles.contentItems}>
-          <div className={styles.item}>
-            <div className={styles.itemId}>
-              <div className={styles.id}>01</div>
-              <div className={styles.minus}></div>
-            </div>
-            <div className={styles.itemContainer}>
-              <div className={styles.itemTitle}>
-                Product
-                <>
-                  <br />
-                </>
-                Engineering
-              </div>
-              <div className={styles.itemContent}>
-                Lorem ipsum dolor sit amet consectetur. Aliquam vel enim a imperdiet neque. Purus dui a nam enim
-                ultrices.
-              </div>
-            </div>
-          </div>
-          <div className={styles.item}>
-            <div className={styles.itemId}>
-              <div className={styles.id}>02</div>
-              <div className={styles.minus}></div>
-            </div>
-            <div className={styles.itemContainer}>
-              <div className={styles.itemTitle}>
-                UX/UI
-                <>
-                  <br />
-                </>
-                Strategy
-              </div>
-              <div className={styles.itemContent}>
-                Lorem ipsum dolor sit amet consectetur. Aliquam vel enim a imperdiet neque. Purus dui a nam enim
-                ultrices.
-              </div>
-            </div>
-          </div>
-          <div className={styles.item}>
-            <div className={styles.itemId}>
-              <div className={styles.id}>03</div>
-              <div className={styles.minus}></div>
-            </div>
-            <div className={styles.itemContainer}>
-              <div className={styles.itemTitle}>
-                Big Data
-                <>
-                  <br />
-                </>
-                & Analytics
-              </div>
-              <div className={styles.itemContent}>
-                Lorem ipsum dolor sit amet consectetur. Aliquam vel enim a imperdiet neque. Purus dui a nam enim
-                ultrices.
-              </div>
-            </div>
-          </div>
-          <div className={styles.item}>
-            <div className={styles.itemId}>
-              <div className={styles.id}>03</div>
-              <div className={styles.minus}></div>
-            </div>
-            <div className={styles.itemContainer}>
-              <div className={styles.itemTitle}>
-                Big Data
-                <>
-                  <br />
-                </>
-                & Analytics
-              </div>
-              <div className={styles.itemContent}>
-                Lorem ipsum dolor sit amet consectetur. Aliquam vel enim a imperdiet neque. Purus dui a nam enim
-                ultrices.
-              </div>
-            </div>
-          </div>
+        <div className={styles.bot}>
+          {aboutData.map((aboutItem) => (
+            <Item key={aboutItem.title} title={aboutItem.title} list={aboutItem.list} />
+          ))}
         </div>
       </div>
     </section>
