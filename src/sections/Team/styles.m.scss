@@ -1,12 +1,8 @@
 @import '../../styles/vars.scss';
 .team {
-  background-color: #000000;
-  display: flex;
-  flex-flow: column nowrap;
-  align-items: center;
-  justify-content: center;
-  position: relative;
+  background-color: #0A0A0C;
   cursor: none;
+
   :global(.carousel.carousel-slider) {
     overflow: visible;
   }
@@ -15,16 +11,54 @@
   }
 
   .title {
-    font-weight: 400;
-    font-size: 20px;
-    line-height: 24px;
-    color: #ffffff;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 32px;
+
     display: flex;
-    justify-content: center;
-    width: 100%;
-    position: absolute;
-    top: 112px;
-    left: 0;
+    margin-top: 65px;
+    flex-flow: column wrap;
+    flex: 1 1 33%;
+    gap: 40px;
+    color: $primary;
+
+    h1 {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    @media screen and (max-width: $laptop) {
+      margin-top: 50px;
+      font-size: 20px;
+      line-height: 28px;
+      gap: 20px;
+    }
+    @media screen and (max-width: $tablet) {
+      flex: 1 1 50%;
+    }
+    @media screen and (max-width: $mobile) {
+      margin-top: 0;
+      margin-bottom: 40px;
+    }
+  }
+  .description {
+    text-align: center;
+
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    color: #FFFFFF;
+
+    @media screen and (max-width: $laptop) {
+      font-size: 12px;
+      line-height: 20px;
+    }
+    @media screen and (max-width: $mobile) {
+      font-size: 14px;
+      line-height: 20px;
+    }
   }
   .container {
     display: flex;
@@ -33,9 +67,14 @@
     .desktop {
       display: flex;
       flex-wrap: wrap;
-      gap: 80px 0;
-      width: 940px;
-      @media screen and (max-height: $mobile) {
+      gap: 100px 0;
+      @media screen and (max-width: $laptop) {
+        gap: 30px 0;
+      }
+      @media screen and (max-width: $tablet) {
+        gap: 40px 0;
+      }
+      @media screen and (max-width: $mobile) {
         gap: 0;
       }
     }
@@ -48,6 +87,9 @@
       }
       .mobile {
         display: flex;
+        flex-flow: column;
+        width: 100%;
+        padding: 0 20px;
       }
     }
   }

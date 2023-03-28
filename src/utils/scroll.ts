@@ -76,7 +76,7 @@ class Scroll {
 
     const scroll = () => {
       const currentScroll = window.pageYOffset;
-
+      if (Math.abs(currentScroll - lastScroll) < this.SCROLL_LIMIT / 2) return;
       if (currentScroll > this.SCROLL_LIMIT && currentScroll > lastScroll && !body.classList.contains(scrollDown)) {
         document.body.classList.remove(scrollUp);
         document.body.classList.add(scrollDown);
@@ -84,7 +84,6 @@ class Scroll {
         document.body.classList.remove(scrollDown);
         document.body.classList.add(scrollUp);
       }
-
       lastScroll = currentScroll;
     };
 
@@ -95,7 +94,7 @@ class Scroll {
     const links = document.querySelectorAll("[data-section-link]");
 
     links.forEach((link) => {
-      link?.addEventListener("click", (e) => {
+      link?.addEventListener("click", () => {
         const newScreen = Number(link.getAttribute("data-section-link"));
 
         const section = document.querySelector(`#section-${newScreen}`);

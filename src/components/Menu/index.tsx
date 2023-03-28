@@ -24,7 +24,7 @@ const Menu = ({ setActive, active }: MenuPropsType) => {
     };
     window.addEventListener("keydown", close);
     return () => window.removeEventListener("keydown", close);
-  }, [active]);
+  }, [active, setActive]);
 
   return (
     <div

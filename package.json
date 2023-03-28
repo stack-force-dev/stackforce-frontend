@@ -82,7 +82,8 @@
     "react-dom": "^17.0.1",
     "react-hook-form": "^7.43.5",
     "react-parallax-tilt": "^1.7.115",
-    "react-responsive-carousel": "^3.2.23"
+    "react-slick": "^0.29.0",
+    "slick-carousel": "^1.8.1"
   },
   "husky": {
     "hooks": {
@@ -92,7 +93,7 @@
   "lint-staged": {
     "*.{ts,tsx}": [
       "prettier --write",
-      "eslint --no-ignore --max-warnings=0 yarn lint --fix",
+      "eslint --no-ignore --max-warnings=0 --fix",
       "git add"
     ],
     "*.{graphql,json}": [
