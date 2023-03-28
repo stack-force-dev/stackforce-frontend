@@ -17,9 +17,9 @@ const App: FC = () => {
   return (
     <Dictionary locales={["ru", "en"]}>
       <Header />
-      {/* <Intro />
+      <Intro />
       <About />
-      <Team /> */}
+      <Team />
       <Stack />
       <LifeTime />
       <Claim />
