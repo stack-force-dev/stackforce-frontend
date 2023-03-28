@@ -1,5 +1,6 @@
-import { AboutData } from "@root/interfaces/about";
 import React from "react";
+
+import { AboutData } from "@root/interfaces/about";
 
 import styles from "./styles.m.scss";
 

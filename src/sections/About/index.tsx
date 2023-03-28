@@ -1,9 +1,10 @@
 import classNames from "classnames";
 import React, { useEffect, useRef } from "react";
-import { aboutData } from "./config";
-import Item from "./Item/Item";
+
 import about from "@root/assets/images/about.png";
 
+import Item from "./Item/Item";
+import { aboutData } from "./config";
 import styles from "./styles.m.scss";
 
 const About = () => {
