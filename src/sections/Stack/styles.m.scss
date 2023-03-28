@@ -15,7 +15,7 @@
   }
 
   .technologies {
-    height: 380px;
+    height: 424px;
     @media screen and (max-width: $laptop) {
       height: 312px;
     }
@@ -79,6 +79,7 @@
             left: 0;
             overflow: hidden;
             color: #86888E;
+            transition: all .3s ease-in-out;
 
             &::before, &::after {
               content: '';
@@ -101,7 +102,12 @@
         }
 
         .stackItems {
-          display: none;
+          display: flex;
+          visibility: hidden;
+          opacity: 0;
+          height: 0;
+          transition: opacity .7s ease-in-out;
+
           @media screen and (max-width: $mobile) {
             flex-wrap: wrap;
             row-gap: 4px;
@@ -135,7 +141,9 @@
           }
 
           .stackItems {
-            display: flex;
+            visibility: visible;
+            opacity: 1;
+            height: auto;
             margin: 0 0 20px;
           }
 
