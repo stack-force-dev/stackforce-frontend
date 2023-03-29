@@ -1,5 +1,5 @@
-import React, { useState } from "react";
 import classNames from "classnames";
+import React, { useState } from "react";
 
 import api from "../../api/serviceForm";
 import Icon from "@components/Icon";
@@ -56,7 +56,7 @@ const Claim = () => {
 
   return (
     <section className={styles.claim} id="section-6">
-      <div className={classNames(styles.container,"container")}>
+      <div className={classNames(styles.container, "container")}>
         <div className={styles.header}>
           <div className={styles.claimBackContainer}>
             {!!currentStep && (
