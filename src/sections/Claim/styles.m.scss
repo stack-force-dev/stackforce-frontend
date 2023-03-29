@@ -1,7 +1,7 @@
 @import "../../styles/vars.scss";
 
 .claim {
-  background-color: #20203C;
+  background-color: #101014;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -10,7 +10,7 @@
     align-items: center;
     padding: 0px;
     gap: 16px;
-    margin-bottom: 8px;
+    margin-bottom: 12px;
     .claimBackContainer {
       width: 16px;
       .claimBack {
@@ -28,7 +28,7 @@
     .progressBar {
       width: 150px;
       height: 8px;
-      background: #e0e0e0;
+      background: #323235;
       border-radius: 10px;
       div {
         height: 8px;
@@ -39,7 +39,6 @@
       }
     }
   }
-
 }
 
 @media screen and (max-width: $mobile) {

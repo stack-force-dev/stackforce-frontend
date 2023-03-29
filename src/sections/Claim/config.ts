@@ -2,42 +2,38 @@ import { StepType } from "../../interfaces/claim";
 
 export const stepsCards: Array<StepType> = [
   {
-    name: "Выберите тип вашего проекта",
-    navbarTitle: "TEST 1",
+    name: "Направление вашего проекта",
     key: "type",
     cards: [
-      { title: "Электронная коммерция", description: "Электронная коммерция", value: 1 },
-      { title: "Обслуживание клиентов", description: "Электронная коммерция", value: 2 },
-      { title: "Интранет-портал", description: "Электронная коммерция", value: 3 },
-      { title: "Другой", description: "Электронная коммерция", value: 4 },
+      { title: "Электронная коммерция", value: 1 },
+      { title: "Обслуживание клиентов", value: 2 },
+      { title: "Личный кабинет", value: 3 },
+      { title: "Другой", value: 4 },
     ],
   },
   {
-    name: "Выберите тип вашего проекта",
-    navbarTitle: "TEST 2",
+    name: "Адаптив под маленькие экраны",
     key: "is_adaptive",
     cards: [
-      { title: "Только десктопная версия", description: "Электронная коммерция", value: 1 },
-      { title: "Сайт с мобильной и планшетной версиями", description: "Электронная коммерция", value: 2 },
+      { title: "Адаптивный сайт", value: 1 },
+      { title: "Без адаптивов", value: 2 },
     ],
   },
   {
-    name: "На каком этапе находится ваш проект?",
-    navbarTitle: "TEST 3",
+    name: "Текущий статус проекта",
     key: "state",
     cards: [
-      { title: "Новый проект", description: "Электронная коммерция", value: 1 },
-      { title: "Существующий проект", description: "Электронная коммерция", value: 2 },
+      { title: "Новый проект", value: 1 },
+      { title: "Существующий проект", value: 2 },
     ],
   },
   {
-    name: "Как быстро хотите начать разработку?",
-    navbarTitle: "TEST 4",
+    name: "Время старта разработки",
     key: "start_date",
     cards: [
-      { title: "Как можно скорее", description: "Электронная коммерция", value: 1 },
-      { title: "В течение пару недель", description: "Электронная коммерция", value: 2 },
-      { title: "В течение пару месяцев", description: "Электронная коммерция", value: 3 },
+      { title: "Немедленно", value: 1 },
+      { title: "В течение недели", value: 2 },
+      { title: "В течение месяца", value: 3 },
     ],
   },
 ];

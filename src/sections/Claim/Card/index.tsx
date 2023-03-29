@@ -18,10 +18,7 @@ const Card = ({ data, handleChoose }: CardProps) => {
         <div className={styles.itemLogo}>
           <Icon name="claimBag" />
         </div>
-        <div className={styles.titleWrapper}>
-          <div className={styles.itemTitle}>{data.title}</div>
-          <div className={styles.itemSubtitle}>{data.description}</div>
-        </div>
+        <div className={styles.itemTitle}>{data.title}</div>
       </div>
     </div>
   );

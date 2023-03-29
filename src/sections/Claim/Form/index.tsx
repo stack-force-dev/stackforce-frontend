@@ -5,6 +5,7 @@ import Icon from "@root/components/Icon";
 import type { AttachmentFileData, FormData } from "@interfaces/claim";
 
 import styles from "./styles.m.scss";
+import AttachmentFile from "./AttachmentFile";
 
 type FormProps = {
   handleSendData: (payload: FormData) => void;
@@ -20,6 +21,9 @@ const MAX_FILE_SIZE = 5 * 1024 * 1024;
 
 const From = ({ handleSendData }: FormProps) => {
   const [formData, setFormData] = useState<FormData>(initState);
+
+  const [checked, setChecked] = useState(false);
+
   const [attachmentFile, setAttachmentFile] = useState<AttachmentFileData>({ attached: false, name: "" });
   const hiddenFileInput = useRef<HTMLInputElement>(null);
 
@@ -105,6 +109,11 @@ const From = ({ handleSendData }: FormProps) => {
           ></textarea>
         </div>
         <div className={styles.file}>
+          <AttachmentFile
+            handleClickDelAttachmentFile={handleClickDelAttachmentFile}
+            fileName="Название файла"
+            fileSize={3.22 * 1024}
+          />
           <div onClick={handleClickUploadFile} className={styles.uploadFileBtn}>
             <Icon name="upload" />
             <div className={styles.btnTitleContainer}>
@@ -112,19 +121,26 @@ const From = ({ handleSendData }: FormProps) => {
               <div className={styles.btnSubtitle}>до 5 Мб</div>
             </div>
           </div>
-          {attachmentFile.attached && (
-            <div onClick={handleClickDelAttachmentFile} className={styles.attachmentFileContainer}>
-              <div className={styles.attachmentFileName}>{attachmentFile.name}</div>
-              <div className={styles.attachmentFileCloseBtn}>
-                <Icon name="delFile" fill="#b82428" />
-              </div>
-            </div>
-          )}
           <input ref={hiddenFileInput} type="file" onChange={uploadFile} style={{ display: "none" }} />
         </div>
-        <button type="submit" className={styles.btnSendForm}>
-          Отправить заявку
-        </button>
+        <div className={styles.wrapperBtnCheck}>
+          <button type="submit" className={styles.btnSendForm}>
+            Отправить заявку
+          </button>
+          <div className={styles.agreements}>
+            <input type="checkbox" checked={checked} onChange={() => setChecked(!checked)} />
+            <div className={styles.agreementsText}>
+              Принимаю условия{" "}
+              <a href="" target="_blank">
+                пользовательского соглашения
+              </a>{" "}
+              и{" "}
+              <a href="" target="_blank">
+                политики конфиденциальности
+              </a>
+            </div>
+          </div>
+        </div>
       </form>
     </div>
   );

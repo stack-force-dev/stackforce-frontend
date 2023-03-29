@@ -30,9 +30,13 @@
     gap: 12px;
     .listItem {
       font-weight: 400;
-      font-size: 15px;
-      line-height: 22px;
+      font-size: 18px;
+      line-height: 24px;
       color: #fff;
+      @media screen and (max-width: $laptop) {
+        font-size: 15px;
+        line-height: 22px;
+      }
     }
   }
 }

@@ -6,26 +6,43 @@
     font-weight: 600;
     font-size: 40px;
     line-height: 48px;
-    color: #081c3a;
-    margin-bottom: 32px;
+    color: #fff;
+    margin-bottom: 60px;
+    @media screen and (max-width: $laptop) {
+      font-size: 32px;
+      line-height: 40px;
+      margin-bottom: 40px;
+    }
+    @media screen and (max-width: $tablet) {
+      font-size: 24px;
+      line-height: 32px;
+    }
+    @media screen and (max-width: $mobile) {
+      font-size: 20px;
+      line-height: 24px;
+      margin-bottom: 32px;
+    }
   }
   .formWrapper {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding: 30px;
-    width: 940px;
-    background: #fff;
-    border: 1px solid #f2f2f6;
-
+    padding: 32px;
+    width: 1280px;
+    height: 380px;
+    background: #141418;
+    border: 1px solid #323235;
+    border-radius: 4px;
+    @media screen and (max-width: $laptop) {
+      width: 100%;
+    }
     .label {
-      font-style: normal;
       font-weight: 500;
       font-size: 14px;
       line-height: 20px;
       display: flex;
       align-items: center;
-      color: #516381;
+      color: #66aaff;
     }
     .npeContainer {
       display: flex;
@@ -36,30 +53,34 @@
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-        width: 280px;
-        height: 76px;
+        width: 393.33px;
+        height: 68px;
         input {
           display: flex;
           flex-direction: column;
           justify-content: center;
           align-items: center;
-          padding: 16px 0px;
-          width: 280px;
-          height: 56px;
+          padding: 12px 0px;
+          width: 393.33px;
+          height: 48px;
           border: 0;
-          border-bottom: 1px solid #f2f2f6;
+          border-bottom: 1px solid #323235;
+          background: #141418;
+          color: #fff;
+          font-weight: 400;
+          font-size: 16px;
+          line-height: 24px;
           &:focus {
             outline: none;
           }
         }
         input::placeholder {
-          font-style: normal;
           font-weight: 400;
           font-size: 16px;
           line-height: 24px;
           display: flex;
           align-items: center;
-          color: #a4abb8;
+          color: rgba(255, 255, 255, 0.5);
         }
       }
     }
@@ -67,115 +88,121 @@
       display: flex;
       flex-direction: column;
       align-items: flex-start;
-      width: 880px;
-      height: 100px;
+      width: 1220px;
+      height: 92px;
       margin-bottom: 20px;
       textarea {
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        padding: 16px 0px;
-        width: 880px;
-        height: 80px;
+        padding: 12px 0px;
+        width: 1220px;
+        height: 72px;
         border: 0;
-        border-bottom: 1px solid #f2f2f6;
+        border-bottom: 1px solid #323235;
         resize: none;
         overflow: auto !important;
+        background: #141418;
+        color: #fff;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 24px;
         &:focus {
           outline: none;
         }
       }
     }
     textarea::placeholder {
-      font-style: normal;
       font-weight: 400;
       font-size: 16px;
       line-height: 24px;
       display: flex;
       align-items: center;
-      color: #a4abb8;
+      color: rgba(255, 255, 255, 0.5);
     }
     .file {
       display: flex;
       justify-content: flex-start;
       gap: 15px;
       align-items: center;
-      margin-bottom: 20px;
+      margin-bottom: 30px;
       .uploadFileBtn {
         display: flex;
-        align-items: flex-start;
-        width: 184px;
-        height: 36px;
-        gap: 8px;
+        align-items: center;
+        gap: 4px;
+        width: 144px;
+        height: 38px;
         cursor: pointer;
-        &:hover {
-          .btnTitleContainer {
-            .btntitle {
-              border-bottom: solid 2px #0071ff;
-            }
-          }
-        }
         .btnTitleContainer {
           .btntitle {
-            font-style: normal;
             font-weight: 500;
             font-size: 14px;
             line-height: 20px;
             display: flex;
             align-items: center;
-            color: #0071ff;
+            color: #fff;
           }
           .btnSubtitle {
-            font-style: normal;
             font-weight: 400;
             font-size: 12px;
             line-height: 16px;
             display: flex;
             align-items: center;
-            color: #516381;
+            color: rgba(255, 255, 255, 0.5);
           }
         }
       }
-      .attachmentFileContainer {
+    }
+    .wrapperBtnCheck {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+
+      .btnSendForm {
         display: flex;
+        justify-content: center;
         align-items: center;
-        user-select: none;
+        padding: 12px 24px;
+        width: 184px;
+        height: 48px;
+        background: #0071ff;
+        border-radius: 100px;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 24px;
+        text-align: center;
+        color: #fff;
         cursor: pointer;
-        .attachmentFileName {
-          font-style: normal;
-          font-weight: 500;
-          font-size: 14px;
-          line-height: 20px;
-          text-align: center;
-          color: #516381;
+        white-space: nowrap;
+        text-decoration: none;
+        &:hover {
+          background: #66aaff;
+        }
+        border: 0;
+        &:focus {
+          outline: none;
         }
       }
-    }
-    .btnSendForm {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 12px 24px;
-      width: 184px;
-      height: 48px;
-      background: #1c7edf;
-      border-radius: 100px;
-      font-style: normal;
-      font-weight: 400;
-      font-size: 16px;
-      line-height: 24px;
-      text-align: center;
-      color: #fff;
-      cursor: pointer;
-      white-space: nowrap;
-      text-decoration: none;
-      &:hover {
-        box-shadow: 0 7px 20px rgb(28, 126, 223, 0.21);
-      }
-      border: 0;
-      &:focus {
-        outline: none;
+      .agreements {
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        gap: 8px;
+        .agreementsText {
+          font-weight: 400;
+          font-size: 14px;
+          line-height: 24px;
+          color: #fff;
+          a {
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 24px;
+            text-decoration-line: underline;
+            color: #66aaff;
+          }
+        }
       }
     }
   }
@@ -183,7 +210,11 @@
 input:focus {
   outline: none;
 }
-
+.disabled {
+  background: #202023;
+  color: rgba(255, 255, 255, 0.3);
+  pointer-events: none;
+}
 @media screen and (max-width: $mobile) {
   .formContainer {
     width: 100%;

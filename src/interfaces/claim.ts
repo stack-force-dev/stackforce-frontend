@@ -7,14 +7,12 @@ export type StepsData = {
 
 export type CardType = {
   title: string;
-  description: string;
   value: number;
   iconName?: string;
 };
 
 export type StepType = {
   name: string;
-  navbarTitle: string;
   key: keyof StepsData;
   cards: Array<CardType>;
 };

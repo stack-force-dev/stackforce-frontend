@@ -92,10 +92,13 @@
     gap: 20px;
     @media screen and (max-width: $tablet) {
       flex-wrap: wrap;
+      row-gap: 40px;
+    }
+    @media screen and (max-width: $mobile) {
+      gap: 40px;
     }
   }
 }
-
 @keyframes animate {
   40%,
   60% {

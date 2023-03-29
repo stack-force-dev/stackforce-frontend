@@ -92,7 +92,7 @@
   "lint-staged": {
     "*.{ts,tsx}": [
       "prettier --write",
-      "eslint --no-ignore --max-warnings=0 yarn lint --fix",
+      "eslint --no-ignore --max-warnings=0 --fix",
       "git add"
     ],
     "*.{graphql,json}": [
