@@ -4,15 +4,15 @@ import Icon from "@root/components/Icon";
 
 import styles from "./styles.m.scss";
 
-type AttachmentFileProps = {
-  handleClickDelAttachmentFile: (parametr: string) => void;
+type AttachmentProps = {
+  handleDeleteAttachment: (parametr: string) => void;
   fileName: string;
   fileSize: number;
 };
 
-const AttachmentFile = ({ handleClickDelAttachmentFile, fileName, fileSize }: AttachmentFileProps) => {
+const Attachment = ({ handleDeleteAttachment, fileName, fileSize }: AttachmentProps) => {
   return (
-    <div onClick={() => handleClickDelAttachmentFile(fileName)} className={styles.attachmentFileContainer}>
+    <div onClick={() => handleDeleteAttachment(fileName)} className={styles.attachmentFileContainer}>
       <Icon name="attachmentFile" />
       <div className={styles.wrapper}>
         <div className={styles.wrapperName}>
@@ -31,4 +31,4 @@ const AttachmentFile = ({ handleClickDelAttachmentFile, fileName, fileSize }: At
   );
 };
 
-export default AttachmentFile;
+export default Attachment;

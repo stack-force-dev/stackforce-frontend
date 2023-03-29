@@ -25,7 +25,7 @@ export type FormData = {
   files: Array<string | ArrayBuffer | null>;
 };
 
-export type AttachmentFileData = {
+export type AttachmentData = {
   name: string;
   base64: string | ArrayBuffer | null;
   size: number;

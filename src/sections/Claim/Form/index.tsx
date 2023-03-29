@@ -4,15 +4,12 @@ import React, { ChangeEvent, useRef, useState } from "react";
 import { emailRegex } from "../config";
 import Icon from "@root/components/Icon";
 
-import type { AttachmentFileData, FormData } from "@interfaces/claim";
+import type { AttachmentData, FormData } from "@interfaces/claim";
 
-import AttachmentFile from "./AttachmentFile";
+import Attachment from "./Attachment";
 import PhoneNumberInut from "./PhoneNumberInut";
 import styles from "./styles.m.scss";
 
-type FormProps = {
-  handleSendData: (payload: FormData) => void;
-};
 const initState: FormData = {
   name: "",
   email: "",
@@ -20,24 +17,28 @@ const initState: FormData = {
   message: "",
   files: [],
 };
+
 const MAX_FILE_SIZE = 5 * 1024 * 1024;
 
-const From = ({ handleSendData }: FormProps) => {
-  const [formData, setFormData] = useState<FormData>(initState);
+type FormProps = {
+  handleSendData: (payload: FormData) => void;
+};
 
+const Form = ({ handleSendData }: FormProps) => {
+  const [formData, setFormData] = useState<FormData>(initState);
   const [checked, setChecked] = useState(false);
   const [errorEmailMessage, setErrorEmailMessage] = useState("");
-
-  const [attachmentFiles, setAttachmentFile] = useState<Array<AttachmentFileData>>([]);
+  const [attachments, setAttachments] = useState<Array<AttachmentData>>([]);
   const hiddenFileInput = useRef<HTMLInputElement>(null);
 
   const handleClickUploadFile = () => {
     if (hiddenFileInput.current) hiddenFileInput.current.click();
   };
-  const handleClickDelAttachmentFile = (name: string) => {
-    const delFile = attachmentFiles?.find((file) => file.name === name);
-    setAttachmentFile(attachmentFiles?.filter((file) => file.name != name));
-    setFormData({ ...formData, files: formData.files?.filter((file) => file !== delFile?.base64) });
+
+  const handleDeleteAttachment = (name: string) => {
+    const deletingFile = attachments?.find((file) => file.name === name);
+    setAttachments(attachments?.filter((file) => file.name != name));
+    setFormData({ ...formData, files: formData.files?.filter((file) => file !== deletingFile?.base64) });
   };
 
   const handleSubmit = (event) => {
@@ -67,7 +68,7 @@ const From = ({ handleSendData }: FormProps) => {
     reader.readAsDataURL(file);
     reader.onload = () => {
       setFormData((prev) => ({ ...prev, files: [...prev.files, reader.result] }));
-      setAttachmentFile((prev) => [...prev, { name: file.name, size: file.size / 1024, base64: reader.result }]);
+      setAttachments((prev) => [...prev, { name: file.name, size: file.size / 1024, base64: reader.result }]);
     };
     reader.onerror = () => console.error("File upload error");
   };
@@ -76,7 +77,7 @@ const From = ({ handleSendData }: FormProps) => {
     <div className={styles.formContainer}>
       <div className={styles.formTitle}>Ваши контакты</div>
       <form className={styles.formWrapper} onSubmit={handleSubmit} encType="multipart/form-data">
-        <div className={styles.npeContainer}>
+        <div className={styles.inputsContainer}>
           <div className={styles.inputWrapper}>
             <div className={styles.label}>Имя</div>
             <input
@@ -100,7 +101,6 @@ const From = ({ handleSendData }: FormProps) => {
               name="email"
               onChange={onChange}
               value={formData.email}
-              // type="email"
               placeholder="Рабочий email"
               onFocus={(e) => (e.target.placeholder = "")}
               onBlur={(e) => (e.target.placeholder = "Рабочий email")}
@@ -121,16 +121,16 @@ const From = ({ handleSendData }: FormProps) => {
           ></textarea>
         </div>
         <div className={styles.file}>
-          {!!attachmentFiles &&
-            attachmentFiles.map((file) => (
-              <AttachmentFile
+          {!!attachments &&
+            attachments.map((file) => (
+              <Attachment
                 key={file.name}
-                handleClickDelAttachmentFile={handleClickDelAttachmentFile}
+                handleDeleteAttachment={handleDeleteAttachment}
                 fileName={file.name}
                 fileSize={file.size}
               />
             ))}
-          {attachmentFiles.length < 3 && (
+          {attachments.length < 3 && (
             <div onClick={handleClickUploadFile} className={styles.uploadFileBtn}>
               <Icon name="upload" />
               <div className={styles.btnTitleContainer}>
@@ -176,4 +176,4 @@ const From = ({ handleSendData }: FormProps) => {
   );
 };
 
-export default From;
+export default Form;

@@ -5,18 +5,26 @@
   display: flex;
   justify-content: center;
   align-items: center;
+
   .header {
     display: flex;
     align-items: center;
     padding: 0px;
     gap: 16px;
     margin-bottom: 12px;
+
+    @media screen and (max-width: $mobile) {
+      margin-bottom: 12px;
+    }
+
     .claimBackContainer {
       width: 16px;
+
       .claimBack {
         cursor: pointer;
       }
     }
+
     .stepsTitle {
       user-select: none;
       font-style: normal;
@@ -25,11 +33,13 @@
       line-height: 167%;
       color: #0071ff;
     }
+
     .progressBar {
       width: 150px;
       height: 8px;
       background: #323235;
       border-radius: 10px;
+
       div {
         height: 8px;
         width: 25%;
@@ -46,8 +56,5 @@
     height: max-content;
     justify-content: center;
     width: 100%;
-    .header {
-      margin-bottom: 12px;
-    }
   }
 }
