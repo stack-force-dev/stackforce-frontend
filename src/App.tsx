@@ -14,6 +14,8 @@ const App: FC = () => {
     window.history.scrollRestoration = "manual";
   }, []);
 
+
+
   return (
     <Dictionary locales={["ru", "en"]}>
       <Header />
