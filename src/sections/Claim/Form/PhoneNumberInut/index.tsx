@@ -1,14 +1,14 @@
-import React, { ChangeEvent, Dispatch, KeyboardEvent, SetStateAction } from "react";
+import React, { ChangeEvent, Dispatch, SetStateAction } from "react";
 
 import type { FormData } from "@interfaces/claim";
 
 const formattedPhoneNumber = (input: EventTarget & HTMLInputElement) => {
-  let phoneNumber = input.value.replace(/\D/g, "");
+  const phoneNumber = input.value.replace(/\D/g, "");
   let formattedValue = "";
   if (!phoneNumber) return "";
 
   if (["7"].includes(phoneNumber[0])) {
-    let firstSymbols = "+7";
+    const firstSymbols = "+7";
     formattedValue = input.value = firstSymbols + " ";
     if (phoneNumber.length > 1) {
       formattedValue += "(" + phoneNumber.substring(1, 4);
@@ -22,8 +22,6 @@ const formattedPhoneNumber = (input: EventTarget & HTMLInputElement) => {
     if (phoneNumber.length >= 10) {
       formattedValue += "-" + phoneNumber.substring(9, 11);
     }
-  } else {
-    formattedValue = "+" + phoneNumber.substring(0, 16);
   }
   return formattedValue;
 };

@@ -1,14 +1,14 @@
+import classNames from "classnames";
 import React, { ChangeEvent, useRef, useState } from "react";
 
+import { emailRegex } from "../config";
 import Icon from "@root/components/Icon";
 
 import type { AttachmentFileData, FormData } from "@interfaces/claim";
 
-import styles from "./styles.m.scss";
 import AttachmentFile from "./AttachmentFile";
-import classNames from "classnames";
-import { emailRegex } from "../config";
 import PhoneNumberInut from "./PhoneNumberInut";
+import styles from "./styles.m.scss";
 
 type FormProps = {
   handleSendData: (payload: FormData) => void;
@@ -157,14 +157,15 @@ const From = ({ handleSendData }: FormProps) => {
               name="c1"
               id="c1"
             />
+            <>{/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}</>
             <label htmlFor="c1"></label>
             <div className={styles.agreementsText}>
               Принимаю условия{" "}
-              <a href="" target="_blank">
+              <a href="#a" target="_blank">
                 пользовательского соглашения
               </a>{" "}
               и{" "}
-              <a href="" target="_blank">
+              <a href="#b" target="_blank">
                 политики конфиденциальности
               </a>
             </div>

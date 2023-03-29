@@ -1,6 +1,6 @@
-import Icon from "@root/components/Icon";
-
 import React from "react";
+
+import Icon from "@root/components/Icon";
 
 import styles from "./styles.m.scss";
 
