@@ -15,6 +15,6 @@ export const aboutData: Array<AboutData> = [
   },
   {
     title: "Поддержка",
-    list: ["Интеграционные решения", "SPA и MPA", "Backend"],
+    list: ["Масштабирование", "Сопровождение", "Документация"],
   },
 ];
