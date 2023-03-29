@@ -14,7 +14,7 @@ interface MenuPropsType {
 }
 
 const Menu = ({ setActive, active }: MenuPropsType) => {
-  const [locale, setNextLocale] = useDictionary();
+  const [locale] = useDictionary();
 
   useEffect(() => {
     const close = (e: KeyboardEvent) => {
@@ -46,9 +46,9 @@ const Menu = ({ setActive, active }: MenuPropsType) => {
             </li>
           ))}
         </ul>
-        <div onClick={setNextLocale} style={{ color: "#fff" }}>
+        {/* <div onClick={setNextLocale} style={{ color: "#fff" }}>
           lang
-        </div>
+        </div> */}
       </div>
     </div>
   );

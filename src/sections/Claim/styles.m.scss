@@ -18,22 +18,23 @@
     align-items: center;
     padding: 0px;
     gap: 16px;
-    margin-bottom: 12px;
+    margin-top: -12px;
 
-    @media screen and (max-width: $mobile) {
-      margin-bottom: 12px;
+    .backBtn {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      padding: 12px 0;
+      cursor: pointer;
     }
 
     .claimBackContainer {
       width: 16px;
-
-      .claimBack {
-        cursor: pointer;
-      }
+      display: flex;
+      align-items: center;
     }
 
     .stepsTitle {
-      cursor: pointer;
       user-select: none;
       font-style: normal;
       font-weight: 600;

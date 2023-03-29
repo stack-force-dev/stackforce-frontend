@@ -58,15 +58,11 @@ const Claim = () => {
     <section className={styles.claim} id="section-6">
       <div className={classNames(styles.container, "container")}>
         <div className={styles.header}>
-          <div className={styles.claimBackContainer}>
-            {!!currentStep && (
-              <div className={styles.claimBack} onClick={handleReturn}>
-                <Icon name="claimBack" />
-              </div>
-            )}
-          </div>
-          <div className={styles.stepsTitle} onClick={handleReturn}>
-            ШАГ {currentStep + 1} ИЗ {stepsCards.length + 1}
+          <div className={styles.backBtn} onClick={handleReturn}>
+            <div className={styles.claimBackContainer}>{!!currentStep && <Icon name="claimBack" />}</div>
+            <div className={styles.stepsTitle}>
+              ШАГ {currentStep + 1} ИЗ {stepsCards.length + 1}
+            </div>
           </div>
           <div className={styles.progressBar}>
             <div style={{ width: `${getProgressBarWidth()}%` }}></div>

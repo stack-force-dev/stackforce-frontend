@@ -14,7 +14,7 @@ class Scroll {
     // let lastTouch = 0;
 
     const scrollListener = (down, section, keyScroll = false) => {
-      if (scrolling || (!keyScroll && section === lastSection)) return;
+      if (scrolling || (!keyScroll && section !== 1 && section === lastSection)) return;
 
       scrolling = true;
 

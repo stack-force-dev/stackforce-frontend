@@ -26,7 +26,7 @@ const Intro = () => {
               <br />
               {d.intro.subTitle[locale]}
             </h1>
-            <h3>{d.intro.webTitle[locale]}</h3>
+            <h3 className={styles.h3Mobile}>{d.intro.webTitle[locale]}</h3>
           </div>
         </Tilt>
       </div>

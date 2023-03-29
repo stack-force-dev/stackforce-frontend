@@ -20,6 +20,7 @@
       display: flex;
       align-items: center;
       gap: 40px;
+
       .textContent {
         max-width: 100%;
         width: 100%;
@@ -27,9 +28,10 @@
         font-size: 60px;
         line-height: 64px;
         overflow: hidden;
+        z-index: 5;
         @media screen and (max-width: $laptop) {
-          font-size: 32px;
-          line-height: 40px;
+          font-size: 40px;
+          line-height: 48px;
         }
         @media screen and (max-width: $tablet) {
           font-size: 40px;
@@ -41,47 +43,44 @@
         }
         .title {
           color: #0071ff;
-          margin-bottom: 20px;
           position: relative;
           width: max-content;
-          &::before {
-            content: "";
-            position: absolute;
-            height: 100%;
-            width: 100%;
-            background-color: #0a0a0c;
-            border-left: 2px solid #fff;
-            animation: animate 4s steps(12) infinite alternate;
+          &::after {
+            color: #323235;
           }
         }
         .subtitle {
           color: #fff;
+          margin-top: 20px;
         }
       }
       .gif {
-        @media screen and (max-width: $tablet) {
-          position: absolute;
-          right: 0px;
-          z-index: -1;
-        }
-        @media screen and (max-width: $mobile) {
-          position: absolute;
-          right: 0px;
-          z-index: -1;
-        }
-      }
-      img {
-        display: block;
-        width: 350px;
-        height: 140px;
+        display: flex;
+        margin-right: 10%;
+        transition: margin 0.4s ease-in-out;
 
+        @media screen and (max-width: $desktop) {
+          margin-right: 0%;
+        }
+        @media screen and (max-width: $laptop) {
+          video {
+            height: 120px;
+          }
+        }
         @media screen and (max-width: $tablet) {
-          mix-blend-mode: screen;
-          opacity: 0.12;
+          position: absolute;
+          right: 0px;
+          z-index: 4;
+          opacity: .15;
         }
         @media screen and (max-width: $mobile) {
-          mix-blend-mode: screen;
-          opacity: 0.12;
+          position: absolute;
+          right: 0px;
+          z-index: 4;
+          opacity: .15;
+          video {
+            height: 98px;
+          }
         }
       }
     }
@@ -97,14 +96,5 @@
     @media screen and (max-width: $mobile) {
       gap: 40px;
     }
-  }
-}
-@keyframes animate {
-  40%,
-  60% {
-    left: 100%;
-  }
-  100% {
-    left: 0%;
   }
 }

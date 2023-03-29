@@ -16,7 +16,7 @@ const Card = ({ data, handleChoose }: CardProps) => {
     <div className={styles.chooseItem} onClick={() => handleChoose(data.value)}>
       <div className={styles.container}>
         <div className={styles.itemLogo}>
-          <Icon name="claimBag" />
+          <Icon name={data.iconName} className={styles.icon} />
         </div>
         <div className={styles.itemTitle}>{data.title}</div>
       </div>

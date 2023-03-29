@@ -5,35 +5,35 @@ export const stepsCards: Array<StepType> = [
     name: "Направление вашего проекта",
     key: "type",
     cards: [
-      { title: "Электронная коммерция", value: 1 },
-      { title: "Обслуживание клиентов", value: 2 },
-      { title: "Личный кабинет", value: 3 },
-      { title: "Другой", value: 4 },
+      { title: "Электронная коммерция", value: 1, iconName: "form-1-1" },
+      { title: "Обслуживание клиентов", value: 2, iconName: "form-1-2" },
+      { title: "Личный кабинет", value: 3, iconName: "form-1-3" },
+      { title: "Другой", value: 4, iconName: "form-1-4" },
     ],
   },
   {
     name: "Адаптив под маленькие экраны",
     key: "is_adaptive",
     cards: [
-      { title: "Адаптивный сайт", value: 1 },
-      { title: "Без адаптивов", value: 2 },
+      { title: "Адаптивный сайт", value: 1, iconName: "form-2-1" },
+      { title: "Без адаптивов", value: 2, iconName: "form-2-2" },
     ],
   },
   {
     name: "Текущий статус проекта",
     key: "state",
     cards: [
-      { title: "Новый проект", value: 1 },
-      { title: "Существующий проект", value: 2 },
+      { title: "Новый проект", value: 1, iconName: "form-3-1" },
+      { title: "Существующий проект", value: 2, iconName: "form-3-1" },
     ],
   },
   {
     name: "Время старта разработки",
     key: "start_date",
     cards: [
-      { title: "Немедленно", value: 1 },
-      { title: "В течение недели", value: 2 },
-      { title: "В течение месяца", value: 3 },
+      { title: "Немедленно", value: 1, iconName: "form-4-1" },
+      { title: "В течение недели", value: 2, iconName: "form-4-2" },
+      { title: "В течение месяца", value: 3, iconName: "form-4-3" },
     ],
   },
 ];

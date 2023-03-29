@@ -27,6 +27,8 @@
             font-weight: 400;
             font-size: 16px;
             line-height: 28px;
+            color: #A2A5BE;
+
             @media screen and (max-width: $laptop) {
                 font-size: 14px;
                 line-height: 20px;
@@ -94,6 +96,12 @@
                     height: 60px;
                     width: 60px;
                 }
+                svg:hover {
+                    * {
+                        opacity: 1;
+                        transition: all 0.5s;
+                    };
+                }
             }
 
             .title {
@@ -112,6 +120,7 @@
                 font-size: 16px;
                 line-height: 28px;
                 margin-top: 12px;
+                color: #A2A5BE;
                 @media screen and (max-width: $laptop) {
                     font-size: 14px;
                     line-height: 20px;

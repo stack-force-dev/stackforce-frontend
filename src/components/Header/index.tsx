@@ -39,7 +39,9 @@ const Header = () => {
             <li data-section-link={1}>
               <Icon name="logo" />
             </li>
-            <div className={styles.logoTitle}>{d.header.title[locale]}</div>
+            <div data-section-link={1} className={styles.logoTitle}>
+              {d.header.title[locale]}
+            </div>
           </div>
           <div className={styles.logoSubTitle}>{d.header.subTitle[locale]}</div>
         </div>

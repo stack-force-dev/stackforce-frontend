@@ -1,56 +1,36 @@
 import classNames from "classnames";
-import React, { useEffect, useRef } from "react";
-
-import about from "@root/assets/images/about.png";
+import React from "react";
+import { TypeAnimation } from "react-type-animation";
 
 import Item from "./Item/Item";
 import { aboutData } from "./config";
 import styles from "./styles.m.scss";
 
-const phrases = ["поддержка проектов", "разработка с нуля", "консультация"];
+const phrases = ["поддержка проектов", 1500, "разработка с нуля", 1500, "консультация", 1500];
 
 const About = () => {
-  const textTypingDiv = useRef<HTMLDivElement>(null);
-  useEffect(() => {
-    if (!textTypingDiv.current) return;
-
-    const textDiv = textTypingDiv.current;
-    let timer1, timer2, timer3;
-    const textChange = () => {
-      timer1 = setTimeout(() => {
-        textDiv.textContent = phrases[0];
-      }, 0);
-      timer2 = setTimeout(() => {
-        textDiv.textContent = phrases[1];
-      }, 4000);
-      timer3 = setTimeout(() => {
-        textDiv.textContent = phrases[2];
-      }, 8000);
-    };
-    textChange();
-    const intervalId = setInterval(textChange, 12000);
-    return () => {
-      clearTimeout(timer1);
-      clearTimeout(timer2);
-      clearTimeout(timer3);
-      clearInterval(intervalId);
-    };
-  }, []);
-
   return (
     <section className={styles.about} id="section-2">
       <div className={classNames(styles.content, "container")}>
         <div className={styles.top}>
           <div className={styles.textContent}>
-            <div ref={textTypingDiv} className={styles.title}>
-              поддержка проектов
-            </div>
+            <TypeAnimation
+              sequence={phrases}
+              speed={30}
+              deletionSpeed={60}
+              wrapper="span"
+              cursor={true}
+              repeat={Infinity}
+              className={styles.title}
+            />
             <div className={styles.subtitle}>
               для большого <br /> и маленького бизнеса
             </div>
           </div>
           <div className={styles.gif}>
-            <img src={about} alt="about" />
+            <video className={styles.video} autoPlay muted playsInline loop>
+              <source src="https://api.stackforce.ru/static/about.mp4" type="video/mp4" />
+            </video>
           </div>
         </div>
         <div className={styles.bot}>
