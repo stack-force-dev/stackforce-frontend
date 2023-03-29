@@ -1,7 +1,7 @@
 @import "./fonts.scss";
 @import "./main.scss";
 @import "./vars.scss";
-@import "../../node_modules/react-responsive-carousel/lib/styles/carousel.min.css";
+@import "./slicks.scss";
 
 .main-container {
   min-height: 100vh;
@@ -14,8 +14,10 @@ section {
   justify-content: center;
   min-height: 100vh;
   overflow: hidden;
+
   @media screen and (max-width: $tablet) {
     align-items: flex-start;
+    min-height: auto;
   }
 }
 

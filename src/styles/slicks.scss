@@ -1,0 +1,21 @@
+@import "~slick-carousel/slick/slick.css"; 
+@import "~slick-carousel/slick/slick-theme.css";
+
+.slick-dots {
+  bottom: -57px;
+  font-size: 10px;
+}
+.slick-dots li {
+  margin: 0 2px;
+}
+.slick-dots li button:before {
+  color: #ffffff;
+  opacity: .2;
+}
+.slick-dots li.slick-active button:before {
+  color: #ffffff;
+  opacity: 1;
+}
+.slick-slider {
+  margin: 0 -20px;
+}

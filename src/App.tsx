@@ -23,7 +23,6 @@ const App: FC = () => {
       <Stack />
       <LifeTime />
       <Claim />
-      {/* <section id="section-5"></section> */}
     </Dictionary>
   );
 };
