@@ -24,7 +24,7 @@ export const stepsCards: Array<StepType> = [
     key: "state",
     cards: [
       { title: "Новый проект", value: 1, iconName: "form-3-1" },
-      { title: "Существующий проект", value: 2, iconName: "form-3-1" },
+      { title: "Существующий проект", value: 2, iconName: "form-3-2" },
     ],
   },
   {

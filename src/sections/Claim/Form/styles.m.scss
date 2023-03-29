@@ -29,7 +29,7 @@
     align-items: flex-start;
     padding: 32px;
     width: 100%;
-    height: 380px;
+    height: 398px;
     background: #141418;
     border: 1px solid #323235;
     border-radius: 4px;
@@ -196,6 +196,8 @@
         background: #202023;
         color: rgba(255, 255, 255, 0.3);
         pointer-events: none;
+
+        transition: all 0.3s ease;
 
         &:focus {
           outline: none;
