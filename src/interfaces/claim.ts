@@ -22,10 +22,11 @@ export type FormData = {
   email: string;
   phone: string;
   message: string;
-  file: string | ArrayBuffer | null;
+  files: Array<string | ArrayBuffer | null>;
 };
 
 export type AttachmentFileData = {
-  attached: boolean;
   name: string;
+  base64: string | ArrayBuffer | null;
+  size: number;
 };

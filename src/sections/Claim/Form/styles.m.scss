@@ -74,15 +74,27 @@
         flex-direction: column;
         align-items: flex-start;
         width: 393.33px;
-        height: 68px;
+        height: 84px;
         @media screen and (max-width: $laptop) {
           width: 100%;
         }
         @media screen and (max-width: $tablet) {
-          height: 64px;
+          height: 80px;
         }
         @media screen and (max-width: $mobile) {
-          height: 44px;
+          height: 60px;
+        }
+        &.errorUnderline {
+          input {
+            border-bottom: 1px solid #dd473b;
+            &:hover {
+              border-bottom: 1px solid #dd473b;
+            }
+            &:focus {
+              outline: none;
+              border-bottom: 1px solid #dd473b;
+            }
+          }
         }
         input {
           display: flex;
@@ -99,8 +111,13 @@
           font-weight: 400;
           font-size: 16px;
           line-height: 24px;
+
+          &:hover {
+            border-bottom: 1px solid #7c7c83;
+          }
           &:focus {
             outline: none;
+            border-bottom: 1px solid #0071ff;
           }
           @media screen and (max-width: $laptop) {
             width: 100%;
@@ -113,6 +130,8 @@
           }
         }
         input::placeholder {
+          font-family: "Graphik LCG";
+          font-style: normal;
           font-weight: 400;
           font-size: 16px;
           line-height: 24px;
@@ -160,8 +179,12 @@
         font-weight: 400;
         font-size: 16px;
         line-height: 24px;
+        &:hover {
+          border-bottom: 1px solid #7c7c83;
+        }
         &:focus {
           outline: none;
+          border-bottom: 1px solid #0071ff;
         }
         @media screen and (max-width: $laptop) {
           width: 100%;
@@ -169,6 +192,8 @@
       }
     }
     textarea::placeholder {
+      font-family: "Graphik LCG";
+      font-style: normal;
       font-weight: 400;
       font-size: 16px;
       line-height: 24px;
@@ -318,11 +343,36 @@
     }
   }
 }
-input:focus {
-  outline: none;
+.errorMessage {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  color: #dd473b;
 }
+
 .disabled {
   background: #202023;
   color: rgba(255, 255, 255, 0.3);
   pointer-events: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 12px 24px;
+  width: 184px;
+  height: 48px;
+  border-radius: 100px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: center;
+  white-space: nowrap;
+  text-decoration: none;
+  border: 0;
+  &:focus {
+    outline: none;
+  }
+  @media screen and (max-width: $mobile) {
+    width: 100%;
+  }
 }

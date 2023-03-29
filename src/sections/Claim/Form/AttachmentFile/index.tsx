@@ -24,7 +24,7 @@ const AttachmentFile = ({ handleClickDelAttachmentFile, fileName, fileSize }: At
           </div>
         </div>
         <div className={styles.attachmentFileSize}>
-          {fileSize > 1024 ? `${(fileSize / 1024).toFixed(2)} Мб` : `${fileSize} Кб`}
+          {fileSize > 1024 ? `${(fileSize / 1024).toFixed(2)} Мб` : `${fileSize.toFixed(2)} Кб`}
         </div>
       </div>
     </div>

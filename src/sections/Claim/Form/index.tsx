@@ -6,6 +6,9 @@ import type { AttachmentFileData, FormData } from "@interfaces/claim";
 
 import styles from "./styles.m.scss";
 import AttachmentFile from "./AttachmentFile";
+import classNames from "classnames";
+import { emailRegex } from "../config";
+import PhoneNumberInut from "./PhoneNumberInut";
 
 type FormProps = {
   handleSendData: (payload: FormData) => void;
@@ -13,9 +16,9 @@ type FormProps = {
 const initState: FormData = {
   name: "",
   email: "",
-  phone: "+7 ",
+  phone: "+7",
   message: "",
-  file: null,
+  files: [],
 };
 const MAX_FILE_SIZE = 5 * 1024 * 1024;
 
@@ -23,22 +26,28 @@ const From = ({ handleSendData }: FormProps) => {
   const [formData, setFormData] = useState<FormData>(initState);
 
   const [checked, setChecked] = useState(false);
+  const [errorEmailMessage, setErrorEmailMessage] = useState("");
 
-  const [attachmentFile, setAttachmentFile] = useState<AttachmentFileData>({ attached: false, name: "" });
+  const [attachmentFiles, setAttachmentFile] = useState<Array<AttachmentFileData>>([]);
   const hiddenFileInput = useRef<HTMLInputElement>(null);
 
   const handleClickUploadFile = () => {
     if (hiddenFileInput.current) hiddenFileInput.current.click();
   };
-  const handleClickDelAttachmentFile = () => {
-    setAttachmentFile({ attached: false, name: "" });
-    setFormData((prev) => ({ ...prev, file: null }));
+  const handleClickDelAttachmentFile = (name: string) => {
+    const delFile = attachmentFiles?.find((file) => file.name === name);
+    setAttachmentFile(attachmentFiles?.filter((file) => file.name != name));
+    setFormData({ ...formData, files: formData.files?.filter((file) => file !== delFile?.base64) });
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    handleSendData(formData);
-    setFormData(initState);
+    if (!emailRegex.test(formData.email)) setErrorEmailMessage("Неверный формат");
+    else {
+      setErrorEmailMessage("");
+      handleSendData(formData);
+      setFormData(initState);
+    }
   };
 
   const onChange = (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -51,13 +60,15 @@ const From = ({ handleSendData }: FormProps) => {
     if (!files?.length) return;
 
     const file = files[0];
-    if (file.size > MAX_FILE_SIZE) return console.error("File size too much");
 
-    setAttachmentFile({ attached: true, name: file.name });
+    if (file.size > MAX_FILE_SIZE) return console.error(file.name, " size too much");
 
     const reader = new FileReader();
-    reader.readAsDataURL(files[0]);
-    reader.onload = () => setFormData((prev) => ({ ...prev, file: reader.result }));
+    reader.readAsDataURL(file);
+    reader.onload = () => {
+      setFormData((prev) => ({ ...prev, files: [...prev.files, reader.result] }));
+      setAttachmentFile((prev) => [...prev, { name: file.name, size: file.size / 1024, base64: reader.result }]);
+    };
     reader.onerror = () => console.error("File upload error");
   };
 
@@ -80,20 +91,21 @@ const From = ({ handleSendData }: FormProps) => {
           </div>
           <div className={styles.inputWrapper}>
             <div className={styles.label}>Номер телефона</div>
-            <input name="phone" onChange={onChange} type="tel" value={formData.phone} />
+            <PhoneNumberInut value={formData.phone} setValue={setFormData} />
+            {/* <input name="phone" onChange={onChange} type="tel" value={formData.phone} /> */}
           </div>
-          <div className={styles.inputWrapper}>
+          <div className={classNames(styles.inputWrapper, { [styles.errorUnderline]: errorEmailMessage })}>
             <div className={styles.label}>Электронная почта</div>
             <input
-              required
               name="email"
               onChange={onChange}
               value={formData.email}
-              type="email"
+              // type="email"
               placeholder="Рабочий email"
               onFocus={(e) => (e.target.placeholder = "")}
               onBlur={(e) => (e.target.placeholder = "Рабочий email")}
             />
+            {errorEmailMessage && <div className={styles.errorMessage}>{errorEmailMessage}</div>}
           </div>
         </div>
         <div className={styles.message}>
@@ -109,22 +121,31 @@ const From = ({ handleSendData }: FormProps) => {
           ></textarea>
         </div>
         <div className={styles.file}>
-          <AttachmentFile
-            handleClickDelAttachmentFile={handleClickDelAttachmentFile}
-            fileName="Название файла"
-            fileSize={3.22 * 1024}
-          />
-          <div onClick={handleClickUploadFile} className={styles.uploadFileBtn}>
-            <Icon name="upload" />
-            <div className={styles.btnTitleContainer}>
-              <div className={styles.btntitle}>Добавить файл</div>
-              <div className={styles.btnSubtitle}>до 5 Мб</div>
+          {!!attachmentFiles &&
+            attachmentFiles.map((file) => (
+              <AttachmentFile
+                key={file.name}
+                handleClickDelAttachmentFile={handleClickDelAttachmentFile}
+                fileName={file.name}
+                fileSize={file.size}
+              />
+            ))}
+          {attachmentFiles.length < 3 && (
+            <div onClick={handleClickUploadFile} className={styles.uploadFileBtn}>
+              <Icon name="upload" />
+              <div className={styles.btnTitleContainer}>
+                <div className={styles.btntitle}>Добавить файл</div>
+                <div className={styles.btnSubtitle}>до 5 Мб</div>
+              </div>
             </div>
-          </div>
+          )}
           <input ref={hiddenFileInput} type="file" onChange={uploadFile} style={{ display: "none" }} />
         </div>
         <div className={styles.wrapperBtnCheck}>
-          <button type="submit" className={styles.btnSendForm}>
+          <button
+            type="submit"
+            className={classNames({ [styles.disabled]: !checked }, { [styles.btnSendForm]: checked })}
+          >
             Отправить заявку
           </button>
           <div className={styles.agreements}>
