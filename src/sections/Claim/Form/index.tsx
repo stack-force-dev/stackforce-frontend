@@ -102,9 +102,9 @@ const From = ({ handleSendData }: FormProps) => {
             name="message"
             onChange={onChange}
             value={formData.message}
-            placeholder="Сроки запуска, бюджет, требования, ваши пожелания ..."
+            placeholder="Сроки запуска, бюджет, требования, ваши пожелания..."
             onFocus={(e) => (e.target.placeholder = "")}
-            onBlur={(e) => (e.target.placeholder = "Сроки запуска, бюджет, требования, ваши пожелания ...")}
+            onBlur={(e) => (e.target.placeholder = "Сроки запуска, бюджет, требования, ваши пожелания...")}
             className={styles.textarea}
           ></textarea>
         </div>
@@ -128,7 +128,15 @@ const From = ({ handleSendData }: FormProps) => {
             Отправить заявку
           </button>
           <div className={styles.agreements}>
-            <input type="checkbox" checked={checked} onChange={() => setChecked(!checked)} />
+            <input
+              className={styles.customCheckbox}
+              type="checkbox"
+              checked={checked}
+              onChange={() => setChecked(!checked)}
+              name="c1"
+              id="c1"
+            />
+            <label htmlFor="c1"></label>
             <div className={styles.agreementsText}>
               Принимаю условия{" "}
               <a href="" target="_blank">
