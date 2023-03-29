@@ -1,0 +1,35 @@
+@import "../../../../styles/vars.scss";
+
+.attachmentFileContainer {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  width: auto;
+  height: 38px;
+  cursor: pointer;
+  .wrapper {
+    .wrapperName {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      .attachmentFileName {
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 20px;
+        color: #fff;
+      }
+      .btn {
+        min-width: 16px;
+        width: 16px;
+        height: 16px;
+      }
+    }
+
+    .attachmentFileSize {
+      font-weight: 400;
+      font-size: 12px;
+      line-height: 16px;
+      color: rgba(255, 255, 255, 0.5);
+    }
+  }
+}

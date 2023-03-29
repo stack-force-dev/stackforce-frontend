@@ -1,23 +1,39 @@
 @import "../../styles/vars.scss";
 
 .claim {
-  background-color: #20203C;
+  background-color: #101014;
   display: flex;
   justify-content: center;
   align-items: center;
+
+  .container {
+    width: 1280px;
+    @media screen and (max-width: $laptop) {
+      width: 100%;
+    }
+  }
+
   .header {
     display: flex;
     align-items: center;
     padding: 0px;
     gap: 16px;
-    margin-bottom: 8px;
+    margin-bottom: 12px;
+
+    @media screen and (max-width: $mobile) {
+      margin-bottom: 12px;
+    }
+
     .claimBackContainer {
       width: 16px;
+
       .claimBack {
         cursor: pointer;
       }
     }
+
     .stepsTitle {
+      cursor: pointer;
       user-select: none;
       font-style: normal;
       font-weight: 600;
@@ -25,11 +41,13 @@
       line-height: 167%;
       color: #0071ff;
     }
+
     .progressBar {
       width: 150px;
       height: 8px;
-      background: #e0e0e0;
+      background: #323235;
       border-radius: 10px;
+
       div {
         height: 8px;
         width: 25%;
@@ -39,7 +57,6 @@
       }
     }
   }
-
 }
 
 @media screen and (max-width: $mobile) {
@@ -47,8 +64,5 @@
     height: max-content;
     justify-content: center;
     width: 100%;
-    .header {
-      margin-bottom: 12px;
-    }
   }
 }
