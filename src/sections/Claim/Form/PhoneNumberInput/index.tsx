@@ -31,7 +31,7 @@ type PhoneNumberInutProps = {
   setValue: Dispatch<SetStateAction<FormData>>;
 };
 
-const PhoneNumberInut = ({ setValue, value }: PhoneNumberInutProps) => {
+const PhoneNumberInput = ({ setValue, value }: PhoneNumberInutProps) => {
   const handleOnChangeNumber = (event: ChangeEvent<HTMLInputElement>) => {
     const formattedPhoneNumberStr = formattedPhoneNumber(event.target);
     setValue((prev) => ({ ...prev, phone: formattedPhoneNumberStr }));
@@ -40,4 +40,4 @@ const PhoneNumberInut = ({ setValue, value }: PhoneNumberInutProps) => {
   return <input name="phone" onChange={handleOnChangeNumber} value={value} type="tel" maxLength={18} />;
 };
 
-export default PhoneNumberInut;
+export default PhoneNumberInput;

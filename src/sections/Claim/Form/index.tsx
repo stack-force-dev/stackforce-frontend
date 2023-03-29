@@ -7,7 +7,8 @@ import Icon from "@root/components/Icon";
 import type { AttachmentData, FormData } from "@interfaces/claim";
 
 import Attachment from "./Attachment";
-import PhoneNumberInut from "./PhoneNumberInut";
+import Input from "./Input";
+import PhoneNumberInput from "./PhoneNumberInput";
 import styles from "./styles.m.scss";
 
 const initState: FormData = {
@@ -78,35 +79,19 @@ const Form = ({ handleSendData }: FormProps) => {
       <div className={styles.formTitle}>Ваши контакты</div>
       <form className={styles.formWrapper} onSubmit={handleSubmit} encType="multipart/form-data">
         <div className={styles.inputsContainer}>
-          <div className={styles.inputWrapper}>
-            <div className={styles.label}>Имя</div>
-            <input
-              name="name"
-              onChange={onChange}
-              value={formData.name}
-              type="text"
-              placeholder="Имя Фамилия"
-              onFocus={(e) => (e.target.placeholder = "")}
-              onBlur={(e) => (e.target.placeholder = "Имя Фамилия")}
-            />
-          </div>
+          <Input value={formData.name} onChange={onChange} name="name" placeholder="Имя Фамилия" label="Имя" />
           <div className={styles.inputWrapper}>
             <div className={styles.label}>Номер телефона</div>
-            <PhoneNumberInut value={formData.phone} setValue={setFormData} />
-            {/* <input name="phone" onChange={onChange} type="tel" value={formData.phone} /> */}
+            <PhoneNumberInput value={formData.phone} setValue={setFormData} />
           </div>
-          <div className={classNames(styles.inputWrapper, { [styles.errorUnderline]: errorEmailMessage })}>
-            <div className={styles.label}>Электронная почта</div>
-            <input
-              name="email"
-              onChange={onChange}
-              value={formData.email}
-              placeholder="Рабочий email"
-              onFocus={(e) => (e.target.placeholder = "")}
-              onBlur={(e) => (e.target.placeholder = "Рабочий email")}
-            />
-            {errorEmailMessage && <div className={styles.errorMessage}>{errorEmailMessage}</div>}
-          </div>
+          <Input
+            value={formData.email}
+            onChange={onChange}
+            name="email"
+            placeholder="Рабочий email"
+            label="Электронная почта"
+            error={errorEmailMessage}
+          />
         </div>
         <div className={styles.message}>
           <div className={styles.label}>Ваше сообщение</div>
@@ -134,7 +119,7 @@ const Form = ({ handleSendData }: FormProps) => {
             <div onClick={handleClickUploadFile} className={styles.uploadFileBtn}>
               <Icon name="upload" />
               <div className={styles.btnTitleContainer}>
-                <div className={styles.btntitle}>Добавить файл</div>
+                <div className={styles.btnTitle}>Добавить файл</div>
                 <div className={styles.btnSubtitle}>до 5 Мб</div>
               </div>
             </div>
@@ -142,10 +127,7 @@ const Form = ({ handleSendData }: FormProps) => {
           <input ref={hiddenFileInput} type="file" onChange={uploadFile} style={{ display: "none" }} />
         </div>
         <div className={styles.wrapperBtnCheck}>
-          <button
-            type="submit"
-            className={classNames({ [styles.disabled]: !checked }, { [styles.btnSendForm]: checked })}
-          >
+          <button type="submit" className={classNames(styles.button, { [styles.active]: checked })}>
             Отправить заявку
           </button>
           <div className={styles.agreements}>

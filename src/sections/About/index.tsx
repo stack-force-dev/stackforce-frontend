@@ -7,21 +7,24 @@ import Item from "./Item/Item";
 import { aboutData } from "./config";
 import styles from "./styles.m.scss";
 
+const phrases = ["поддержка проектов", "разработка с нуля", "консультация"];
+
 const About = () => {
   const textTypingDiv = useRef<HTMLDivElement>(null);
   useEffect(() => {
     if (!textTypingDiv.current) return;
+
     const textDiv = textTypingDiv.current;
     let timer1, timer2, timer3;
     const textChange = () => {
       timer1 = setTimeout(() => {
-        textDiv.textContent = "поддержка проектов";
+        textDiv.textContent = phrases[0];
       }, 0);
       timer2 = setTimeout(() => {
-        textDiv.textContent = "разработка с 0";
+        textDiv.textContent = phrases[1];
       }, 4000);
       timer3 = setTimeout(() => {
-        textDiv.textContent = "консультация";
+        textDiv.textContent = phrases[2];
       }, 8000);
     };
     textChange();

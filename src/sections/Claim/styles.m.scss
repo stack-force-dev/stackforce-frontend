@@ -6,6 +6,13 @@
   justify-content: center;
   align-items: center;
 
+  .container {
+    width: 1280px;
+    @media screen and (max-width: $laptop) {
+      width: 100%;
+    }
+  }
+
   .header {
     display: flex;
     align-items: center;
@@ -26,6 +33,7 @@
     }
 
     .stepsTitle {
+      cursor: pointer;
       user-select: none;
       font-style: normal;
       font-weight: 600;
