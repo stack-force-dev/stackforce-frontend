@@ -143,7 +143,7 @@ const Form = ({ handleSendData }: FormProps) => {
             <label htmlFor="c1"></label>
             <div className={styles.agreementsText}>
               Принимаю условия{" "}
-              <a href="#a" target="_blank">
+              <a href="personal-info-policy.pdf" target="_blank">
                 пользовательского соглашения
               </a>{" "}
               и{" "}

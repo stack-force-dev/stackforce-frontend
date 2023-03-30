@@ -29,7 +29,10 @@ module.exports = (env, { mode }) => {
         filename: isProduction ? "[name]-[contenthash].css" : "[name].css",
       }),
       new CopyPlugin({
-        patterns: [{ from: "src/assets/images/og.jpg", to: "" }],
+        patterns: [
+          { from: "src/assets/images/og.jpg", to: "" },
+          { from: "src/assets/docs", to: "docs" },
+        ],
       }),
     ],
 
