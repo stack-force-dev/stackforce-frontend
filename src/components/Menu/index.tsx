@@ -35,7 +35,7 @@ const Menu = ({ setActive, active }: MenuPropsType) => {
         <SendFormButton />
         <div onClick={() => setActive(false)} className={styles.closeBtn}>
           <div className={styles.closeBtnTitle}>{d.menu.close[locale]}</div>
-          <Icon name="close" />
+          <Icon name="close" width="32px" height="32px" />
         </div>
       </div>
       <div className={classNames(styles.menuContent, "ignore-scroll")}>

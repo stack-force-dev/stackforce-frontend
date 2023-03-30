@@ -1,0 +1,54 @@
+.notificationContainer {
+  position: fixed;
+  width: 320px;
+  height: 106px;
+  bottom: -106px;
+  left: 50%;
+  margin-left: -160px;
+  background: linear-gradient(96.26deg, rgba(37, 37, 40, 0.72) 0%, rgba(49, 49, 59, 0.48) 100%);
+  border: 1px solid #323235;
+  border-radius: 8px;
+  backdrop-filter: blur(15px);
+
+  display: flex;
+  flex-flow: row nowrap;
+  padding: 20px 10px 20px 20px;
+  justify-content: space-between;
+  cursor: pointer;
+  transition: bottom 0.2s ease-in;
+}
+.active {
+  transition: bottom 0.2s ease-out;
+  bottom: 40px;
+}
+.error {
+  background: linear-gradient(96.26deg, rgba(40, 37, 37, 0.72) 0%, rgba(45, 36, 36, 0.56) 100%);
+  border: 1px solid rgba(221, 71, 59, 0.2);
+}
+.main {
+  display: flex;
+  flex-flow: row nowrap;
+  gap: 12px;
+}
+.close {
+  margin-top: -10px;
+}
+.body {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 8px;
+}
+.title {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 24px;
+  color: #FFFFFF;
+}
+.description {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  color: #CDCDCE;
+}
