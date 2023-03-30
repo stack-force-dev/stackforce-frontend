@@ -8,14 +8,10 @@ const Loader = () => {
   useEffect(() => {
     let timeout;
 
-    if (ref.current) {
-      ref.current.style.opacity = "0";
-    }
-
     window.onload = () => {
       timeout = setTimeout(() => {
         if (ref.current) ref.current.style.display = "none";
-      }, 800);
+      }, 1600);
     };
 
     return () => {
