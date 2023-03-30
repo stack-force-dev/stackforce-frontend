@@ -1,5 +1,6 @@
 class Scroll {
   private SCROLL_LIMIT = 100;
+  private lastSection = 0;
 
   public init() {
     this.links();
@@ -10,11 +11,10 @@ class Scroll {
 
   private desktop() {
     let scrolling = false;
-    let lastSection = 0;
     let lastTouch = 0;
 
     const scrollListener = (down, section, keyScroll = false) => {
-      if (scrolling || (!keyScroll && section !== 1 && section === lastSection)) return;
+      if (scrolling || (!keyScroll && section === this.lastSection)) return;
 
       scrolling = true;
 
@@ -36,12 +36,12 @@ class Scroll {
         keyScroll ? 200 : 1000
       );
 
-      lastSection = section;
+      this.lastSection = section;
     };
 
     const keyDown = (e: KeyboardEvent) => {
-      if (e.key === "ArrowDown") return scrollListener(true, lastSection, true);
-      if (e.key === "ArrowUp") return scrollListener(false, lastSection, true);
+      if (e.key === "ArrowDown") return scrollListener(true, this.lastSection, true);
+      if (e.key === "ArrowUp") return scrollListener(false, this.lastSection, true);
     };
 
     const getSection = (target: Element): number | null => {
@@ -107,6 +107,8 @@ class Scroll {
 
         const section = document.querySelector(`#section-${newScreen}`);
         if (!section) return;
+
+        if (newScreen === 1) this.lastSection = 0;
 
         this.scrollToTarget(section);
       });
