@@ -11,7 +11,7 @@ class Scroll {
   private desktop() {
     let scrolling = false;
     let lastSection = 0;
-    // let lastTouch = 0;
+    let lastTouch = 0;
 
     const scrollListener = (down, section, keyScroll = false) => {
       if (scrolling || (!keyScroll && section !== 1 && section === lastSection)) return;
@@ -54,8 +54,16 @@ class Scroll {
       return getSection(parentElement);
     };
 
-    // window.addEventListener("touchstart", (e) => (lastTouch = e.touches[0].pageY));
-    // window.addEventListener("touchmove", (e) => scrollListener(lastTouch - e.touches[0].pageY > 0, e.target));
+    window.addEventListener("touchstart", (e) => (lastTouch = e.touches[0].pageY));
+    window.addEventListener("touchmove", (e) => {
+      const target = e.target as Element;
+
+      const section = getSection(target);
+      if (!section || target.classList.contains("ignore-scroll")) return;
+
+      scrollListener(lastTouch - e.touches[0].pageY > 0, section);
+    });
+
     window.addEventListener("wheel", (e) => {
       const target = e.target as Element;
 
