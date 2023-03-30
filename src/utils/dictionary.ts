@@ -48,7 +48,7 @@ export default {
     },
     intro: {
       [Locale.En]: "Intro",
-      [Locale.Ru]: "Интро",
+      [Locale.Ru]: "Начало",
     },
     about: {
       [Locale.En]: "About",
@@ -64,11 +64,11 @@ export default {
     },
     lifetime: {
       [Locale.En]: "Lifetime",
-      [Locale.Ru]: "Лайфтайм",
+      [Locale.Ru]: "Как мы работаем",
     },
     claim: {
       [Locale.En]: "Claim",
-      [Locale.Ru]: "Заявка",
+      [Locale.Ru]: "Оставить заявку",
     },
   },
 };

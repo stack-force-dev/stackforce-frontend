@@ -2,11 +2,11 @@ import classNames from "classnames";
 import React, { Dispatch, SetStateAction, useEffect } from "react";
 
 import Icon from "@components/Icon";
-import SendFormButton from "@components/SendFormButton";
 import { routes } from "@root/config";
 import d, { useDictionary } from "@utils/dictionary";
 
 import styles from "./styles.m.scss";
+import { menuData } from "./config";
 
 interface MenuPropsType {
   active: boolean;
@@ -32,7 +32,9 @@ const Menu = ({ setActive, active }: MenuPropsType) => {
       onClick={() => setActive(false)}
     >
       <div className={styles.header}>
-        <SendFormButton />
+        {/* <div onClick={setNextLocale} style={{ color: "#fff" }}>
+          En
+        </div> */}
         <div onClick={() => setActive(false)} className={styles.closeBtn}>
           <div className={styles.closeBtnTitle}>{d.menu.close[locale]}</div>
           <Icon name="close" />
@@ -46,9 +48,25 @@ const Menu = ({ setActive, active }: MenuPropsType) => {
             </li>
           ))}
         </ul>
-        {/* <div onClick={setNextLocale} style={{ color: "#fff" }}>
-          lang
-        </div> */}
+        <div className={styles.contacts}>
+          {menuData.contacts.map((contact) => (
+            <div className={styles.contactWrapper}>
+              <div className={styles.contactLogo}>
+                <Icon name={contact.iconName} />
+              </div>
+              <a href={contact.href} className={styles.contactInfo}>
+                {contact.info}
+              </a>
+            </div>
+          ))}
+        </div>
+        <div className={styles.socialNetworkWrapper}>
+          {menuData.socialNetwork.map((item) => (
+            <a className={styles.socialNetworkItem} href={item.href}>
+              <Icon name={item.iconName} />
+            </a>
+          ))}
+        </div>
       </div>
     </div>
   );

@@ -88,7 +88,7 @@
     }
   }
 
-  @media screen and (max-width: $laptop) {
+  @media screen and (max-width: $laptop), screen and (max-height: $height) {
     .h1Desktop {
       font-size: 120px;
       line-height: 120px;

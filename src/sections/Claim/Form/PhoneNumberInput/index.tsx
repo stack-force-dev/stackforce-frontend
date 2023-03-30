@@ -5,10 +5,10 @@ import type { FormData } from "@interfaces/claim";
 const formattedPhoneNumber = (input: EventTarget & HTMLInputElement) => {
   const phoneNumber = input.value.replace(/\D/g, "");
   let formattedValue = "";
-  if (!phoneNumber) return "+7";
+  if (!phoneNumber) return "+7 ";
 
-  const firstSymbols = "+7";
-  formattedValue = input.value = firstSymbols + " ";
+  const firstSymbols = "+7 ";
+  formattedValue = input.value = firstSymbols;
   if (phoneNumber.length > 1) {
     formattedValue += "(" + phoneNumber.substring(1, 4);
   }
