@@ -54,7 +54,7 @@ const Menu = ({ setActive, active }: MenuPropsType) => {
               <div className={styles.contactLogo}>
                 <Icon name={contact.iconName} />
               </div>
-              <a href={contact.href} className={styles.contactInfo}>
+              <a href={contact.href} target="_blank" className={styles.contactInfo} rel="noreferrer">
                 {contact.info}
               </a>
             </div>
@@ -62,7 +62,13 @@ const Menu = ({ setActive, active }: MenuPropsType) => {
         </div>
         <div className={styles.socialNetworkWrapper}>
           {menuData.socialNetwork.map((item) => (
-            <a key={item.iconName} className={styles.socialNetworkItem} href={item.href}>
+            <a
+              key={item.iconName}
+              target="_blank"
+              className={styles.socialNetworkItem}
+              href={item.href}
+              rel="noreferrer"
+            >
               <Icon name={item.iconName} />
             </a>
           ))}
