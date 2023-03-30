@@ -14,7 +14,7 @@ const Intro = () => {
       <Loader />
       <div className={styles.introContainer}>
         <video className={styles.video} autoPlay muted playsInline loop>
-          <source src="https://storage.yandexcloud.net/stackforce/intro.mp4" type="video/mp4" />
+          <source src="https://api.stackforce.ru/static/intro.mp4" type="video/mp4" />
         </video>
       </div>
       <div className="container">

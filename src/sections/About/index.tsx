@@ -29,7 +29,7 @@ const About = () => {
           </div>
           <div className={styles.gif}>
             <video className={styles.video} autoPlay muted playsInline loop>
-              <source src="https://storage.yandexcloud.net/stackforce/about.mp4" type="video/mp4" />
+              <source src="https://api.stackforce.ru/static/about.mp4" type="video/mp4" />
             </video>
           </div>
         </div>
