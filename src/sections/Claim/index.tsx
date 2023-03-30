@@ -69,6 +69,7 @@ const Claim = () => {
         handleChangeNotySettings({
           title: "Заявка отправлена",
           description: "Наш менеджер свяжется с вами в ближайшее время",
+          isError: false,
         });
 
         setCurrentStep(0);
