@@ -8,14 +8,11 @@ import styles from "./styles.m.scss";
 
 const Notification = ({ title, description, isError, isActive, toggle }: NotificationProps) => {
   useEffect(() => {
-    const timeout = setTimeout(
-      () => {
-        if (isActive) {
-          toggle(false);
-        }
-      },
-      isError ? 2000 : 4000
-    );
+    const timeout = setTimeout(() => {
+      if (isActive) {
+        toggle(false);
+      }
+    }, 4000);
     return () => {
       clearTimeout(timeout);
     };
