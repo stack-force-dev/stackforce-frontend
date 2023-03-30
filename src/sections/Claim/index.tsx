@@ -1,5 +1,5 @@
 import classNames from "classnames";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import api from "../../api/serviceForm";
 import Icon from "@components/Icon";
@@ -16,6 +16,7 @@ import styles from "./styles.m.scss";
 const Claim = () => {
   const [currentStep, setCurrentStep] = useState(0);
   const [isActiveNoty, toggleNoty] = useState<boolean>(false);
+  const [disableTimeout, setDisableTimeout] = useState<number>(0);
   const [notySettings, setNotySettings] = useState<NotificationSettings>({
     title: "",
     description: "",
@@ -30,6 +31,20 @@ const Claim = () => {
   const step = stepsCards[currentStep];
   const formActive = currentStep === stepsCards.length;
 
+  useEffect(() => {
+    let timeout;
+
+    if (disableTimeout !== 0) {
+      timeout = setTimeout(() => {
+        setDisableTimeout((prev) => prev - 1);
+      }, 1000);
+    }
+
+    return () => {
+      clearTimeout(timeout);
+    };
+  }, [disableTimeout]);
+
   const handleChoose = (value: number) => {
     setStepsData((prev) => ({ ...prev, [step.key]: value }));
     setCurrentStep((i) => i + 1);
@@ -42,8 +57,41 @@ const Claim = () => {
     });
   };
 
-  const handleSendData = (payload: FormData) => {
-    api.post("/claim", { ...payload, ...stepsData });
+  const handleChangeNotySettings = (props: ChangeNotificationSettings) => {
+    setNotySettings((prev) => ({ ...prev, ...props }));
+  };
+
+  const handleSendData = async (payload: FormData) => {
+    try {
+      const response = await api.post("/claim", { ...payload, ...stepsData });
+
+      if (String(response?.status).startsWith("2")) {
+        handleChangeNotySettings({
+          title: "Заявка отправлена",
+          description: "Наш менеджер свяжется с вами в ближайшее время",
+        });
+
+        setCurrentStep(0);
+      } else {
+        handleChangeNotySettings({
+          title: "Неизвестная ошибка",
+          description: "Попробуйте отправить заявку ещё раз или подождать некоторое время",
+          isError: true,
+        });
+
+        setDisableTimeout(10);
+      }
+    } catch {
+      handleChangeNotySettings({
+        title: "Неизвестная ошибка",
+        description: "Попробуйте отправить заявку ещё раз или подождать некоторое время",
+        isError: true,
+      });
+
+      setDisableTimeout(10);
+    }
+
+    toggleNoty(true);
   };
 
   const getProgressBarWidth = () => {
@@ -59,10 +107,6 @@ const Claim = () => {
       default:
         return 20;
     }
-  };
-
-  const handleChangeNotySettings = (props: ChangeNotificationSettings) => {
-    setNotySettings((prev) => ({ ...prev, ...props }));
   };
 
   return (
@@ -82,7 +126,12 @@ const Claim = () => {
         {!formActive ? (
           <Step config={step} handleChoose={handleChoose} />
         ) : (
-          <Form handleSendData={handleSendData} changeNoty={handleChangeNotySettings} toggleNoty={toggleNoty} />
+          <Form
+            handleSendData={handleSendData}
+            changeNoty={handleChangeNotySettings}
+            toggleNoty={toggleNoty}
+            disableTimeout={disableTimeout}
+          />
         )}
       </div>
       <Notification

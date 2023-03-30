@@ -26,9 +26,10 @@ type FormProps = {
   handleSendData: (payload: FormData) => void;
   changeNoty: (props: ChangeNotificationSettings) => void;
   toggleNoty: React.Dispatch<React.SetStateAction<boolean>>;
+  disableTimeout: number;
 };
 
-const Form = ({ handleSendData, toggleNoty, changeNoty }: FormProps) => {
+const Form = ({ handleSendData, toggleNoty, changeNoty, disableTimeout }: FormProps) => {
   const [formData, setFormData] = useState<FormData>(initState);
   const [checked, setChecked] = useState(false);
   const [errorEmailMessage, setErrorEmailMessage] = useState("");
@@ -47,8 +48,6 @@ const Form = ({ handleSendData, toggleNoty, changeNoty }: FormProps) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    changeNoty({ title: "title", description: "description", isError: true });
-    toggleNoty(true);
     if (!emailRegex.test(formData.email)) setErrorEmailMessage("Неверный формат");
     else {
       setErrorEmailMessage("");
@@ -68,7 +67,14 @@ const Form = ({ handleSendData, toggleNoty, changeNoty }: FormProps) => {
 
     const file = files[0];
 
-    if (file.size > MAX_FILE_SIZE) return console.error(file.name, " size too much");
+    if (file.size > MAX_FILE_SIZE) {
+      changeNoty({ title: "Слишком большой файл", description: "Максимальный размер файла - 5МБ", isError: true });
+      toggleNoty(true);
+
+      if (!hiddenFileInput?.current) return;
+      hiddenFileInput.current.value = "";
+      return;
+    }
 
     const reader = new FileReader();
     reader.readAsDataURL(file);
@@ -132,8 +138,8 @@ const Form = ({ handleSendData, toggleNoty, changeNoty }: FormProps) => {
           <input ref={hiddenFileInput} type="file" onChange={uploadFile} style={{ display: "none" }} />
         </div>
         <div className={styles.wrapperBtnCheck}>
-          <button type="submit" className={classNames(styles.button, { [styles.active]: checked })}>
-            Отправить заявку
+          <button type="submit" className={classNames(styles.button, { [styles.active]: checked && !disableTimeout })}>
+            {disableTimeout ? `Подождите: ${disableTimeout}` : "Отправить заявку"}
           </button>
           <div className={styles.agreements}>
             <input
