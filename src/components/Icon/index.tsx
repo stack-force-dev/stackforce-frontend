@@ -18,6 +18,7 @@ interface IconProps {
   fill?: string;
   width?: string;
   height?: string;
+  onClick?: (event: React.MouseEvent<React.ElementType>) => unknown;
 }
 
 export const Icon: (props: IconProps) => JSX.Element = (props) => {

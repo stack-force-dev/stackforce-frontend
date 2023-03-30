@@ -5,6 +5,7 @@ import { emailRegex } from "../config";
 import Icon from "@root/components/Icon";
 
 import type { AttachmentData, FormData } from "@interfaces/claim";
+import { ChangeNotificationSettings } from "@interfaces/notification";
 
 import Attachment from "./Attachment";
 import Input from "./Input";
@@ -23,9 +24,11 @@ const MAX_FILE_SIZE = 5 * 1024 * 1024;
 
 type FormProps = {
   handleSendData: (payload: FormData) => void;
+  changeNoty: (props: ChangeNotificationSettings) => void;
+  toggleNoty: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
-const Form = ({ handleSendData }: FormProps) => {
+const Form = ({ handleSendData, toggleNoty, changeNoty }: FormProps) => {
   const [formData, setFormData] = useState<FormData>(initState);
   const [checked, setChecked] = useState(false);
   const [errorEmailMessage, setErrorEmailMessage] = useState("");
@@ -44,6 +47,8 @@ const Form = ({ handleSendData }: FormProps) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    changeNoty({ title: "title", description: "description", isError: true });
+    toggleNoty(true);
     if (!emailRegex.test(formData.email)) setErrorEmailMessage("Неверный формат");
     else {
       setErrorEmailMessage("");
@@ -143,11 +148,11 @@ const Form = ({ handleSendData }: FormProps) => {
             <label htmlFor="c1"></label>
             <div className={styles.agreementsText}>
               Принимаю условия{" "}
-              <a href="#a" target="_blank">
+              <a href="/docs/personal-info-policy.pdf" target="_blank">
                 пользовательского соглашения
               </a>{" "}
               и{" "}
-              <a href="#b" target="_blank">
+              <a href="/docs/privacy-policy.pdf" target="_blank">
                 политики конфиденциальности
               </a>
             </div>

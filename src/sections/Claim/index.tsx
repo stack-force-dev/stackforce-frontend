@@ -3,8 +3,10 @@ import React, { useState } from "react";
 
 import api from "../../api/serviceForm";
 import Icon from "@components/Icon";
+import Notification from "@components/Notification";
 
 import type { StepsData, FormData } from "@interfaces/claim";
+import type { ChangeNotificationSettings, NotificationSettings } from "@interfaces/notification";
 
 import Form from "./Form";
 import Step from "./Step";
@@ -13,13 +15,18 @@ import styles from "./styles.m.scss";
 
 const Claim = () => {
   const [currentStep, setCurrentStep] = useState(0);
+  const [isActiveNoty, toggleNoty] = useState<boolean>(false);
+  const [notySettings, setNotySettings] = useState<NotificationSettings>({
+    title: "",
+    description: "",
+    isError: false,
+  });
   const [stepsData, setStepsData] = useState<StepsData>({
     type: null,
     is_adaptive: null,
     state: null,
     start_date: null,
   });
-
   const step = stepsCards[currentStep];
   const formActive = currentStep === stepsCards.length;
 
@@ -54,6 +61,10 @@ const Claim = () => {
     }
   };
 
+  const handleChangeNotySettings = (props: ChangeNotificationSettings) => {
+    setNotySettings((prev) => ({ ...prev, ...props }));
+  };
+
   return (
     <section className={styles.claim} id="section-6">
       <div className={classNames(styles.container, "container")}>
@@ -68,8 +79,19 @@ const Claim = () => {
             <div style={{ width: `${getProgressBarWidth()}%` }}></div>
           </div>
         </div>
-        {!formActive ? <Step config={step} handleChoose={handleChoose} /> : <Form handleSendData={handleSendData} />}
+        {!formActive ? (
+          <Step config={step} handleChoose={handleChoose} />
+        ) : (
+          <Form handleSendData={handleSendData} changeNoty={handleChangeNotySettings} toggleNoty={toggleNoty} />
+        )}
       </div>
+      <Notification
+        title={notySettings.title}
+        description={notySettings.description}
+        isError={notySettings.isError}
+        isActive={isActiveNoty}
+        toggle={toggleNoty}
+      />
     </section>
   );
 };
