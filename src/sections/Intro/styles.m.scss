@@ -1,0 +1,129 @@
+@import "../../styles/vars.scss";
+
+.intro {
+  background: linear-gradient(
+    0deg,
+    rgba(6, 6, 6, 1) 0%,
+    rgba(6, 6, 6, 0.3) 8%,
+    rgba(6, 6, 6, 0) 18%,
+    rgba(6, 6, 6, 0) 100%
+  );
+  min-height: 100vh;
+}
+
+.introContainer {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: -1;
+}
+
+.introContainer::after {
+  content: "";
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background-color: black;
+  opacity: 0.4;
+  top: 0;
+  left: 0;
+}
+
+.video {
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+}
+.titleContainer {
+  position: absolute;
+  top: -25%;
+  left: -25%;
+  right: 25%;
+  bottom: 25%;
+  width: 150%;
+  height: 150%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-self: center;
+  mix-blend-mode: overlay;
+  text-transform: uppercase;
+}
+.title {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  gap: 10px;
+  color: white;
+  user-select: none;
+  font-size: 70%;
+
+  .h1Desktop {
+    font-weight: 600;
+    font-size: 10vmax;
+  }
+
+  .h1Mobile {
+    display: none;
+  }
+
+  h3 {
+    font-weight: 600;
+    font-size: 2vmax;
+  }
+
+  @media screen and (max-width: $desktop) {
+    .h1Desktop {
+      font-size: 160px;
+      line-height: 160px;
+    }
+
+    h3 {
+      font-size: 32px;
+      line-height: 40px;
+    }
+  }
+
+  @media screen and (max-width: $laptop), screen and (max-height: $height) {
+    .h1Desktop {
+      font-size: 120px;
+      line-height: 120px;
+    }
+
+    h3 {
+      font-size: 32px;
+      line-height: 40px;
+    }
+  }
+
+  @media screen and (max-width: $tablet) {
+    .h1Desktop {
+      font-size: 100px;
+      line-height: 100px;
+    }
+
+    h3 {
+      font-size: 24px;
+      line-height: 32px;
+    }
+  }
+
+  @media screen and (max-width: $mobile) {
+    .h1Desktop {
+      display: none;
+    }
+
+    .h1Mobile {
+      display: block;
+      font-weight: 600;
+      font-size: 20vmin;
+    }
+    .h3Mobile {
+      font-size: 7vmin;
+    }
+  }
+}

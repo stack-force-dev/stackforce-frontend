@@ -1,0 +1,250 @@
+@import "../../styles/vars.scss";
+
+.stack {
+  background-color: #0c101d;
+
+  h3 {
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 400;
+
+    @media screen and (max-width: $mobile) {
+      font-size: 14px;
+      line-height: 20px;
+    }
+  }
+
+  .technologies {
+    height: 424px;
+    @media screen and (max-width: $laptop), screen and (max-height: $height) {
+      height: 312px;
+    }
+
+    @media screen and (max-width: $tablet) {
+      height: 344px;
+    }
+
+    @media screen and (max-width: $mobile) {
+      height: auto;
+    }
+
+    h3 {
+      @media screen and (max-width: $laptop), screen and (max-height: $height) {
+        display: none;
+      }
+
+      @media screen and (max-width: $tablet) {
+        display: block;
+      }
+    }
+
+    .technologiesContent {
+      padding-top: 20px;
+      @media screen and (max-width: $laptop), screen and (max-height: $height) {
+        padding: 0;
+      }
+      @media screen and (max-width: $tablet) {
+        padding-top: 20px;
+      }
+      .stack {
+        border-bottom: 1px solid #323235;
+
+        .stackHeader {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          padding: 20px 0;
+          cursor: pointer;
+
+          .stackTitle {
+            font-weight: 500;
+            font-size: 24px;
+            line-height: 32px;
+            @media screen and (max-width: $laptop), screen and (max-height: $height) {
+              font-size: 20px;
+              line-height: 24px;
+            }
+            @media screen and (max-width: $tablet) {
+              font-size: 16px;
+              line-height: 24px;
+            }
+          }
+
+          .plus {
+            position: relative;
+            display: inline-block;
+            width: 18px;
+            height: 18px;
+            top: 0;
+            left: 0;
+            overflow: hidden;
+            color: #86888e;
+            transition: all 0.3s ease-in-out;
+
+            &::before,
+            &::after {
+              content: "";
+              position: absolute;
+              height: 2px;
+              width: 100%;
+              top: 50%;
+              left: 0;
+              margin-top: -1px;
+              background: #86888e;
+              border-radius: 4px;
+            }
+            &::before {
+              transform: rotate(0deg);
+            }
+            &::after {
+              transform: rotate(90deg);
+            }
+          }
+        }
+
+        .stackItems {
+          display: flex;
+          visibility: hidden;
+          opacity: 0;
+          height: 0;
+          transition: opacity 0.7s ease-in-out;
+
+          @media screen and (max-width: $mobile) {
+            flex-wrap: wrap;
+            row-gap: 4px;
+          }
+
+          .stackItem {
+            padding: 6px 8px;
+            color: #a2a5be;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+            margin-right: 4px;
+            font-size: 16px;
+            line-height: 20px;
+
+            @media screen and (max-width: $mobile) {
+              font-size: 14px;
+              line-height: 20px;
+            }
+
+            &:hover {
+              background: rgba(255, 255, 255, 0.2);
+              color: white;
+              cursor: default;
+            }
+          }
+        }
+
+        &.activeStack {
+          stackHeader {
+            margin: 20px 0 12px;
+          }
+
+          .stackItems {
+            visibility: visible;
+            opacity: 1;
+            height: auto;
+            margin: 0 0 20px;
+          }
+
+          .plus {
+            transform: rotate(45deg);
+          }
+        }
+      }
+    }
+  }
+
+  .projects {
+    margin-top: 100px;
+    @media screen and (max-width: $laptop), screen and (max-height: $height) {
+      margin-top: 60px;
+    }
+
+    @media screen and (max-width: $tablet) {
+      margin-top: 80px;
+    }
+  }
+}
+
+.companies {
+  margin-top: 20px;
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  height: 80px;
+  @media screen and (max-width: $tablet) {
+    height: 60px;
+  }
+  @media screen and (max-width: $mobile) {
+    height: 40px;
+  }
+
+  &:before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      #0c101d 0%,
+      rgba(12, 16, 29, 0) 6.24%,
+      rgba(12, 16, 29, 0.0336416) 93.74%,
+      #0c101d 100%
+    );
+    z-index: 2;
+  }
+
+  .companiesContent {
+    position: absolute;
+    display: flex;
+    height: 80px;
+    width: 100%;
+    @media screen and (max-width: $tablet) {
+      height: 60px;
+    }
+    @media screen and (max-width: $mobile) {
+      height: 40px;
+    }
+
+    .section {
+      display: flex;
+      animation: swipe 40s linear infinite backwards;
+
+      @media screen and (max-width: $mobile) {
+        animation: swipe-mobile 40s linear infinite backwards;
+      }
+    }
+    .company {
+      height: 100%;
+      margin: 0 40px;
+      @media screen and (max-width: $laptop), screen and (max-height: $height) {
+        margin: 0 20px;
+      }
+      @media screen and (max-width: $mobile) {
+        margin: 0 10px;
+      }
+    }
+  }
+}
+
+@keyframes swipe {
+  0% {
+    transform: translate(0);
+  }
+
+  100% {
+    transform: translate(-100%);
+  }
+}
+
+@keyframes swipe-mobile {
+  0% {
+    transform: translate(0);
+  }
+
+  100% {
+    transform: translate(-1000px);
+  }
+}

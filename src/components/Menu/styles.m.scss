@@ -1,0 +1,212 @@
+@import "../../styles/vars.scss";
+
+.menu {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  right: 0;
+  z-index: 11;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(50px);
+  -webkit-backdrop-filter: blur(50px);
+  user-select: none;
+  transform: translateX(100%);
+  transition: 0.5s;
+  .header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 72px;
+    display: flex;
+    padding: 20px 40px;
+    gap: 40px;
+    align-items: center;
+    justify-content: end;
+    color: #fff;
+    @media screen and (max-width: $tablet) {
+      padding: 20px 40px;
+    }
+    .closeBtn {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      &:hover {
+        color: $primary;
+        svg {
+          fill: $primary;
+        }
+      }
+      .closeBtnTitle {
+        font-style: normal;
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 32px;
+      }
+    }
+  }
+  .menuContent {
+    width: 384px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    @media screen and (max-width: $laptop), screen and (max-height: $height) {
+      gap: 24px;
+    }
+
+    @media screen and (max-width: $tablet) {
+      gap: 20px;
+    }
+
+    @media screen and (max-width: $mobile) {
+      width: 220px;
+    }
+
+    ul {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      position: relative;
+      li {
+        display: block;
+        padding: 20px;
+        width: 100%;
+        height: 80px;
+        text-decoration: none;
+        overflow: hidden;
+        font-weight: 500;
+        font-size: 32px;
+        line-height: 40px;
+        text-align: center;
+        color: #fff;
+        cursor: pointer;
+
+        &:hover {
+          color: $primary;
+        }
+
+        @media screen and (max-width: $laptop), screen and (max-height: $height) {
+          height: 64px;
+          padding: 16px 20px;
+          font-size: 32px;
+          line-height: 32px;
+        }
+
+        @media screen and (max-width: $tablet) {
+          height: 56px;
+          font-size: 24px;
+          line-height: 24px;
+        }
+
+        @media screen and (max-width: $mobile) {
+          padding: 12px 20px;
+          height: 48px;
+          font-size: 20px;
+          line-height: 24px;
+        }
+      }
+    }
+    .contacts {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+      padding: 40px 0;
+      border-width: 1px 0px;
+      border-style: solid;
+      border-color: rgba(255, 255, 255, 0.1);
+      @media screen and (max-width: $laptop), screen and (max-height: $height) {
+        padding: 24px 0;
+      }
+      @media screen and (max-width: $mobile) {
+        flex-direction: column;
+        gap: 10px;
+        padding: 20px 0;
+      }
+      .contactWrapper {
+        display: flex;
+        align-items: flex-start;
+        gap: 8px;
+        &:hover {
+          .contactLogo {
+            path {
+              stroke: #fff;
+            }
+          }
+          .contactInfo {
+            color: #fff;
+          }
+        }
+        .contactLogo {
+          cursor: pointer;
+        }
+        .contactInfo {
+          text-decoration: none;
+          font-style: normal;
+          font-weight: 400;
+          font-size: 16px;
+          line-height: 24px;
+          text-align: center;
+          color: #a2a5be;
+        }
+      }
+    }
+    .socialNetworkWrapper {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      .socialNetworkItem {
+        width: 40px;
+        height: 40px;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        &:hover {
+          svg {
+            path {
+              fill: #fff;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.active {
+  transform: translateX(0);
+}
+
+ul li:before {
+  content: attr(data-text);
+  font-weight: 600;
+  font-size: 100px;
+  line-height: 100px;
+  text-align: center;
+  text-transform: uppercase;
+  position: absolute;
+  mix-blend-mode: overlay;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  pointer-events: none;
+  opacity: 0;
+  white-space: nowrap;
+  @media screen and (max-width: $laptop), screen and (max-height: $height) {
+    font-size: 80px;
+    line-height: 80px;
+  }
+  @media screen and (max-width: $tablet) {
+    display: none;
+  }
+}
+
+ul li:hover::before {
+  opacity: 0.5;
+}

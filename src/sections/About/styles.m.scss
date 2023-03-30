@@ -1,0 +1,100 @@
+@import "../../styles/vars.scss";
+
+.about {
+  background: #0a0a0c;
+  .content {
+    display: flex;
+    flex-direction: column;
+    gap: 120px;
+    @media screen and (max-width: $laptop), screen and (max-height: $height) {
+      gap: 80px;
+    }
+    @media screen and (max-width: $tablet) {
+      gap: 60px;
+    }
+    @media screen and (max-width: $mobile) {
+      gap: 60px;
+    }
+    .top {
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 40px;
+
+      .textContent {
+        max-width: 100%;
+        width: 100%;
+        font-weight: 600;
+        font-size: 60px;
+        line-height: 64px;
+        overflow: hidden;
+        z-index: 5;
+        @media screen and (max-width: $laptop), screen and (max-height: $height) {
+          font-size: 40px;
+          line-height: 48px;
+        }
+        @media screen and (max-width: $tablet) {
+          font-size: 40px;
+          line-height: 48px;
+        }
+        @media screen and (max-width: $mobile) {
+          font-size: 32px;
+          line-height: 40px;
+        }
+        .title {
+          color: #0071ff;
+          position: relative;
+          width: max-content;
+          &::after {
+            color: #323235;
+          }
+        }
+        .subtitle {
+          color: #fff;
+          margin-top: 20px;
+        }
+      }
+      .gif {
+        display: flex;
+        margin-right: 10%;
+        transition: margin 0.4s ease-in-out;
+
+        @media screen and (max-width: $desktop) {
+          margin-right: 0%;
+        }
+        @media screen and (max-width: $laptop), screen and (max-height: $height) {
+          video {
+            height: 120px;
+          }
+        }
+        @media screen and (max-width: $tablet) {
+          position: absolute;
+          right: 0px;
+          z-index: 4;
+          opacity: 0.15;
+        }
+        @media screen and (max-width: $mobile) {
+          position: absolute;
+          right: 0px;
+          z-index: 4;
+          opacity: 0.15;
+          video {
+            height: 98px;
+          }
+        }
+      }
+    }
+  }
+  .bot {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    @media screen and (max-width: $tablet) {
+      flex-wrap: wrap;
+      row-gap: 40px;
+    }
+    @media screen and (max-width: $mobile) {
+      gap: 40px;
+    }
+  }
+}

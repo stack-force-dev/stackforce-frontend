@@ -1,0 +1,42 @@
+@import "./fonts.scss";
+@import "./main.scss";
+@import "./vars.scss";
+@import "./slicks.scss";
+
+.main-container {
+  min-height: 100vh;
+}
+
+section {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  overflow: hidden;
+
+  @media screen and (max-width: $tablet) {
+    align-items: flex-start;
+    min-height: auto;
+  }
+}
+
+.container {
+  width: 80%;
+  min-width: 1280px;
+  margin: 0 auto;
+
+  @media screen and (max-width: $laptop), screen and (max-height: $height) {
+    min-width: auto;
+    width: 100%;
+    margin: 0 40px;
+  }
+
+  @media screen and (max-width: $tablet) {
+    margin: 112px 40px;
+  }
+
+  @media screen and (max-width: $mobile) {
+    margin: 112px 20px;
+  }
+}

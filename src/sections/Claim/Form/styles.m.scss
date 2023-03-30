@@ -1,0 +1,368 @@
+@import "../../../styles/vars.scss";
+
+.formContainer {
+  .formTitle {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 40px;
+    line-height: 48px;
+    color: #fff;
+    margin-bottom: 60px;
+    @media screen and (max-width: $laptop), screen and (max-height: $height) {
+      font-size: 32px;
+      line-height: 40px;
+      margin-bottom: 40px;
+    }
+    @media screen and (max-width: $tablet) {
+      font-size: 24px;
+      line-height: 32px;
+    }
+    @media screen and (max-width: $mobile) {
+      font-size: 20px;
+      line-height: 24px;
+      margin-bottom: 32px;
+    }
+  }
+  .formWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 32px;
+    width: 100%;
+    height: 398px;
+    background: #141418;
+    border: 1px solid #323235;
+    border-radius: 4px;
+    @media screen and (max-width: $tablet) {
+      height: auto;
+    }
+    @media screen and (max-width: $mobile) {
+      padding: 20px;
+    }
+    .label {
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 20px;
+      display: flex;
+      align-items: center;
+      color: #66aaff;
+      @media screen and (max-width: $mobile) {
+        display: none;
+      }
+    }
+    .inputsContainer {
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+      margin-bottom: 20px;
+      @media screen and (max-width: $laptop), screen and (max-height: $height) {
+        width: 100%;
+      }
+      @media screen and (max-width: $tablet) {
+        margin-bottom: 24px;
+      }
+      @media screen and (max-width: $mobile) {
+        flex-direction: column;
+        gap: 12px;
+        margin-bottom: 12px;
+      }
+    }
+    .message {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      width: 1220px;
+      height: 92px;
+      margin-bottom: 20px;
+      @media screen and (max-width: $laptop), screen and (max-height: $height) {
+        width: 100%;
+      }
+      @media screen and (max-width: $tablet) {
+        height: 84px;
+        margin-bottom: 24px;
+      }
+      @media screen and (max-width: $mobile) {
+        margin-bottom: 20px;
+      }
+      textarea {
+        font-family: "Graphik LCG";
+        font-style: normal;
+        font-weight: 400;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 12px 0px;
+        width: 1220px;
+        height: 72px;
+        border: 0;
+        border-bottom: 1px solid #323235;
+        resize: none;
+        overflow: auto !important;
+        background: #141418;
+        color: #fff;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 24px;
+        &:hover {
+          border-bottom: 1px solid #7c7c83;
+        }
+        &:focus {
+          outline: none;
+          border-bottom: 1px solid #0071ff;
+        }
+        @media screen and (max-width: $laptop), screen and (max-height: $height) {
+          width: 100%;
+        }
+      }
+    }
+    textarea::placeholder {
+      font-family: "Graphik LCG";
+      font-style: normal;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 24px;
+      display: flex;
+      align-items: center;
+      color: rgba(255, 255, 255, 0.5);
+      @media screen and (max-width: $tablet) {
+        font-size: 14px;
+        line-height: 20px;
+      }
+    }
+    .file {
+      display: flex;
+      justify-content: flex-start;
+      gap: 20px;
+      align-items: center;
+      margin-bottom: 30px;
+      @media screen and (max-width: $tablet) {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .uploadFileBtn {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        width: 144px;
+        height: 38px;
+        cursor: pointer;
+        .btnTitleContainer {
+          .btnTitle {
+            font-weight: 500;
+            font-size: 14px;
+            line-height: 20px;
+            display: flex;
+            align-items: center;
+            color: #fff;
+          }
+          .btnSubtitle {
+            font-weight: 400;
+            font-size: 12px;
+            line-height: 16px;
+            display: flex;
+            align-items: center;
+            color: rgba(255, 255, 255, 0.5);
+          }
+        }
+      }
+    }
+    .wrapperBtnCheck {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+      @media screen and (max-width: $mobile) {
+        flex-direction: column-reverse;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 20px;
+      }
+      .button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 12px 24px;
+        width: 184px;
+        height: 48px;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 24px;
+        text-align: center;
+        border-radius: 100px;
+        font-style: normal;
+        white-space: nowrap;
+        text-decoration: none;
+        border: 0;
+        background: #202023;
+        color: rgba(255, 255, 255, 0.3);
+        pointer-events: none;
+
+        transition: all 0.3s ease;
+
+        &:focus {
+          outline: none;
+        }
+
+        @media screen and (max-width: $mobile) {
+          width: 100%;
+        }
+
+        &.active {
+          background: $primary;
+          color: #fff;
+          cursor: pointer;
+          pointer-events: all;
+
+          &:hover {
+            background: #66aaff;
+          }
+        }
+      }
+      .agreements {
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        gap: 8px;
+        .customCheckbox {
+          position: absolute;
+          z-index: -1;
+          opacity: 0;
+        }
+        .customCheckbox + label {
+          display: inline-flex;
+          align-items: center;
+          user-select: none;
+        }
+        .customCheckbox + label::before {
+          content: "";
+          display: block;
+          width: 20px;
+          height: 20px;
+          flex-shrink: 0;
+          flex-grow: 0;
+          border: 2px solid #a4abb8;
+          border-radius: 4px;
+          background-repeat: no-repeat;
+          background-position: center center;
+          background-size: 50% 50%;
+          cursor: pointer;
+        }
+        .customCheckbox:checked + label::before {
+          border-color: #0071ff;
+          background-color: #0071ff;
+          background-image: url("data:image/svg+xml,%3Csvg width='14' height='9' viewBox='0 0 14 9' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M13 1L4.75 8L1 4.81818' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+        }
+        .agreementsText {
+          font-weight: 400;
+          font-size: 14px;
+          line-height: 24px;
+          color: #fff;
+          @media screen and (max-width: $tablet) {
+            font-size: 12px;
+            line-height: 16px;
+          }
+          a {
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 24px;
+            text-decoration-line: underline;
+            color: #66aaff;
+            &:hover {
+              color: #0071ff;
+            }
+            @media screen and (max-width: $tablet) {
+              font-size: 12px;
+              line-height: 16px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.inputWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 393px;
+  height: 84px;
+
+  @media screen and (max-width: $laptop), screen and (max-height: $height) {
+    width: 100%;
+  }
+  @media screen and (max-width: $tablet) {
+    height: 80px;
+  }
+  @media screen and (max-width: $mobile) {
+    height: 60px;
+  }
+
+  &.errorUnderline {
+    input {
+      border-bottom: 1px solid #dd473b;
+      &:hover {
+        border-bottom: 1px solid #dd473b;
+      }
+      &:focus {
+        outline: none;
+        border-bottom: 1px solid #dd473b;
+      }
+    }
+  }
+
+  .errorMessage {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+    color: #dd473b;
+  }
+
+  input {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 12px 0px;
+    width: 100%;
+    height: 48px;
+    border: 0;
+    border-bottom: 1px solid #323235;
+    background: #141418;
+    color: #fff;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    &:hover {
+      border-bottom: 1px solid #7c7c83;
+    }
+    &:focus {
+      outline: none;
+      border-bottom: 1px solid #0071ff;
+    }
+    @media screen and (max-width: $laptop), screen and (max-height: $height) {
+      width: 100%;
+    }
+    @media screen and (max-width: $tablet) {
+      height: 44px;
+    }
+    @media screen and (max-width: $mobile) {
+      height: 44px;
+    }
+  }
+
+  input::placeholder {
+    font-family: "Graphik LCG";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    display: flex;
+    align-items: center;
+    color: rgba(255, 255, 255, 0.5);
+    @media screen and (max-width: $tablet) {
+      font-size: 14px;
+      line-height: 20px;
+    }
+  }
+}

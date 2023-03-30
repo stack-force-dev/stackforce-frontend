@@ -1,0 +1,119 @@
+@import "../../../styles/vars.scss";
+.card {
+  flex: 1 1 33%;
+  display: flex;
+  justify-content: center;
+
+  @media screen and (max-width: $tablet) {
+    flex: 1 1 50%;
+  }
+  .container {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    color: #ffffff;
+
+    @media screen and (max-width: $mobile) {
+      max-width: 100vw;
+    }
+  }
+
+  .avatarContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 120px;
+    height: 120px;
+    margin-bottom: 4px;
+    @media screen and (max-width: $laptop), screen and (max-height: $height) {
+      margin-bottom: 0;
+    }
+    @media screen and (max-width: $mobile) {
+      width: 200px;
+      height: 200px;
+    }
+
+    .avatar {
+      width: 80%;
+      height: 80%;
+
+      @media screen and (max-width: $mobile) {
+        width: 100%;
+        height: 100%;
+      }
+      transition: all 0.2s ease-in-out;
+    }
+    :hover {
+      width: 100%;
+      height: 100%;
+    }
+  }
+  .title {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 8px;
+    margin-bottom: 20px;
+    @media screen and (max-width: $laptop), screen and (max-height: $height) {
+      margin-bottom: 12px;
+      gap: 4px;
+    }
+  }
+  .name {
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 30px;
+    text-align: center;
+    color: #ffffff;
+    @media screen and (max-width: $laptop), screen and (max-height: $height) {
+      font-size: 20px;
+      line-height: 24px;
+    }
+  }
+  .post {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    text-align: center;
+    color: $primary;
+    @media screen and (max-width: $laptop), screen and (max-height: $height) {
+      font-size: 14px;
+      line-height: 14px;
+    }
+  }
+  .skills {
+    display: flex;
+    gap: 4px;
+    flex-flow: row wrap;
+    justify-content: center;
+    width: 350px;
+    @media screen and (max-width: $laptop), screen and (max-height: $height) {
+      width: 290px;
+    }
+  }
+  .skill {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 6px 12px;
+    gap: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    text-align: center;
+
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16px;
+    color: rgba(255, 255, 255, 0.6);
+    transition: all 0.15s ease-out;
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+    @media screen and (max-width: $laptop), screen and (max-height: $height) {
+      padding: 6px 8px;
+      gap: 4px;
+      font-size: 12px;
+      line-height: 12px;
+    }
+  }
+}

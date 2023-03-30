@@ -1,0 +1,30 @@
+name: Deploy-dev
+"on":
+    workflow_run:
+        workflows: [CI]
+        branches: [develop]
+        types:
+        - completed
+    push:
+        branches:
+            - develop
+jobs:
+    deployment:
+        runs-on: ubuntu-latest
+        steps:
+          - uses: actions/checkout@v2
+          - name: Deploy using ssh
+            uses: appleboy/ssh-action@master
+            with:
+                host: ${{ secrets.HOST }}
+                USERNAME: ${{ secrets.USERNAME }}
+                KEY: ${{ secrets.PRIVATE_KEY }}
+                PORT: 22
+                script: |
+                    cd /home/sf/stackforce-frontend-dev
+                    git checkout develop
+                    git pull
+                    git status
+                    yarn install
+                    yarn build
+                    pm2 restart sf-front-dev

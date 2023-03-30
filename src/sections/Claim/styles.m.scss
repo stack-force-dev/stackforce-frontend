@@ -1,0 +1,70 @@
+@import "../../styles/vars.scss";
+
+.claim {
+  background-color: #101014;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .container {
+    width: 1280px;
+    @media screen and (max-width: $laptop), screen and (max-height: $height) {
+      width: 100%;
+    }
+  }
+
+  .header {
+    display: flex;
+    align-items: center;
+    padding: 0px;
+    gap: 16px;
+    margin-top: -12px;
+
+    .backBtn {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      padding: 12px 0;
+      cursor: pointer;
+    }
+
+    .claimBackContainer {
+      width: 16px;
+      display: flex;
+      align-items: center;
+    }
+
+    .stepsTitle {
+      user-select: none;
+      font-style: normal;
+      font-weight: 600;
+      font-size: 12px;
+      line-height: 167%;
+      color: #0071ff;
+      width: 72px;
+    }
+
+    .progressBar {
+      width: 150px;
+      height: 8px;
+      background: #323235;
+      border-radius: 10px;
+
+      div {
+        height: 8px;
+        width: 25%;
+        background-color: #0071ff;
+        border-radius: 10px;
+        transition: all 0.3s;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: $mobile) {
+  .container {
+    height: max-content;
+    justify-content: center;
+    width: 100%;
+  }
+}
