@@ -6,7 +6,7 @@ import Item from "./Item/Item";
 import { aboutData } from "./config";
 import styles from "./styles.m.scss";
 
-const phrases = ["поддержка проектов", 1500, "разработка с нуля", 1500, "консультация", 1500];
+const phrases = ["сопровождение", 1500, "разработка", 1500, "консультация", 1500];
 
 const About = () => {
   return (
