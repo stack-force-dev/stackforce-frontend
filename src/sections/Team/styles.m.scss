@@ -1,6 +1,6 @@
-@import '../../styles/vars.scss';
+@import "../../styles/vars.scss";
 .team {
-  background-color: #0A0A0C;
+  background-color: #0a0a0c;
   cursor: none;
 
   :global(.carousel.carousel-slider) {
@@ -28,7 +28,7 @@
       align-items: center;
       justify-content: center;
     }
-    @media screen and (max-width: $laptop) {
+    @media screen and (max-width: $laptop), screen and (max-height: $height) {
       margin-top: 50px;
       font-size: 20px;
       line-height: 28px;
@@ -49,9 +49,9 @@
     font-weight: 400;
     font-size: 14px;
     line-height: 20px;
-    color: #FFFFFF;
+    color: #ffffff;
 
-    @media screen and (max-width: $laptop) {
+    @media screen and (max-width: $laptop), screen and (max-height: $height) {
       font-size: 12px;
       line-height: 20px;
     }
@@ -68,7 +68,7 @@
       display: flex;
       flex-wrap: wrap;
       gap: 100px 0;
-      @media screen and (max-width: $laptop) {
+      @media screen and (max-width: $laptop), screen and (max-height: $height) {
         gap: 30px 0;
       }
       @media screen and (max-width: $tablet) {
@@ -104,7 +104,7 @@
       z-index: 900;
 
       circle {
-        fill:white;
+        fill: white;
       }
     }
     @media screen and (max-width: $tablet) {
@@ -113,5 +113,4 @@
       }
     }
   }
-
 }

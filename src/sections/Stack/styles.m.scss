@@ -1,7 +1,7 @@
 @import "../../styles/vars.scss";
 
 .stack {
-  background-color: #0C101D;
+  background-color: #0c101d;
 
   h3 {
     font-size: 16px;
@@ -16,7 +16,7 @@
 
   .technologies {
     height: 424px;
-    @media screen and (max-width: $laptop) {
+    @media screen and (max-width: $laptop), screen and (max-height: $height) {
       height: 312px;
     }
 
@@ -29,7 +29,7 @@
     }
 
     h3 {
-      @media screen and (max-width: $laptop) {
+      @media screen and (max-width: $laptop), screen and (max-height: $height) {
         display: none;
       }
 
@@ -40,7 +40,7 @@
 
     .technologiesContent {
       padding-top: 20px;
-      @media screen and (max-width: $laptop) {
+      @media screen and (max-width: $laptop), screen and (max-height: $height) {
         padding: 0;
       }
       @media screen and (max-width: $tablet) {
@@ -60,7 +60,7 @@
             font-weight: 500;
             font-size: 24px;
             line-height: 32px;
-            @media screen and (max-width: $laptop) {
+            @media screen and (max-width: $laptop), screen and (max-height: $height) {
               font-size: 20px;
               line-height: 24px;
             }
@@ -78,25 +78,26 @@
             top: 0;
             left: 0;
             overflow: hidden;
-            color: #86888E;
-            transition: all .3s ease-in-out;
+            color: #86888e;
+            transition: all 0.3s ease-in-out;
 
-            &::before, &::after {
-              content: '';
+            &::before,
+            &::after {
+              content: "";
               position: absolute;
               height: 2px;
               width: 100%;
               top: 50%;
               left: 0;
               margin-top: -1px;
-              background: #86888E;
+              background: #86888e;
               border-radius: 4px;
             }
             &::before {
-              transform:rotate(0deg);
+              transform: rotate(0deg);
             }
             &::after {
-              transform:rotate(90deg);
+              transform: rotate(90deg);
             }
           }
         }
@@ -106,7 +107,7 @@
           visibility: hidden;
           opacity: 0;
           height: 0;
-          transition: opacity .7s ease-in-out;
+          transition: opacity 0.7s ease-in-out;
 
           @media screen and (max-width: $mobile) {
             flex-wrap: wrap;
@@ -115,7 +116,7 @@
 
           .stackItem {
             padding: 6px 8px;
-            color: #A2A5BE;
+            color: #a2a5be;
             background: rgba(255, 255, 255, 0.1);
             border-radius: 4px;
             margin-right: 4px;
@@ -157,7 +158,7 @@
 
   .projects {
     margin-top: 100px;
-    @media screen and (max-width: $laptop) {
+    @media screen and (max-width: $laptop), screen and (max-height: $height) {
       margin-top: 60px;
     }
 
@@ -181,11 +182,17 @@
   }
 
   &:before {
-    content: '';
+    content: "";
     position: absolute;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, #0C101D 0%, rgba(12, 16, 29, 0) 6.24%, rgba(12, 16, 29, 0.0336416) 93.74%, #0C101D 100%);
+    background: linear-gradient(
+      90deg,
+      #0c101d 0%,
+      rgba(12, 16, 29, 0) 6.24%,
+      rgba(12, 16, 29, 0.0336416) 93.74%,
+      #0c101d 100%
+    );
     z-index: 2;
   }
 
@@ -212,7 +219,7 @@
     .company {
       height: 100%;
       margin: 0 40px;
-      @media screen and (max-width: $laptop) {
+      @media screen and (max-width: $laptop), screen and (max-height: $height) {
         margin: 0 20px;
       }
       @media screen and (max-width: $mobile) {

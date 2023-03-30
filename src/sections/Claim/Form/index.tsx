@@ -15,7 +15,7 @@ import styles from "./styles.m.scss";
 const initState: FormData = {
   name: "",
   email: "",
-  phone: "+7",
+  phone: "+7 ",
   message: "",
   files: [],
 };

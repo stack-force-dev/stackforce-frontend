@@ -33,7 +33,7 @@
       font-size: 18px;
       line-height: 24px;
       color: #fff;
-      @media screen and (max-width: $laptop) {
+      @media screen and (max-width: $laptop), screen and (max-height: $height) {
         font-size: 15px;
         line-height: 22px;
       }
