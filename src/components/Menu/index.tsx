@@ -5,8 +5,8 @@ import Icon from "@components/Icon";
 import { routes } from "@root/config";
 import d, { useDictionary } from "@utils/dictionary";
 
-import styles from "./styles.m.scss";
 import { menuData } from "./config";
+import styles from "./styles.m.scss";
 
 interface MenuPropsType {
   active: boolean;
@@ -50,7 +50,7 @@ const Menu = ({ setActive, active }: MenuPropsType) => {
         </ul>
         <div className={styles.contacts}>
           {menuData.contacts.map((contact) => (
-            <div className={styles.contactWrapper}>
+            <div key={contact.iconName} className={styles.contactWrapper}>
               <div className={styles.contactLogo}>
                 <Icon name={contact.iconName} />
               </div>
@@ -62,7 +62,7 @@ const Menu = ({ setActive, active }: MenuPropsType) => {
         </div>
         <div className={styles.socialNetworkWrapper}>
           {menuData.socialNetwork.map((item) => (
-            <a className={styles.socialNetworkItem} href={item.href}>
+            <a key={item.iconName} className={styles.socialNetworkItem} href={item.href}>
               <Icon name={item.iconName} />
             </a>
           ))}
