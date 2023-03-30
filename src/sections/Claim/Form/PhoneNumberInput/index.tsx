@@ -5,24 +5,23 @@ import type { FormData } from "@interfaces/claim";
 const formattedPhoneNumber = (input: EventTarget & HTMLInputElement) => {
   const phoneNumber = input.value.replace(/\D/g, "");
   let formattedValue = "";
-  if (!phoneNumber) return "";
+  if (!phoneNumber) return "+7";
 
-  if (["7"].includes(phoneNumber[0])) {
-    const firstSymbols = "+7";
-    formattedValue = input.value = firstSymbols + " ";
-    if (phoneNumber.length > 1) {
-      formattedValue += "(" + phoneNumber.substring(1, 4);
-    }
-    if (phoneNumber.length >= 5) {
-      formattedValue += ") " + phoneNumber.substring(4, 7);
-    }
-    if (phoneNumber.length >= 8) {
-      formattedValue += "-" + phoneNumber.substring(7, 9);
-    }
-    if (phoneNumber.length >= 10) {
-      formattedValue += "-" + phoneNumber.substring(9, 11);
-    }
+  const firstSymbols = "+7";
+  formattedValue = input.value = firstSymbols + " ";
+  if (phoneNumber.length > 1) {
+    formattedValue += "(" + phoneNumber.substring(1, 4);
   }
+  if (phoneNumber.length >= 5) {
+    formattedValue += ") " + phoneNumber.substring(4, 7);
+  }
+  if (phoneNumber.length >= 8) {
+    formattedValue += "-" + phoneNumber.substring(7, 9);
+  }
+  if (phoneNumber.length >= 10) {
+    formattedValue += "-" + phoneNumber.substring(9, 11);
+  }
+
   return formattedValue;
 };
 
