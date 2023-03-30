@@ -16,15 +16,15 @@ export const menuData: MenuData = {
   socialNetwork: [
     {
       iconName: "instagram",
-      href: "#",
+      href: "https://instagram.com/stack_force",
     },
     {
       iconName: "telegram",
-      href: "#",
+      href: "https://t.me/stackforce",
     },
     {
       iconName: "whatsapp",
-      href: "#",
+      href: "https://wa.me/79152321217",
     },
   ],
 };
