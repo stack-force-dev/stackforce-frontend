@@ -147,7 +147,7 @@ const Form = ({ handleSendData }: FormProps) => {
                 пользовательского соглашения
               </a>{" "}
               и{" "}
-              <a href="#b" target="_blank">
+              <a href="/docs/privacy-policy.pdf" target="_blank">
                 политики конфиденциальности
               </a>
             </div>
