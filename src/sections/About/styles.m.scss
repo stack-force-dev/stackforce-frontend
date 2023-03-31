@@ -59,7 +59,7 @@
         display: flex;
         margin-right: 10%;
         transition: margin 0.4s ease-in-out;
-
+        mix-blend-mode: lighten;
         @media screen and (max-width: $desktop) {
           margin-right: 0%;
         }

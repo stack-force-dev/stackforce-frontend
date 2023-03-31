@@ -7,6 +7,7 @@ import d, { useDictionary } from "@utils/dictionary";
 
 import { menuData } from "./config";
 import styles from "./styles.m.scss";
+import Logo from "../Logo";
 
 interface MenuPropsType {
   active: boolean;
@@ -35,6 +36,7 @@ const Menu = ({ setActive, active }: MenuPropsType) => {
         {/* <div onClick={setNextLocale} style={{ color: "#fff" }}>
           En
         </div> */}
+        <Logo />
         <div onClick={() => setActive(false)} className={styles.closeBtn}>
           <div className={styles.closeBtnTitle}>{d.menu.close[locale]}</div>
           <Icon name="close" width="32px" height="32px" />

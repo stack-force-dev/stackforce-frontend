@@ -24,10 +24,10 @@
     padding: 20px 40px;
     gap: 40px;
     align-items: center;
-    justify-content: end;
+    justify-content: space-between;
     color: #fff;
     @media screen and (max-width: $tablet) {
-      padding: 20px 40px;
+      padding: 20px;
     }
     .closeBtn {
       display: flex;
