@@ -1,13 +1,13 @@
 import classNames from "classnames";
 import React, { Dispatch, SetStateAction, useEffect } from "react";
 
+import Logo from "../Logo";
 import Icon from "@components/Icon";
 import { routes } from "@root/config";
 import d, { useDictionary } from "@utils/dictionary";
 
 import { menuData } from "./config";
 import styles from "./styles.m.scss";
-import Logo from "../Logo";
 
 interface MenuPropsType {
   active: boolean;

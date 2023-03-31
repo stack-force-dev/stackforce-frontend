@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 
+import Logo from "../Logo";
 import Icon from "@components/Icon";
 import Menu from "@components/Menu";
 import SendFormButton from "@components/SendFormButton";
@@ -7,7 +8,6 @@ import d, { useDictionary } from "@utils/dictionary";
 import Scroll from "@utils/scroll";
 
 import styles from "./styles.m.scss";
-import Logo from "../Logo";
 
 const Header = () => {
   const [locale] = useDictionary();
