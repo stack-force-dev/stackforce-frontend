@@ -46,10 +46,6 @@ export default {
       [Locale.En]: "Close",
       [Locale.Ru]: "Закрыть",
     },
-    intro: {
-      [Locale.En]: "Intro",
-      [Locale.Ru]: "Начало",
-    },
     about: {
       [Locale.En]: "About",
       [Locale.Ru]: "О Нас",

@@ -6,6 +6,8 @@ import Item from "./Item/Item";
 import { aboutData } from "./config";
 import styles from "./styles.m.scss";
 
+// import aboutVideo from '../../assets/new.mp4'
+
 const phrases = ["сопровождение", 1500, "разработка", 1500, "консультация", 1500];
 
 const About = () => {

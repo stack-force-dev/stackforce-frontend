@@ -1,6 +1,7 @@
 import classNames from "classnames";
 import React, { Dispatch, SetStateAction, useEffect } from "react";
 
+import Logo from "../Logo";
 import Icon from "@components/Icon";
 import { routes } from "@root/config";
 import d, { useDictionary } from "@utils/dictionary";
@@ -35,6 +36,7 @@ const Menu = ({ setActive, active }: MenuPropsType) => {
         {/* <div onClick={setNextLocale} style={{ color: "#fff" }}>
           En
         </div> */}
+        <Logo />
         <div onClick={() => setActive(false)} className={styles.closeBtn}>
           <div className={styles.closeBtnTitle}>{d.menu.close[locale]}</div>
           <Icon name="close" width="32px" height="32px" />
