@@ -12,6 +12,7 @@ import Form from "./Form";
 import Step from "./Step";
 import { stepsCards } from "./config";
 import styles from "./styles.m.scss";
+import Footer from "./Footer";
 
 const Claim = () => {
   const [currentStep, setCurrentStep] = useState(0);
@@ -135,6 +136,7 @@ const Claim = () => {
           />
         )}
       </div>
+      <Footer />
       <Notification
         title={notySettings.title}
         description={notySettings.description}

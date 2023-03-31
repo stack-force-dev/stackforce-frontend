@@ -6,10 +6,19 @@
   justify-content: center;
   align-items: center;
 
+  @media screen and (max-width: $tablet) {
+    display: block;
+  }
+
   .container {
     width: 1280px;
+
     @media screen and (max-width: $laptop), screen and (max-height: $height) {
       width: 100%;
+    }
+
+    @media screen and (max-width: $tablet) {
+      margin-bottom: 0;
     }
   }
 
