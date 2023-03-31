@@ -1,8 +1,9 @@
 import React from "react";
 
-import styles from "./styles.m.scss";
-import { menuData } from "@root/components/Menu/config";
 import Icon from "@root/components/Icon";
+import { menuData } from "@root/components/Menu/config";
+
+import styles from "./styles.m.scss";
 
 const Footer = () => {
   return (
