@@ -8,11 +8,11 @@ import Notification from "@components/Notification";
 import type { StepsData, FormData } from "@interfaces/claim";
 import type { ChangeNotificationSettings, NotificationSettings } from "@interfaces/notification";
 
+import Footer from "./Footer";
 import Form from "./Form";
 import Step from "./Step";
 import { stepsCards } from "./config";
 import styles from "./styles.m.scss";
-import Footer from "./Footer";
 
 const Claim = () => {
   const [currentStep, setCurrentStep] = useState(0);
@@ -135,8 +135,8 @@ const Claim = () => {
             disableTimeout={disableTimeout}
           />
         )}
+        <Footer />
       </div>
-      <Footer />
       <Notification
         title={notySettings.title}
         description={notySettings.description}
