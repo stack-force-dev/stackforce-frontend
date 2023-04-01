@@ -95,7 +95,9 @@
         }
         &:hover {
           svg {
-            fill: #fff;
+            path {
+              fill: #fff;
+            }
           }
         }
       }
