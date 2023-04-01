@@ -167,7 +167,9 @@
         justify-content: center;
         &:hover {
           svg {
-            fill: #fff;
+            path {
+              fill: #fff;
+            }
           }
         }
       }
@@ -195,6 +197,7 @@ ul li:before {
   pointer-events: none;
   opacity: 0;
   white-space: nowrap;
+  z-index: -1;
   @media screen and (max-width: $laptop), screen and (max-height: $height) {
     font-size: 80px;
     line-height: 80px;
