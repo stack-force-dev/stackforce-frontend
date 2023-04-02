@@ -1,3 +1,5 @@
+import { sendScreen } from "@utils/ga";
+
 class Scroll {
   private SCROLL_LIMIT = 100;
   private lastSection = 0;
@@ -28,6 +30,8 @@ class Scroll {
       }
 
       this.scrollToTarget(newSection);
+
+      sendScreen(newScreen);
 
       setTimeout(
         () => {
@@ -81,9 +85,16 @@ class Scroll {
     const scrollUp = "scroll-up";
     const scrollDown = "scroll-down";
     let lastScroll = 0;
+    let lastScreen = 0;
 
     const scroll = () => {
       const currentScroll = window.pageYOffset;
+      const screen = Math.ceil(currentScroll / window.innerHeight) || 1;
+
+      if (lastScreen !== screen) sendScreen(screen);
+
+      lastScreen = screen;
+
       if (Math.abs(currentScroll - lastScroll) < this.SCROLL_LIMIT / 2) return;
       if (currentScroll > this.SCROLL_LIMIT && currentScroll > lastScroll && !body.classList.contains(scrollDown)) {
         document.body.classList.remove(scrollUp);
@@ -92,6 +103,7 @@ class Scroll {
         document.body.classList.remove(scrollDown);
         document.body.classList.add(scrollUp);
       }
+
       lastScroll = currentScroll;
     };
 
@@ -104,6 +116,8 @@ class Scroll {
     links.forEach((link) => {
       link?.addEventListener("click", () => {
         const newScreen = Number(link.getAttribute("data-section-link"));
+
+        sendScreen(newScreen);
 
         const section = document.querySelector(`#section-${newScreen}`);
         if (!section) return;
