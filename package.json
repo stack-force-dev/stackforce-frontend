@@ -30,7 +30,8 @@
     "lint:fix": "yarn lint --fix",
     "format": "prettier --config .prettierrc.js --check src/**/*.{js,jsx,ts,tsx}",
     "type": "./node_modules/.bin/tsc --project tsconfig.json --noEmit",
-    "lint-staged": "lint-staged"
+    "lint-staged": "lint-staged",
+    "husky-install": "husky install"
   },
   "devDependencies": {
     "@babel/core": "^7.19.1",
@@ -62,7 +63,7 @@
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.5.0",
     "husky": "^8.0.3",
-    "lint-staged": "^13.0.3",
+    "lint-staged": "^13.2.0",
     "mini-css-extract-plugin": "^2.7.3",
     "prettier": "^2.3.0",
     "sass-loader": "^13.2.0",
@@ -81,6 +82,7 @@
     "gsap": "^3.11.5",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
+    "react-ga4": "^2.1.0",
     "react-hook-form": "^7.43.5",
     "react-parallax-tilt": "^1.7.115",
     "react-slick": "^0.29.0",
@@ -98,7 +100,7 @@
       "eslint --no-ignore --max-warnings=0 --fix",
       "git add"
     ],
-    "*.{graphql,json}": [
+    "*.{graphql,json,scss,css}": [
       "prettier --write",
       "git add"
     ]

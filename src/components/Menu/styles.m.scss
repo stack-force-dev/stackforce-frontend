@@ -24,10 +24,10 @@
     padding: 20px 40px;
     gap: 40px;
     align-items: center;
-    justify-content: end;
+    justify-content: space-between;
     color: #fff;
     @media screen and (max-width: $tablet) {
-      padding: 20px 40px;
+      padding: 20px;
     }
     .closeBtn {
       display: flex;
@@ -146,7 +146,6 @@
         }
         .contactInfo {
           text-decoration: none;
-          font-style: normal;
           font-weight: 400;
           font-size: 16px;
           line-height: 24px;
@@ -163,9 +162,6 @@
         width: 40px;
         height: 40px;
         border-radius: 8px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
         &:hover {
           svg {
             path {
@@ -198,6 +194,7 @@ ul li:before {
   pointer-events: none;
   opacity: 0;
   white-space: nowrap;
+  z-index: -1;
   @media screen and (max-width: $laptop), screen and (max-height: $height) {
     font-size: 80px;
     line-height: 80px;

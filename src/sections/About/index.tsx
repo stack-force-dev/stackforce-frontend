@@ -6,6 +6,8 @@ import Item from "./Item/Item";
 import { aboutData } from "./config";
 import styles from "./styles.m.scss";
 
+// import aboutVideo from '../../assets/new.mp4'
+
 const phrases = ["сопровождение", 1500, "разработка", 1500, "консультация", 1500];
 
 const About = () => {
@@ -29,7 +31,7 @@ const About = () => {
           </div>
           <div className={styles.gif}>
             <video className={styles.video} autoPlay muted playsInline loop>
-              <source src="https://api.stackforce.ru/static/about.mp4" type="video/mp4" />
+              <source src="https://api.stackforce.ru/static/about-new.mp4" type="video/mp4" />
             </video>
           </div>
         </div>

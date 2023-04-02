@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 
+import Logo from "../Logo";
 import Icon from "@components/Icon";
 import Menu from "@components/Menu";
 import SendFormButton from "@components/SendFormButton";
@@ -34,17 +35,7 @@ const Header = () => {
   return (
     <>
       <header className={styles.header}>
-        <div className={styles.logoContainer}>
-          <div className={styles.logoHref}>
-            <li data-section-link={1}>
-              <Icon name="logo" />
-            </li>
-            <div data-section-link={1} className={styles.logoTitle}>
-              {d.header.title[locale]}
-            </div>
-          </div>
-          <div className={styles.logoSubTitle}>{d.header.subTitle[locale]}</div>
-        </div>
+        <Logo />
         <div className={styles.navContainer}>
           <SendFormButton />
           <div onClick={() => handleMenuActive(true)} className={styles.burgerBtn}>

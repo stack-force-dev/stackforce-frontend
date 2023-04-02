@@ -8,6 +8,7 @@
   background: linear-gradient(96.26deg, rgba(37, 37, 40, 0.72) 0%, rgba(49, 49, 59, 0.48) 100%);
   border: 1px solid #323235;
   border-radius: 8px;
+  -webkit-backdrop-filter: blur(15px);
   backdrop-filter: blur(15px);
 
   display: flex;

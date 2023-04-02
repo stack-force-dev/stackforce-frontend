@@ -7,13 +7,26 @@
   padding: 32px;
   width: 314px;
   height: 260px;
-  background: #141418;
+  background: linear-gradient(95.04deg, #141418 0%, rgba(33, 33, 37, 0.6) 100%);
   border: 1px solid #323235;
   border-radius: 4px;
-  transition: all 0.3s;
+  position: relative;
   cursor: pointer;
+  ::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: $primary;
+    left: 0;
+    top: 0;
+    opacity: 0;
+    transition: all 0.2s;
+  }
   &:hover {
-    background: #202023;
+    ::after {
+      opacity: 0.01;
+    }
   }
   @media screen and (max-width: $laptop), screen and (max-height: $height) {
     padding: 24px;
@@ -24,10 +37,14 @@
     width: 100%;
     height: 88px;
     &:hover {
-      background: #141418;
+      ::after {
+        opacity: 0;
+      }
     }
     &:active {
-      background: #202023;
+      ::after {
+        opacity: 0.01;
+      }
     }
   }
   .container {
