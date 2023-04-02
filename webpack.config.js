@@ -3,6 +3,7 @@ const path = require("path");
 const CopyPlugin = require("copy-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const webpack = require("webpack");
 
 const Modes = {
   DEVELOPMENT: "development",
@@ -25,14 +26,22 @@ module.exports = (env, { mode }) => {
         template: path.join(__dirname, "src", "index.html"),
         favicon: path.join(__dirname, "src", "assets/images/favicon.ico"),
       }),
+
       new MiniCssExtractPlugin({
         filename: isProduction ? "[name]-[contenthash].css" : "[name].css",
       }),
+
       new CopyPlugin({
         patterns: [
           { from: "src/assets/images/og.jpg", to: "" },
           { from: "src/assets/docs", to: "docs" },
         ],
+      }),
+
+      new webpack.DefinePlugin({
+        "process.env": {
+          NODE_ENV: JSON.stringify(mode),
+        },
       }),
     ],
 
