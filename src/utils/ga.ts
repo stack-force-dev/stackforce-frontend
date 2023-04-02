@@ -7,7 +7,7 @@ const screens = ["Intro", "About", "Team", "Stack", "Lifetime", "Claim"];
 export const init = () => {
   if (process.env.NODE_ENV !== Env.Production) return;
 
-  ReactGA.initialize("G-YC0BLSSFHV");
+  ReactGA.initialize("G-KSPVFL9J2S");
 };
 
 export const sendScreen = (screenNumber: number) => {
