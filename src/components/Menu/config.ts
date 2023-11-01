@@ -4,8 +4,8 @@ export const menuData: MenuData = {
   contacts: [
     {
       iconName: "phone",
-      info: "+7 (915) 232-12-17",
-      href: "tel:+79152321217",
+      info: "+7 (936) 123-24-07",
+      href: "tel:+79361232407",
     },
     {
       iconName: "mail",
@@ -24,7 +24,7 @@ export const menuData: MenuData = {
     },
     {
       iconName: "whatsapp",
-      href: "https://wa.me/79152321217",
+      href: "https://wa.me/79361232407",
     },
   ],
 };
